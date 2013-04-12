@@ -1,5 +1,6 @@
 #! coding: utf-8
 
+from django.utils.translation import ugettext_lazy as _
 from django.contrib.auth.models import User
 from datetime import datetime
 from django.db import models
@@ -27,18 +28,29 @@ class Generic(models.Model):
         super(Generic, self).save()
 
 
+class Profile(models.Model):
 
-class CooperativeCenter(Generic):
+    USER_TYPE_CHOICES = (
+        ('basic', _('Basic')),
+        ('advanced', _('Advanced')),
+        ('superuser', _('Super User')),
+    )
 
-    code = models.CharField('code', max_length=55)
 
-    def __unicode__(self):
-        return unicode(self.code)
-
+    user = models.OneToOneField(User)
+    type = models.CharField(_("type"), max_length=30, choices=USER_TYPE_CHOICES)
+    
 
 class Country(Generic):
+    class Meta:
+        verbose_name = "Country"
+        verbose_name_plural = "Countries"
+
     code = models.CharField(_('code'), max_length=55)
     name = models.CharField(_('name'), max_length=255)
+
+    def __unicode__(self):
+        return unicode(self.name)
 
 
 class CountryLocal(models.Model):
@@ -48,9 +60,50 @@ class CountryLocal(models.Model):
         verbose_name_plural = "Country Translations"
 
     country = models.ForeignKey(Country, verbose_name=_("country"))
-    language = models.CharField(_("language"), max_length=10, choices=LANGUAGES_CHOICES)
+    language = models.CharField(_("language"), max_length=10, choices=LANGUAGES_CHOICES[:1])
     name = models.CharField(_("name"), max_length=255)
     
+
+class CooperativeCenter(Generic):
     class Meta:
-        verbose_name = "Country Translation"
-        verbose_name_plural = "Country Translations"
+        verbose_name = "Cooperative Center"
+        verbose_name_plural = "Cooperative Center's"
+
+    code = models.CharField('code', max_length=55)
+    country = models.ForeignKey(Country, verbose_name=_("country"))
+
+    def __unicode__(self):
+        return unicode(self.code)
+
+class Topic(Generic):
+
+    name = models.CharField('name', max_length=255)
+
+    def __unicode__(self):
+        return unicode(self.name)
+
+
+class TopicLocal(models.Model):
+
+    topic = models.ForeignKey(Topic, verbose_name=_("topic"))
+    language = models.CharField(_("language"), max_length=10, choices=LANGUAGES_CHOICES[:1])
+
+
+
+class Network(Generic):
+
+    NETWORK_TYPE_CHOICES = (
+        ('national', _('National')),
+        ('thematic', _('Thematic')),
+    )
+
+
+    acronym = models.CharField(_('acronym'), max_length=255)
+    country = models.ForeignKey(Country, verbose_name=_("country"), blank=True, null=True)
+    topic = models.ForeignKey(Topic, verbose_name=_("topic"), blank=True, null=True)
+    type = models.CharField(_("type"), max_length=30, choices=NETWORK_TYPE_CHOICES, blank=True)
+
+    def __unicode__(self):
+        return unicode(self.acronym)
+
+
