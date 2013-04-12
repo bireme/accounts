@@ -36,10 +36,39 @@ class Profile(models.Model):
         ('superuser', _('Super User')),
     )
 
-
-    user = models.OneToOneField(User)
+    user = models.OneToOneField(User)       # allow extension of default django User
     type = models.CharField(_("type"), max_length=30, choices=USER_TYPE_CHOICES)
     
+
+class Role(Generic):
+    acronym = models.CharField(_('acronym'), max_length=55)
+    description = models.TextField(_("description"), null=True, blank=True)
+
+    def __unicode__(self):
+        return unicode(self.name)
+
+
+class RoleLocal(models.Model):
+
+    role = models.ForeignKey(Role, verbose_name=_("role"))
+    language = models.CharField(_("language"), max_length=10, choices=LANGUAGES_CHOICES[1:])
+    description = models.TextField(_("description"), null=True, blank=True)
+
+
+class Service(Generic):
+    acronym = models.CharField(_('acronym'), max_length=55) 
+    name = models.CharField(_('name'), max_length=255)
+
+    def __unicode__(self):
+        return unicode(self.name)
+
+
+class ServiceLocal(models.Model):
+
+    service = models.ForeignKey(Service, verbose_name=_("service"))
+    language = models.CharField(_("language"), max_length=10, choices=LANGUAGES_CHOICES[1:])
+    name = models.CharField(_('name'), max_length=255)
+
 
 class Country(Generic):
     class Meta:
@@ -60,7 +89,7 @@ class CountryLocal(models.Model):
         verbose_name_plural = "Country Translations"
 
     country = models.ForeignKey(Country, verbose_name=_("country"))
-    language = models.CharField(_("language"), max_length=10, choices=LANGUAGES_CHOICES[:1])
+    language = models.CharField(_("language"), max_length=10, choices=LANGUAGES_CHOICES[1:])
     name = models.CharField(_("name"), max_length=255)
     
 
@@ -80,13 +109,13 @@ class Topic(Generic):
     name = models.CharField('name', max_length=255)
 
     def __unicode__(self):
-        return unicode(self.name)
-
+        return unicode(self.name
+)
 
 class TopicLocal(models.Model):
 
     topic = models.ForeignKey(Topic, verbose_name=_("topic"))
-    language = models.CharField(_("language"), max_length=10, choices=LANGUAGES_CHOICES[:1])
+    language = models.CharField(_("language"), max_length=10, choices=LANGUAGES_CHOICES[1:])
 
 
 
@@ -96,7 +125,6 @@ class Network(Generic):
         ('national', _('National')),
         ('thematic', _('Thematic')),
     )
-
 
     acronym = models.CharField(_('acronym'), max_length=255)
     country = models.ForeignKey(Country, verbose_name=_("country"), blank=True, null=True)

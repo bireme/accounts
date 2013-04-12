@@ -27,6 +27,25 @@ class GenericAdmin(admin.ModelAdmin):
         obj.save()    
 
 
+class RoleLocalAdmin(admin.TabularInline):
+    model = RoleLocal
+    extra = 0
+
+
+class RoleAdmin(GenericAdmin):
+    model = Role
+    inlines = [RoleLocalAdmin,]
+
+
+class ServiceLocalAdmin(admin.TabularInline):
+    model = ServiceLocal
+    extra = 0
+
+
+class ServiceAdmin(GenericAdmin):
+    model = Service
+    inlines = [ServiceLocalAdmin,]
+
 class CooperativeCenterAdmin(GenericAdmin):
     model = CooperativeCenter
     #raw_id_fields = ("country", )
@@ -54,6 +73,8 @@ class NetworkAdmin(GenericAdmin):
     model = Network
 
 
+admin.site.register(Role, RoleAdmin)
+admin.site.register(Service, ServiceAdmin)
 admin.site.register(CooperativeCenter, CooperativeCenterAdmin)
 admin.site.register(Country, CountryAdmin)
 admin.site.register(Topic, TopicAdmin)
