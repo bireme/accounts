@@ -79,8 +79,8 @@ class TopicAdmin(GenericAdmin):
 
 
 class NetworkAdmin(GenericAdmin):
-    model = Network
-
+    model = Network 
+        
 
 admin.site.register(Role, RoleAdmin)
 admin.site.register(Service, ServiceAdmin)
@@ -88,6 +88,7 @@ admin.site.register(CooperativeCenter, CooperativeCenterAdmin)
 admin.site.register(Country, CountryAdmin)
 admin.site.register(Topic, TopicAdmin)
 admin.site.register(Network, NetworkAdmin)
+admin.site.register(NetworkMembership)
 
 # Re-register UserAdmin
 admin.site.unregister(User)
