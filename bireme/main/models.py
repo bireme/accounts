@@ -130,8 +130,17 @@ class Network(Generic):
     country = models.ForeignKey(Country, verbose_name=_("country"), blank=True, null=True)
     topic = models.ForeignKey(Topic, verbose_name=_("topic"), blank=True, null=True)
     type = models.CharField(_("type"), max_length=30, choices=NETWORK_TYPE_CHOICES, blank=True)
+    members = models.ManyToManyField(CooperativeCenter, through='NetworkMembership')
 
     def __unicode__(self):
         return unicode(self.acronym)
 
 
+class NetworkMembership(models.Model):
+    
+    class Meta:
+        verbose_name = "Network Membership"
+        verbose_name_plural = "Network Membership's"
+
+    network = models.ForeignKey(Network)
+    cooperative_center = models.ForeignKey(CooperativeCenter, verbose_name=_("Cooperative Center"))
