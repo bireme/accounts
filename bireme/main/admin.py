@@ -94,8 +94,6 @@ admin.site.register(Country, CountryAdmin)
 admin.site.register(Topic, TopicAdmin)
 admin.site.register(Network, NetworkAdmin)
 admin.site.register(NetworkMembership)
-admin.site.register(Permission)
-admin.site.register(RolePermission)
 admin.site.register(RoleService)
 
 # Re-register UserAdmin

@@ -70,23 +70,6 @@ class ServiceLocal(models.Model):
     name = models.CharField(_('name'), max_length=255)
 
 
-class Permission(models.Model):
-    
-    name = models.CharField(_('name'), max_length=255)
-    codename = models.CharField(_('codename'), max_length=55)
-
-    def __unicode__(self):
-        return unicode(self.name)
-
-class RolePermission(models.Model):
-
-    role = models.ForeignKey(Role)
-    permission = models.ForeignKey(Permission)
-
-    def __unicode__(self):
-        return "%s | %s" % (self.role, self.permission)
-
-
 class RoleService(models.Model):
 
     role = models.ForeignKey(Role)
