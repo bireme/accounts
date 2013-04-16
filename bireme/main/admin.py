@@ -16,11 +16,9 @@ class UserRoleAdmin(admin.TabularInline):
 
 # Define a new User admin
 class UserAdmin(UserAdmin):
-    '''
     fieldsets = (
         (None, {'fields': ('username', 'password', 'email', 'is_active')}),
     )
-    '''
     add_fieldsets = (
         (None, {
             'classes': ('wide',),
