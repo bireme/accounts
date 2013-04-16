@@ -41,7 +41,7 @@ class Profile(models.Model):
     
 
 class Role(Generic):
-    acronym = models.CharField(_('acronym'), max_length=55)
+    name = models.CharField(_('name'), max_length=55)
     description = models.TextField(_("description"), null=True, blank=True)
 
     def __unicode__(self):
@@ -68,6 +68,38 @@ class ServiceLocal(models.Model):
     service = models.ForeignKey(Service, verbose_name=_("service"))
     language = models.CharField(_("language"), max_length=10, choices=LANGUAGES_CHOICES[1:])
     name = models.CharField(_('name'), max_length=255)
+
+
+class Permission(models.Model):
+    
+    name = models.CharField(_('name'), max_length=255)
+    codename = models.CharField(_('codename'), max_length=55)
+
+    def __unicode__(self):
+        return unicode(self.name)
+
+class RolePermission(models.Model):
+
+    role = models.ForeignKey(Role)
+    permission = models.ForeignKey(Permission)
+
+    def __unicode__(self):
+        return "%s | %s" % (self.role, self.permission)
+
+
+class RoleService(models.Model):
+
+    role = models.ForeignKey(Role)
+    service = models.ForeignKey(Service)
+
+    def __unicode__(self):
+        return "%s | %s" % (self.role, self.service)
+
+
+class UserRoleService(models.Model):
+
+    user = models.ForeignKey(User)
+    role_service = models.ForeignKey(RoleService)
 
 
 class Country(Generic):
@@ -144,3 +176,5 @@ class NetworkMembership(models.Model):
 
     network = models.ForeignKey(Network)
     cooperative_center = models.ForeignKey(CooperativeCenter, verbose_name=_("Cooperative Center"))
+
+

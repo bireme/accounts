@@ -9,18 +9,25 @@ class ProfileInline(admin.StackedInline):
     can_delete = False
     verbose_name_plural = 'Profiles'
 
+
+class UserRoleAdmin(admin.TabularInline):
+    model = UserRoleService
+    extra = 0
+
 # Define a new User admin
 class UserAdmin(UserAdmin):
+    '''
     fieldsets = (
         (None, {'fields': ('username', 'password', 'email', 'is_active')}),
     )
+    '''
     add_fieldsets = (
         (None, {
             'classes': ('wide',),
             'fields': ('username', 'password1', 'password2', 'email', 'is_active')}
         ),
     )
-    inlines = (ProfileInline, )
+    inlines = (ProfileInline, UserRoleAdmin )
 
 
 class GenericAdmin(admin.ModelAdmin):
@@ -80,7 +87,7 @@ class TopicAdmin(GenericAdmin):
 
 class NetworkAdmin(GenericAdmin):
     model = Network 
-        
+
 
 admin.site.register(Role, RoleAdmin)
 admin.site.register(Service, ServiceAdmin)
@@ -89,6 +96,9 @@ admin.site.register(Country, CountryAdmin)
 admin.site.register(Topic, TopicAdmin)
 admin.site.register(Network, NetworkAdmin)
 admin.site.register(NetworkMembership)
+admin.site.register(Permission)
+admin.site.register(RolePermission)
+admin.site.register(RoleService)
 
 # Re-register UserAdmin
 admin.site.unregister(User)
