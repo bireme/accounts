@@ -147,23 +147,53 @@ INSTALLED_APPS = (
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
-    'filters': {
-        'require_debug_false': {
-            '()': 'django.utils.log.RequireDebugFalse'
-        }
+    'formatters': {
+        'simple': {
+            'format': '%(asctime)s [%(levelname)s] - %(module)s: %(message)s'
+        },
+        'verbose': {
+            'format': '%(asctime)s %(filename)s:%(lineno)d - [%(levelname)s] %(message)s'
+        },
     },
     'handlers': {
-        'mail_admins': {
-            'level': 'ERROR',
-            'filters': ['require_debug_false'],
-            'class': 'django.utils.log.AdminEmailHandler'
+        'console':{
+            'level':'DEBUG',
+            'class':'logging.StreamHandler',
+            'formatter': 'verbose'
         }
     },
     'loggers': {
-        'django.request': {
-            'handlers': ['mail_admins'],
-            'level': 'ERROR',
+        '': {
+            'handlers': ['console'],
+            'level': 'DEBUG',
             'propagate': True,
+        },
+        'django.db.backends': {
+            'handlers': ['console'],
+            'level': 'ERROR',
+            'propagate': False,
         },
     }
 }
+
+# Email
+EMAIL_HOST = 'pombo.bireme.br'
+EMAIL_PORT = 25
+EMAIL_HOST_USER = 'appupdate'
+EMAIL_HOST_PASSWORD = 'bir@2012#'
+EMAIL_FROM = 'envio@appbalada.org'
+
+# this adding the constants of settings to template context
+_context = {} 
+local_context = locals()
+for (k,v) in local_context.items():
+    if re.search('^[A-Z0-9_]+$',k):
+        _context[k] = str(v)
+
+def settings_context(context):
+    return _context
+
+try:
+    from settings_local import *
+except ImportError:
+    pass
