@@ -8,7 +8,7 @@ from django.db import models
 # Create your models here.
 
 LANGUAGES_CHOICES = (
-    ('en', 'English'),                  # default language 
+    ('en', 'English'), # default language 
     ('pt-br', 'Brazilian Portuguese'),
     ('es', 'Spanish'),
 )  
@@ -36,7 +36,7 @@ class Profile(models.Model):
         ('superuser', _('Super User')),
     )
 
-    user = models.OneToOneField(User)       # allow extension of default django User
+    user = models.OneToOneField(User) # allow extension of default django User
     type = models.CharField(_("type"), max_length=30, choices=USER_TYPE_CHOICES)
     
 
@@ -145,6 +145,7 @@ class Network(Generic):
     country = models.ForeignKey(Country, verbose_name=_("country"), blank=True, null=True)
     topic = models.ForeignKey(Topic, verbose_name=_("topic"), blank=True, null=True)
     type = models.CharField(_("type"), max_length=30, choices=NETWORK_TYPE_CHOICES, blank=True)
+    cooperative_center = models.ForeignKey(CooperativeCenter, verbose_name=_("Cooperative Center"), related_name="+")
     members = models.ManyToManyField(CooperativeCenter, through='NetworkMembership')
 
     def __unicode__(self):
