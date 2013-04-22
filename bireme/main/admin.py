@@ -1,7 +1,9 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 from django.contrib.auth.models import User
+
 from models import *
+from utils.admin import GenericAdmin
 
 class ProfileInline(admin.StackedInline):
     model = Profile
@@ -25,17 +27,6 @@ class UserAdmin(UserAdmin):
     )
     inlines = (ProfileInline, UserRoleAdmin )
 
-class GenericAdmin(admin.ModelAdmin):
-    exclude = ('created', 'creator', 'updated', 'updater')
-
-    def save_model(self, request, obj, form, change):
-        if hasattr(obj, 'updater') and hasattr(obj, 'creator'):
-            if change:
-                obj.updater = request.user
-            else:
-                obj.creator = request.user
-                obj.updater = request.user
-        obj.save()    
 
 class RoleLocalAdmin(admin.TabularInline):
     model = RoleLocal
@@ -43,7 +34,8 @@ class RoleLocalAdmin(admin.TabularInline):
 
 class RoleAdmin(GenericAdmin):
     model = Role
-    inlines = [RoleLocalAdmin,]
+    inlines = [RoleLocalAdmin, ]
+
 
 class ServiceLocalAdmin(admin.TabularInline):
     model = ServiceLocal
@@ -57,19 +49,10 @@ class CooperativeCenterAdmin(GenericAdmin):
     model = CooperativeCenter
     #raw_id_fields = ("country", )
 
-class CountryLocalAdmin(admin.TabularInline):
-    model = CountryLocal
-    extra = 0
-
-class CountryAdmin(GenericAdmin):
-    model = Country
-    inlines = [CountryLocalAdmin,]
-    search_fields = list_display = ['code', 'name']
 
 class TopicLocalAdmin(admin.TabularInline):
     model = TopicLocal
     extra = 0
-
 
 class TopicAdmin(GenericAdmin):
     model = Topic
@@ -78,12 +61,13 @@ class TopicAdmin(GenericAdmin):
 
 class NetworkAdmin(GenericAdmin):
     model = Network 
+    list_display = ['acronym', 'type', 'responsible', 'country']
+    list_filter = ['type', ]
 
 
 admin.site.register(Role, RoleAdmin)
 admin.site.register(Service, ServiceAdmin)
 admin.site.register(CooperativeCenter, CooperativeCenterAdmin)
-admin.site.register(Country, CountryAdmin)
 admin.site.register(Topic, TopicAdmin)
 admin.site.register(Network, NetworkAdmin)
 admin.site.register(NetworkMembership)

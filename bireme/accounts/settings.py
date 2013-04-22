@@ -13,7 +13,6 @@ ADMINS = (
 MANAGERS = ADMINS
 
 PROJECT_ROOT_PATH = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..'))
-print PROJECT_ROOT_PATH
 
 DATABASES = {
     'default': {
@@ -137,6 +136,8 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
+    
+    'utils',
     'main',
 )
 
