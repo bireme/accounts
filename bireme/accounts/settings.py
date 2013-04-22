@@ -12,7 +12,8 @@ ADMINS = (
 
 MANAGERS = ADMINS
 
-PROJECT_ROOT_PATH = os.path.dirname(os.path.abspath(__file__))
+PROJECT_ROOT_PATH = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..'))
+print PROJECT_ROOT_PATH
 
 DATABASES = {
     'default': {
