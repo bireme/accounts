@@ -237,17 +237,19 @@ form .span12.field input {
     margin-top: 40px;
 }
 
-.block-permission ul li {
+div[id^=tab] ul li {
     list-style: none;
+}
+#tab-permissions ul li {
     padding: 20px 0;
     border-bottom: 1px solid #DDDDDD;
 }
-.block-permission .checkboxes {
+#tab-permissions .checkboxes {
     margin: 5px 0;
 }
-.block-permission input[type=checkbox] {
+#tab-permissions input[type=checkbox] {
     margin-left: 15px;
 }
-.block-permission input[type=checkbox]:first-child {
+#tab-permissions input[type=checkbox]:first-child {
     margin-left: 0;
 }

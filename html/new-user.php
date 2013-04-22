@@ -24,66 +24,73 @@
 
                 <div class='body'>
 
-                    <ul class="nav nav-tabs">
-                        <li class="active"><a href="#">Data</a></li>
-                        <li><a href="#">Permissions</a></li>
+                    <ul class="nav nav-tabs" id="tab">
+                        <li class="active"><a href="#tab-data" data-toggle="tab">Data</a></li>
+                        <li><a href="#tab-permissions" data-toggle="tab">Permissions</a></li>
                     </ul>
 
-                    <div class="block-data">
-                        <form>
-                            <fieldset>                                
-                                <div class='field'>
-                                    <label for="field">Name</label>
-                                    <input type='text'>
-                                </div>
-                                
-                                <div class='field'>
-                                    <label for="field">Email</label>
-                                    <input type='text'>
-                                </div>
+                    <div class="tab-content">
+                        <div id="tab-data" class='tab-pane active'>
+                            <form>
+                                <fieldset>                                
+                                    <div class='field'>
+                                        <label for="field">Name</label>
+                                        <input type='text'>
+                                    </div>
+                                    
+                                    <div class='field'>
+                                        <label for="field">Email</label>
+                                        <input type='text'>
+                                    </div>
 
-                                <div class='field'>
-                                    <label for="field">Type</label>
-                                    <select>
-                                        <option>Normal</option>
-                                        <option>Advanced</option>
-                                        <option>Superuser</option>
-                                    </select>
-                                </div>
-                            </fieldset>
+                                    <div class='field'>
+                                        <label for="field">Type</label>
+                                        <select>
+                                            <option>Normal</option>
+                                            <option>Advanced</option>
+                                            <option>Superuser</option>
+                                        </select>
+                                    </div>
+                                </fieldset>
 
-                            <div class="control-panel form-submit">
-                                <button class="btn btn-primary btn-large">Submit</button>
-                            </div>
-                        </form>
+                                <div class="control-panel form-submit">
+                                    <button class="btn btn-primary btn-large">Submit</button>
+                                </div>
+                            </form>
+                        </div>
+                        <div id="tab-permissions" class='tab-pane'>
+                            
+                            <ul>
+                                <li>
+                                    <h3>Diretório de Eventos <small>DIREVE</small></h3>
+                                    <div class="checkboxes">
+                                        <input type="checkbox"> Documentalist
+                                        <input type="checkbox"> Editor
+                                        <input type="checkbox"> Administrator
+                                    </div>
+                                </li>
+
+                                <li>
+                                    <h3>Lilacs Descrição Bibliográfica e Indexação <small>LILDBI-Web</small></h3>
+                                    <div class="checkboxes">
+                                        <input type="checkbox"> Documentalist
+                                        <input type="checkbox"> Editor
+                                        <input type="checkbox"> Administrator
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>                    
                     </div>
 
-                    <div class="block-permission">
-                        
-                        <ul>
-                            <li>
-                                <h3>Diretório de Eventos <small>DIREVE</small></h3>
-                                <div class="checkboxes">
-                                    <input type="checkbox"> Documentalist
-                                    <input type="checkbox"> Editor
-                                    <input type="checkbox"> Administrator
-                                </div>
-                            </li>
-
-                            <li>
-                                <h3>Lilacs Descrição Bibliográfica e Indexação <small>LILDBI-Web</small></h3>
-                                <div class="checkboxes">
-                                    <input type="checkbox"> Documentalist
-                                    <input type="checkbox"> Editor
-                                    <input type="checkbox"> Administrator
-                                </div>
-                            </li>
-                        </ul>
-
-                    </div>                    
                 </div>                
             </div>
             <? include 'footer.php' ?>
         </div>
+        <!-- tab js -->
+        <script>
+            $(function(){
+                $("#tab a:first").tab('show');
+            });
+        </script>
     </body>
 </html>

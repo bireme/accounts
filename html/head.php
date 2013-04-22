@@ -14,6 +14,7 @@
     <script src="static/bootstrap/js/bootstrap-modal.js"></script>
     <script src="static/bootstrap/js/bootstrap-transition.js"></script>
     <script src="static/bootstrap/js/bootstrap-alert.js"></script>
+    <script src="static/bootstrap/js/bootstrap-tab.js"></script>
 
     <title></title>
 

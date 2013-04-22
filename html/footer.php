@@ -8,3 +8,19 @@
         <small>v0.1 |  <a target="_blank" href="http://github.com/bireme/accounts" title="Project source on GitHub">code on github</a></small>
     </p>
 </div>
+
+<script>
+    $(function(){
+        $('.alert').alert();
+        setTimeout(function() {
+            $('.box-alerts').fadeOut('slow');
+        }, 5000);
+    });
+</script>
+
+<div class='box-alerts'>
+    <div class="alert alert-success">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      Texto do alerta genérico
+    </div>
+</div>
