@@ -16,24 +16,18 @@
                         </div>
                     </div>
 
-                    <form class="form-signin" action="index.html" method="post" name="login">
+                    <form class="form-signin" action="password-reset-confirm.php" method="post" name="login">
                         
                         <input type="hidden" name="next" value="submission.views.index " />
 
-                        <h2 class="form-signin-heading">Login</h2>
+                        <h2 class="form-signin-heading">Password Reset</h2>
 
                         <div class="alert alert-error">
-                            Usuário não existe
+                            Some kind of error
                         </div>
                         
-                        <input type="text" class="input-block-level" name="username" id="id_username" placeholder="Username">
-
-                        
-                        <input type="password" class="input-block-level" placeholder="Password" name="password">
-
-                        <p><a href="password-reset.php" title="Forgot my password">Forgot my password</a></p>
-                        
-                        <button class="btn btn-large btn-primary" type="submit">Login</button>
+                        <input type="email" class="input-block-level" name="username" id="id_username" placeholder="Username">                        
+                        <button class="btn btn-large btn-primary" type="submit">Reset</button>
                     </form>
                 </div>
             </div>

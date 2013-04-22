@@ -20,19 +20,14 @@
                         
                         <input type="hidden" name="next" value="submission.views.index " />
 
-                        <h2 class="form-signin-heading">Login</h2>
+                        <h2 class="form-signin-heading">New Password</h2>
 
                         <div class="alert alert-error">
                             Usuário não existe
                         </div>
                         
-                        <input type="text" class="input-block-level" name="username" id="id_username" placeholder="Username">
-
-                        
-                        <input type="password" class="input-block-level" placeholder="Password" name="password">
-
-                        <p><a href="password-reset.php" title="Forgot my password">Forgot my password</a></p>
-                        
+                        <input type="password" class="input-block-level" placeholder="New Password" name="password">
+                        <input type="password" class="input-block-level" placeholder="Confirm New Password" name="password">
                         <button class="btn btn-large btn-primary" type="submit">Login</button>
                     </form>
                 </div>

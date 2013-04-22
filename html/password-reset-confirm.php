@@ -20,20 +20,9 @@
                         
                         <input type="hidden" name="next" value="submission.views.index " />
 
-                        <h2 class="form-signin-heading">Login</h2>
-
-                        <div class="alert alert-error">
-                            Usuário não existe
-                        </div>
-                        
-                        <input type="text" class="input-block-level" name="username" id="id_username" placeholder="Username">
-
-                        
-                        <input type="password" class="input-block-level" placeholder="Password" name="password">
-
-                        <p><a href="password-reset.php" title="Forgot my password">Forgot my password</a></p>
-                        
-                        <button class="btn btn-large btn-primary" type="submit">Login</button>
+                        <h2 class="form-signin-heading">Reset successful</h2>
+                        We've e-mailed you instructions for setting your password to the e-mail address
+                        you submitted. You should be receiving it shortly.
                     </form>
                 </div>
             </div>
