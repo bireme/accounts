@@ -38,6 +38,7 @@
                             <th><a href="#">#</a></th>
                             <th><a href="#">Name <i class='icon-caret-down'></i></a></th>
                             <th><a href="#">Email <i class='icon-caret-up'></i></a></th>
+                            <th><a href="#">Active?</a></th>
                             <th><a href="#">Actions</a></th>
                         </thead>
                         <tbody>
@@ -45,6 +46,7 @@
                                 <td><a href="#">1</a></td>
                                 <td>Moacir Moda Neto</td>
                                 <td>modamo@paho.org</td>
+                                <td><i class='icon-ok'></i></td>
                                 <td>
                                     <a href="#" class='btn btn-mini'><i class='icon-pencil'></i></a>
                                     <a href="#" class='btn btn-mini'><i class='icon-remove'></i></a>
@@ -54,6 +56,7 @@
                                 <td><a href="#">1</a></td>
                                 <td>Moacir Moda Neto</td>
                                 <td>modamo@paho.org</td>
+                                <td><i class='icon-minus-sign'></i></td>
                                 <td>
                                     <a href="#" class='btn btn-mini'><i class='icon-pencil'></i></a>
                                     <a href="#" class='btn btn-mini'><i class='icon-remove'></i></a>

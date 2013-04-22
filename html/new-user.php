@@ -11,6 +11,8 @@
                 <li><a href="#">Home</a> <span class="divider">/</span></li>
                 <li><a href="#">User</a><span class="divider">/</span></li>
                 <li class="active">New</li>
+
+                <li class='pull-right'><a href="javascript: show_help();" title="Show help"><i class='icon-question-sign'></i></a></li>
             </ul>
             
 
@@ -48,8 +50,21 @@
                                         <select>
                                             <option>Normal</option>
                                             <option>Advanced</option>
-                                            <option>Superuser</option>
                                         </select>
+                                    </div>
+
+                                    <div class='field'>
+                                        <label for="field">
+                                            <input type="checkbox">
+                                            Is Superuser?
+                                        </label>
+                                    </div>
+
+                                    <div class='field'>
+                                        <label for="field">
+                                            <input type="checkbox">
+                                            Is Active?
+                                        </label>
                                     </div>
                                 </fieldset>
 

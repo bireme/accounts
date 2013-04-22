@@ -48,6 +48,8 @@
                                             <option>BVS Chile</option>
                                             <option>PEPSIC</option>
                                         </select>
+
+                                        <a href="#" class='btn'><i class='icon-plus'></i></a>
                                     </div>
 
                                     <div class='field'>
@@ -57,10 +59,7 @@
 
                                     <div class='field'>
                                         <label for="field">Coordinating Center</label>
-                                        <select>
-                                            <option>BR1.1</option>
-                                            <option>BR1.4</option>
-                                        </select>
+                                        <input type='text' id='id_coordinating_center'>
                                     </div>
                                 </fieldset>
 
@@ -81,31 +80,14 @@
                                 <table class='table'>
                                     <thead>
                                         <th></th>
-                                        <th><a href="#">#</a></th>
                                         <th><a href="#">Code <i class='icon-caret-down'></i></a></th>
-                                        <th><a href="#">Coordinator <i class='icon-caret-up'></i></a></th>
-                                        <th><a href="#">Actions</a></th>
+                                        <th><a href="#">Institution <i class='icon-caret-up'></i></a></th>
                                     </thead>
                                     <tbody>
                                         <tr>
                                             <td><input type='checkbox'></td>
-                                            <td><a href="#">1</a></td>
                                             <td>BR1.1</td>
-                                            <td>Maria Imaculada</td>
-                                            <td>
-                                                <a href="#" class='btn btn-mini'><i class='icon-pencil'></i></a>
-                                                <a href="#" class='btn btn-mini'><i class='icon-remove'></i></a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td><input type='checkbox'></td>
-                                            <td><a href="#">1</a></td>
-                                            <td>BR1.1</td>
-                                            <td>Maria Imaculada</td>
-                                            <td>
-                                                <a href="#" class='btn btn-mini'><i class='icon-pencil'></i></a>
-                                                <a href="#" class='btn btn-mini'><i class='icon-remove'></i></a>
-                                            </td>
+                                            <td>Universidade de São Paulo</td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -124,6 +106,10 @@
         <script>
             $(function(){
                 $("#tab a:first").tab('show');
+
+                $('#id_coordinating_center').typeahead({
+                    source: ['BR1.1', 'BR1.2', 'BR1.15', 'BR95.1', 'CL1.1']
+                });
             });
         </script>
     </body>

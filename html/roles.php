@@ -38,19 +38,19 @@
                                 <td><a href="#">1</a></td>
                                 <td>Documentalist</td>
                                 <td>doc</td>
-                                <td><a href="#" class='btn btn-mini'><i class='icon-remove'></i></a></td>
+                                <td><a href="#" class='btn btn-mini'><i class='icon-pencil'></i></a></td>
                             </tr>
                             <tr>
                                 <td><a href="#">1</a></td>
                                 <td>Editor</td>
                                 <td>edi</td>
-                                <td><a href="#" class='btn btn-mini'><i class='icon-remove'></i></a></td>
+                                <td><a href="#" class='btn btn-mini'><i class='icon-pencil'></i></a></td>
                             </tr>
                             <tr>
                                 <td><a href="#">1</a></td>
                                 <td>Adiministrator</td>
                                 <td>adm</td>
-                                <td><a href="#" class='btn btn-mini'><i class='icon-remove'></i></a></td>
+                                <td><a href="#" class='btn btn-mini'><i class='icon-pencil'></i></a></td>
                             </tr>
                         </tbody>
                     </table>

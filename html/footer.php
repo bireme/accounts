@@ -14,7 +14,7 @@
         $('.alert').alert();
         setTimeout(function() {
             $('.box-alerts').fadeOut('slow');
-        }, 5000);
+        }, 5000);        
     });
 </script>
 

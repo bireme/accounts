@@ -17,7 +17,7 @@
             <div class="container-fluid content main">
                 <!--  header -->
                 <div class='header'>
-                    <h2><i class='icon-globe'></i> Edit Your Profile</h2>
+                    <h2><i class='icon-globe'></i> Edit Your Profile <small>(normal user)</small></h2>
 
                     <div class='pull-right'>
                         <a href='#' class='btn'>Change Password</a>

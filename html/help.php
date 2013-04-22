@@ -1,4 +1,14 @@
-<div class='help'>
+<script>
+    $(function(){
+        $("#help").hide();
+    });
+
+    function show_help() {
+        $("#help").toggle();
+    }
+</script>
+
+<div id="help">
     <h3>Help</h3>
     <a class="close" data-dismiss="alert" href="#">&times;</a>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae ipsum mauris. 

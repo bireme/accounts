@@ -15,6 +15,7 @@
     <script src="static/bootstrap/js/bootstrap-transition.js"></script>
     <script src="static/bootstrap/js/bootstrap-alert.js"></script>
     <script src="static/bootstrap/js/bootstrap-tab.js"></script>
+    <script src="static/bootstrap/js/bootstrap-typeahead.js"></script>
 
     <title></title>
 

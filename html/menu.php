@@ -4,9 +4,8 @@
             <div class="row-fluid top">
                 
                 <ul class="nav pull-left">
-                    <li><a href="#" title=""><i class="icon-home"></i> Dashboard</a></li>
+                    <li><a href="index.php" title=""><i class="icon-home"></i> Dashboard</a></li>
                     <li><a href="users.php" title=""><i class="icon-group"></i> Users</a></li>
-                    <li><a href="centers.php" title=""><i class="icon-globe"></i> Centers</a></li>
                     <li><a href="networks.php" title=""><i class="icon-sitemap"></i> Networks</a></li>
                     <li><a href="services.php" title=""><i class="icon-star"></i> Services</a></li>
                     <li><a href="roles.php" title=""><i class="icon-lock"></i> Roles</a></li>

@@ -9,14 +9,14 @@
             
             <ul class="breadcrumb">
                 <li><a href="#">Home</a> <span class="divider">/</span></li>
-                <li class="active">Data</li>
+                <li class="active">Dashboard</li>
             </ul>
             
 
             <div class="container-fluid content main">
                 <!--  header -->
                 <div class='header'>
-                    <h2><i class='icon-home'></i>Painel Principal</h2>
+                    <h2><i class='icon-home'></i> Dashboard <small>moacir.moda (BR1.1)</small></h2>
                 </div>
 
                 <? include 'help.php' ?>
