@@ -16,7 +16,7 @@
                         </div>
                     </div>
 
-                    <form class="form-signin" action="index.html" method="post" name="login">
+                    <form class="form-signin" action="index.php" method="post" name="login">
                         
                         <input type="hidden" name="next" value="submission.views.index " />
 

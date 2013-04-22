@@ -32,7 +32,7 @@
                         </ul>
                     </li>
 
-                    <li><a href="#" title="Logout"><i class="icon-signout"></i></a></li>
+                    <li><a href="login.php" title="Logout"><i class="icon-signout"></i></a></li>
                 </ul>
             </div>
         </div>
