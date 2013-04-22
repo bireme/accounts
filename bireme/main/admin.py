@@ -3,12 +3,10 @@ from django.contrib.auth.admin import UserAdmin
 from django.contrib.auth.models import User
 from models import *
 
-
 class ProfileInline(admin.StackedInline):
     model = Profile
     can_delete = False
     verbose_name_plural = 'Profiles'
-
 
 class UserRoleAdmin(admin.TabularInline):
     model = UserRoleService
@@ -27,7 +25,6 @@ class UserAdmin(UserAdmin):
     )
     inlines = (ProfileInline, UserRoleAdmin )
 
-
 class GenericAdmin(admin.ModelAdmin):
     exclude = ('created', 'creator', 'updated', 'updater')
 
@@ -40,21 +37,17 @@ class GenericAdmin(admin.ModelAdmin):
                 obj.updater = request.user
         obj.save()    
 
-
 class RoleLocalAdmin(admin.TabularInline):
     model = RoleLocal
     extra = 0
-
 
 class RoleAdmin(GenericAdmin):
     model = Role
     inlines = [RoleLocalAdmin,]
 
-
 class ServiceLocalAdmin(admin.TabularInline):
     model = ServiceLocal
     extra = 0
-
 
 class ServiceAdmin(GenericAdmin):
     model = Service
@@ -63,7 +56,6 @@ class ServiceAdmin(GenericAdmin):
 class CooperativeCenterAdmin(GenericAdmin):
     model = CooperativeCenter
     #raw_id_fields = ("country", )
-    
 
 class CountryLocalAdmin(admin.TabularInline):
     model = CountryLocal
@@ -72,6 +64,7 @@ class CountryLocalAdmin(admin.TabularInline):
 class CountryAdmin(GenericAdmin):
     model = Country
     inlines = [CountryLocalAdmin,]
+    search_fields = list_display = ['code', 'name']
 
 class TopicLocalAdmin(admin.TabularInline):
     model = TopicLocal
