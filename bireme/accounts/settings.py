@@ -139,9 +139,11 @@ INSTALLED_APPS = (
     # 'django.contrib.admindocs',
 
     'rosetta',
+    'tastypie',
     
     'utils',
     'main',
+    'api',
 )
 
 # A sample logging configuration. The only tangible logging

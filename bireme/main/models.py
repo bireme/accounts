@@ -105,7 +105,7 @@ class CooperativeCenter(Generic):
         verbose_name = _("cooperative center")
         verbose_name_plural = _("cooperative centers")
 
-    code = models.CharField(_("code"), max_length=55)
+    code = models.CharField(_("code"), max_length=55, unique=True)
     country = models.ForeignKey(Country, verbose_name=_("country"))
     institution = models.TextField(_("institution"), blank=True, null=True)
 
