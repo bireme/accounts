@@ -8,7 +8,6 @@ from utils.admin import GenericAdmin
 class ProfileInline(admin.StackedInline):
     model = Profile
     can_delete = False
-    verbose_name_plural = 'Profiles'
 
 class UserRoleAdmin(admin.TabularInline):
     model = UserRoleService
@@ -17,14 +16,12 @@ class UserRoleAdmin(admin.TabularInline):
 # Define a new User admin
 class UserAdmin(UserAdmin):
     fieldsets = (
-        (None, {'fields': ('username', 'password', 'email', 'is_active')}),
+        (None, {'fields': ('username', 'email', 'password', 'is_active', "is_staff", "is_superuser")}),
+        ("Information", {'fields': ('first_name', "last_name", 'last_login', "date_joined")}),
     )
-    add_fieldsets = (
-        (None, {
-            'classes': ('wide',),
-            'fields': ('username', 'password1', 'password2', 'email', 'is_active')}
-        ),
-    )
+
+    readonly_fields = ("last_login", "date_joined")
+
     inlines = (ProfileInline, UserRoleAdmin )
 
 

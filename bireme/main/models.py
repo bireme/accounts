@@ -71,7 +71,7 @@ class Service(Generic):
     name = models.CharField(_('name'), max_length=255)
 
     def __unicode__(self):
-        return unicode(self.name)
+        return unicode(self.acronym)
 
 class ServiceLocal(models.Model):
 
