@@ -133,7 +133,6 @@ class TopicLocal(models.Model):
     language = models.CharField(_("language"), max_length=10, choices=LANGUAGES_CHOICES[1:])
 
 
-
 class Network(Generic):
 
     class Meta:
@@ -154,6 +153,10 @@ class Network(Generic):
 
     def __unicode__(self):
         return unicode(self.acronym)
+
+    def list_members(self):
+        return [item.code for item in self.members.all()]
+
 
 
 class NetworkMembership(models.Model):

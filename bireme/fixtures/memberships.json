@@ -1,0 +1,64 @@
+[
+{
+  "pk": 1, 
+  "model": "main.network", 
+  "fields": {
+    "updated": "2013-04-23T18:24:52.348Z", 
+    "creator": 1, 
+    "acronym": "Rede Nacional do Brasil", 
+    "country": 30, 
+    "responsible": 1, 
+    "created": "2013-04-23T18:23:58.897Z", 
+    "topic": 1, 
+    "updater": 1, 
+    "type": "national"
+  }
+},
+{
+  "pk": 2, 
+  "model": "main.network", 
+  "fields": {
+    "updated": "2013-04-23T18:25:16.775Z", 
+    "creator": 1, 
+    "acronym": "BVS Brasil", 
+    "country": 30, 
+    "responsible": 1, 
+    "created": "2013-04-23T18:23:58.897Z", 
+    "topic": 2, 
+    "updater": 1, 
+    "type": "thematic"
+  }
+},
+{
+  "pk": 1, 
+  "model": "main.networkmembership", 
+  "fields": {
+    "cooperative_center": 1, 
+    "network": 1
+  }
+},
+{
+  "pk": 2, 
+  "model": "main.networkmembership", 
+  "fields": {
+    "cooperative_center": 2, 
+    "network": 1
+  }
+},
+{
+  "pk": 3, 
+  "model": "main.networkmembership", 
+  "fields": {
+    "cooperative_center": 1, 
+    "network": 2
+  }
+},
+{
+  "pk": 4, 
+  "model": "main.networkmembership", 
+  "fields": {
+    "cooperative_center": 2, 
+    "network": 2
+  }
+}
+]

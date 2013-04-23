@@ -9,7 +9,7 @@
     "is_active": true, 
     "is_superuser": true, 
     "is_staff": true, 
-    "last_login": "2013-04-22T20:45:52.626Z", 
+    "last_login": "2013-04-23T18:13:10.126Z", 
     "groups": [], 
     "user_permissions": [], 
     "password": "pbkdf2_sha256$10000$Y5QJdLK6zWhZ$BA0z0Wm1HDo61inoDnC0fqESchkBYCAwQHRP+acsbTo=", 
@@ -23,6 +23,22 @@
   "fields": {
     "cooperative_center": 1, 
     "type": "advanced", 
+    "user": 1
+  }
+},
+{
+  "pk": 1, 
+  "model": "main.userroleservice", 
+  "fields": {
+    "role_service": 4, 
+    "user": 1
+  }
+},
+{
+  "pk": 2, 
+  "model": "main.userroleservice", 
+  "fields": {
+    "role_service": 5, 
     "user": 1
   }
 }

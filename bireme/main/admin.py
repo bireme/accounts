@@ -64,13 +64,17 @@ class NetworkAdmin(GenericAdmin):
     list_display = ['acronym', 'type', 'responsible', 'country']
     list_filter = ['type', ]
 
+class NetworkMembershipAdmin(admin.ModelAdmin):
+    model = NetworkMembership
+    list_display = ['cooperative_center', 'network']
+
 
 admin.site.register(Role, RoleAdmin)
 admin.site.register(Service, ServiceAdmin)
 admin.site.register(CooperativeCenter, CooperativeCenterAdmin)
 admin.site.register(Topic, TopicAdmin)
 admin.site.register(Network, NetworkAdmin)
-admin.site.register(NetworkMembership)
+admin.site.register(NetworkMembership, NetworkMembershipAdmin)
 admin.site.register(RoleService)
 
 # Re-register UserAdmin

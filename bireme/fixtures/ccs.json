@@ -11,5 +11,18 @@
     "updater": 1, 
     "institution": "BIREME"
   }
+},
+{
+  "pk": 2, 
+  "model": "main.cooperativecenter", 
+  "fields": {
+    "updated": "2013-04-23T18:25:49.130Z", 
+    "code": "BR1.2", 
+    "creator": 1, 
+    "country": 30, 
+    "created": "2013-04-23T18:25:42.014Z", 
+    "updater": 1, 
+    "institution": ""
+  }
 }
 ]
