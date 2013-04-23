@@ -107,6 +107,7 @@ class CooperativeCenter(Generic):
 
     code = models.CharField(_("code"), max_length=55)
     country = models.ForeignKey(Country, verbose_name=_("country"))
+    institution = models.TextField(_("institution"), blank=True, null=True)
 
     def __unicode__(self):
         return unicode(self.code)
