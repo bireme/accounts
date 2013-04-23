@@ -90,7 +90,7 @@ class RoleService(models.Model):
     service = models.ForeignKey(Service)
 
     def __unicode__(self):
-        return "%s | %s" % (self.role, self.service)
+        return unicode("%s | %s" % (self.role, self.service))
 
 
 class UserRoleService(models.Model):
@@ -105,7 +105,7 @@ class CooperativeCenter(Generic):
         verbose_name = _("cooperative center")
         verbose_name_plural = _("cooperative centers")
 
-    code = models.CharField('code', max_length=55)
+    code = models.CharField(_("code"), max_length=55)
     country = models.ForeignKey(Country, verbose_name=_("country"))
 
     def __unicode__(self):
@@ -117,11 +117,10 @@ class Topic(Generic):
         verbose_name = _("topic")
         verbose_name_plural = _("topics")
 
-    name = models.CharField('name', max_length=255)
+    name = models.CharField(_("name"), max_length=255)
 
     def __unicode__(self):
-        return unicode(self.name
-)
+        return unicode(self.name)
 
 class TopicLocal(models.Model):
 
