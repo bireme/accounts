@@ -1,0 +1,15 @@
+[
+{
+  "pk": 1, 
+  "model": "main.cooperativecenter", 
+  "fields": {
+    "updated": "2013-04-23T14:29:28.210Z", 
+    "code": "BR1.1", 
+    "creator": 1, 
+    "country": 30, 
+    "created": "2013-04-23T14:28:46.265Z", 
+    "updater": 1, 
+    "institution": "BIREME"
+  }
+}
+]
