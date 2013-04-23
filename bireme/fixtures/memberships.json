@@ -1,6 +1,6 @@
 [
 {
-  "pk": 10, 
+  "pk": 1, 
   "model": "main.network", 
   "fields": {
     "updated": "2013-04-23T21:46:59.088Z", 
@@ -19,7 +19,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 3, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -27,7 +27,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 8, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -35,7 +35,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 13, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -43,7 +43,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 18, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -51,7 +51,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 23, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -59,7 +59,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 28, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -67,7 +67,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 33, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -75,7 +75,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 38, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -83,7 +83,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 43, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -91,7 +91,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 48, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -99,7 +99,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 53, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -107,7 +107,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 58, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -115,7 +115,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 63, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -123,7 +123,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 68, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -131,7 +131,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 73, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -139,7 +139,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 78, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -147,7 +147,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 83, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -155,7 +155,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 88, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -163,7 +163,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 93, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -171,7 +171,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 98, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -179,7 +179,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 103, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -187,7 +187,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 108, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -195,7 +195,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 113, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -203,7 +203,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 118, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -211,7 +211,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 123, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -219,7 +219,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 128, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -227,7 +227,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 133, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -235,7 +235,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 138, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -243,7 +243,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 143, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -251,7 +251,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 148, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -259,7 +259,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 153, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -267,7 +267,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 158, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -275,7 +275,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 163, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -283,7 +283,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 168, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -291,7 +291,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 173, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -299,7 +299,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 178, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -307,7 +307,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 183, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -315,7 +315,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 188, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -323,7 +323,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 193, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -331,7 +331,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 198, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -339,7 +339,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 203, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -347,7 +347,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 208, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -355,7 +355,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 213, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -363,7 +363,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 218, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -371,7 +371,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 223, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -379,7 +379,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 228, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -387,7 +387,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 233, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -395,7 +395,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 238, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -403,7 +403,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 243, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -411,7 +411,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 248, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -419,7 +419,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 253, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -427,7 +427,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 258, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -435,7 +435,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 263, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -443,7 +443,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 268, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -451,7 +451,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 273, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -459,7 +459,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 278, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -467,7 +467,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 283, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -475,7 +475,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 288, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -483,7 +483,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 293, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -491,7 +491,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 298, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -499,7 +499,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 303, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -507,7 +507,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 308, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -515,7 +515,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 313, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -523,7 +523,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 318, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -531,7 +531,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 323, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -539,7 +539,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 328, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -547,7 +547,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 333, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -555,7 +555,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 338, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -563,7 +563,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 343, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -571,7 +571,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 348, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -579,7 +579,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 353, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -587,7 +587,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 358, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -595,7 +595,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 363, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -603,7 +603,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 368, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -611,7 +611,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 373, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -619,7 +619,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 378, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -627,7 +627,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 383, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -635,7 +635,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 388, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -643,7 +643,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 393, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -651,7 +651,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 398, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -659,7 +659,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 403, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -667,7 +667,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 408, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -675,7 +675,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 413, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -683,7 +683,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 418, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -691,7 +691,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 423, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -699,7 +699,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 428, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -707,7 +707,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 433, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -715,7 +715,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 438, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -723,7 +723,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 443, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -731,7 +731,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 448, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -739,7 +739,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 453, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -747,7 +747,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 458, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -755,7 +755,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 463, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -763,7 +763,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 468, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -771,7 +771,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 473, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -779,7 +779,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 478, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -787,7 +787,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 483, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -795,7 +795,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 488, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -803,7 +803,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 493, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -811,7 +811,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 498, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -819,7 +819,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 503, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -827,7 +827,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 508, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -835,7 +835,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 558, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -843,7 +843,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 563, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -851,7 +851,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 568, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -859,7 +859,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 733, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -867,7 +867,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 768, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -875,7 +875,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 778, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -883,7 +883,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 783, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -891,7 +891,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 788, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -899,7 +899,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 793, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -907,7 +907,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 798, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -915,7 +915,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 803, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -923,7 +923,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 808, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -931,7 +931,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 813, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -939,7 +939,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 818, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -947,7 +947,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 823, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -955,7 +955,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 828, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -963,7 +963,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 833, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -971,7 +971,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 838, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -979,7 +979,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 843, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -987,7 +987,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 848, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -995,7 +995,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 853, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -1003,7 +1003,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 868, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -1011,7 +1011,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 873, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -1019,7 +1019,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 888, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -1027,7 +1027,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 1003, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -1035,7 +1035,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 1008, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -1043,7 +1043,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 1143, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -1051,7 +1051,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 1148, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -1059,7 +1059,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 1168, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -1067,7 +1067,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 1288, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -1075,7 +1075,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 1323, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -1083,7 +1083,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 1328, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -1091,7 +1091,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 1363, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -1099,7 +1099,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 1453, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -1107,7 +1107,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 1458, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -1115,7 +1115,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 1498, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -1123,7 +1123,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 1548, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -1131,7 +1131,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 1553, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -1139,7 +1139,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 1603, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -1147,7 +1147,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 1618, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -1155,7 +1155,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 1673, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -1163,7 +1163,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 1738, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -1171,7 +1171,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 1743, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -1179,7 +1179,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 1748, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -1187,7 +1187,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 1753, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -1195,7 +1195,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 1758, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -1203,7 +1203,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 1778, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -1211,7 +1211,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 1833, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -1219,7 +1219,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 1838, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -1227,7 +1227,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 1858, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -1235,7 +1235,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 1868, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -1243,7 +1243,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 1873, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -1251,7 +1251,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 1903, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -1259,7 +1259,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 1958, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -1267,7 +1267,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 1978, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -1275,7 +1275,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 1988, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -1283,7 +1283,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 1998, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -1291,7 +1291,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 2003, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -1299,7 +1299,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 2008, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -1307,7 +1307,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 2058, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -1315,7 +1315,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 2063, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -1323,7 +1323,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 2078, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -1331,7 +1331,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 2098, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -1339,7 +1339,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 2108, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -1347,7 +1347,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 2158, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -1355,7 +1355,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 2188, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -1363,7 +1363,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 2193, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -1371,7 +1371,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 2198, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -1379,7 +1379,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 2213, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -1387,7 +1387,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 2218, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -1395,7 +1395,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 2223, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -1403,7 +1403,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 2228, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -1411,7 +1411,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 2388, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -1419,7 +1419,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 2393, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -1427,7 +1427,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 2403, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -1435,7 +1435,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 2418, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -1443,7 +1443,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 2428, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -1451,7 +1451,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 2443, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -1459,7 +1459,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 2458, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -1467,7 +1467,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 2483, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -1475,7 +1475,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 2488, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -1483,7 +1483,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 2493, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -1491,7 +1491,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 2498, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -1499,7 +1499,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 2508, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -1507,7 +1507,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 2538, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -1515,7 +1515,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 2628, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -1523,7 +1523,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 2653, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -1531,7 +1531,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 2673, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -1539,7 +1539,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 2688, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -1547,7 +1547,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 2703, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -1555,7 +1555,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 2708, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -1563,7 +1563,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 2713, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -1571,7 +1571,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 2728, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -1579,7 +1579,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 2753, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -1587,7 +1587,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 2758, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -1595,7 +1595,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 2763, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -1603,7 +1603,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 2773, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -1611,7 +1611,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 2778, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -1619,7 +1619,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 2873, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -1627,7 +1627,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 2888, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -1635,7 +1635,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 2908, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -1643,7 +1643,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 2948, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -1651,7 +1651,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 2963, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -1659,7 +1659,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 2983, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -1667,7 +1667,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 2998, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -1675,7 +1675,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 3003, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -1683,7 +1683,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 3008, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -1691,7 +1691,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 3013, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -1699,7 +1699,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 3018, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -1707,7 +1707,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 3023, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -1715,7 +1715,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 3028, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -1723,7 +1723,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 3033, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -1731,7 +1731,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 3038, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -1739,7 +1739,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 3043, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -1747,7 +1747,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 3048, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -1755,7 +1755,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 3123, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -1763,7 +1763,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 3133, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -1771,7 +1771,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 3138, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -1779,7 +1779,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 3168, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -1787,7 +1787,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 3178, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -1795,7 +1795,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 3288, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -1803,7 +1803,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 3303, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -1811,7 +1811,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 3308, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -1819,7 +1819,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 3313, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -1827,7 +1827,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 3318, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -1835,7 +1835,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 3323, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -1843,7 +1843,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 3328, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -1851,7 +1851,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 3333, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -1859,7 +1859,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 3338, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -1867,7 +1867,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 3373, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -1875,7 +1875,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 3433, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -1883,7 +1883,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 3438, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -1891,7 +1891,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 3503, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -1899,7 +1899,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 3508, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -1907,7 +1907,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 3518, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -1915,7 +1915,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 3728, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -1923,7 +1923,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 3763, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -1931,7 +1931,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 3768, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -1939,7 +1939,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 3773, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -1947,7 +1947,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 3778, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -1955,7 +1955,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 3783, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -1963,7 +1963,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 3788, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -1971,7 +1971,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 3793, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -1979,7 +1979,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 3873, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -1987,7 +1987,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 3893, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -1995,7 +1995,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 3903, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -2003,7 +2003,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 3908, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -2011,7 +2011,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 3913, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -2019,7 +2019,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 3928, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -2027,7 +2027,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 3933, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -2035,7 +2035,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 3943, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -2043,7 +2043,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 3983, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -2051,7 +2051,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 3993, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -2059,7 +2059,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 3998, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -2067,7 +2067,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 4003, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -2075,7 +2075,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 4008, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -2083,7 +2083,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 4018, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -2091,7 +2091,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 4023, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -2099,7 +2099,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 4028, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -2107,7 +2107,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 4033, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -2115,7 +2115,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 4048, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -2123,7 +2123,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 4053, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -2131,7 +2131,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 4093, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -2139,7 +2139,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 4098, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -2147,7 +2147,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 4103, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -2155,7 +2155,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 4108, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -2163,7 +2163,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 4113, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -2171,7 +2171,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 4118, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -2179,7 +2179,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 4123, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -2187,7 +2187,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 4128, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -2195,7 +2195,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 4178, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -2203,7 +2203,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 4183, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -2211,7 +2211,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 4188, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -2219,7 +2219,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 4193, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -2227,7 +2227,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 4198, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -2235,7 +2235,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 4203, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -2243,7 +2243,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 4223, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -2251,7 +2251,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 4228, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -2259,7 +2259,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 4263, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -2267,7 +2267,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 4268, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -2275,7 +2275,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 4273, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -2283,7 +2283,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 4278, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -2291,7 +2291,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 4288, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -2299,7 +2299,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 4338, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -2307,7 +2307,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 4343, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -2315,7 +2315,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 4523, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -2323,7 +2323,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 4528, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -2331,7 +2331,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 4568, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -2339,7 +2339,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 4633, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -2347,7 +2347,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 4658, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -2355,7 +2355,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 4688, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -2363,7 +2363,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 4698, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -2371,7 +2371,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 4743, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -2379,7 +2379,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 4748, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -2387,7 +2387,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 4753, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -2395,7 +2395,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 4758, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -2403,7 +2403,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 4793, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -2411,7 +2411,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 4798, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -2419,7 +2419,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 4803, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -2427,7 +2427,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 4808, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -2435,7 +2435,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 4813, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -2443,7 +2443,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 4818, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -2451,7 +2451,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 4823, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -2459,7 +2459,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 4828, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -2467,7 +2467,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 4833, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -2475,7 +2475,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 4838, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -2483,7 +2483,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 4843, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -2491,7 +2491,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 4848, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -2499,7 +2499,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 4853, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -2507,7 +2507,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 4858, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -2515,7 +2515,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 4863, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -2523,7 +2523,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 4913, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -2531,7 +2531,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 4918, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -2539,7 +2539,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 4943, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -2547,7 +2547,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 4953, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -2555,7 +2555,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 4958, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -2563,7 +2563,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 4988, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -2571,7 +2571,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 4993, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -2579,7 +2579,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 4998, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -2587,7 +2587,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 5003, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -2595,7 +2595,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 5008, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -2603,7 +2603,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 5013, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -2611,7 +2611,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 5018, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -2619,7 +2619,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 5023, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -2627,7 +2627,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 5028, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -2635,7 +2635,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 5033, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -2643,7 +2643,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 5038, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -2651,7 +2651,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 5043, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -2659,7 +2659,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 5048, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -2667,7 +2667,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 5053, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -2675,7 +2675,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 5058, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -2683,7 +2683,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 5063, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -2691,7 +2691,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 5068, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -2699,7 +2699,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 5073, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -2707,7 +2707,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 5078, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -2715,7 +2715,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 5098, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -2723,7 +2723,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 5123, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -2731,7 +2731,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 5128, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -2739,7 +2739,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 5163, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -2747,7 +2747,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 5168, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -2755,7 +2755,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 5173, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -2763,7 +2763,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 5178, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -2771,7 +2771,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 5213, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -2779,7 +2779,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 5218, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -2787,7 +2787,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 5223, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -2795,7 +2795,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 5228, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -2803,7 +2803,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 5263, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -2811,7 +2811,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 5273, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -2819,7 +2819,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 5278, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -2827,7 +2827,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 5323, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -2835,7 +2835,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 5328, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -2843,7 +2843,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 5338, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -2851,7 +2851,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 5368, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -2859,7 +2859,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 5373, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -2867,7 +2867,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 5383, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -2875,7 +2875,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 5388, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -2883,7 +2883,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 5398, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -2891,7 +2891,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 5408, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -2899,7 +2899,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 5413, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -2907,7 +2907,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 5418, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -2915,7 +2915,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 5423, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -2923,7 +2923,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 5433, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -2931,7 +2931,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 5438, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -2939,7 +2939,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 5453, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -2947,7 +2947,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 5458, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -2955,7 +2955,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 5468, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -2963,7 +2963,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 5473, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -2971,7 +2971,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 5538, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -2979,7 +2979,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 5553, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -2987,7 +2987,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 5558, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -2995,7 +2995,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 5563, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -3003,7 +3003,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 5568, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -3011,7 +3011,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 5573, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -3019,7 +3019,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 5578, 
-    "network": 10
+    "network": 1
   }
 },
 {
@@ -3027,7 +3027,7 @@
   "model": "main.networkmembership", 
   "fields": {
     "cooperative_center": 5583, 
-    "network": 10
+    "network": 1
   }
 }
 ]
