@@ -1,1 +1,29 @@
-[{"pk": 1, "model": "auth.user", "fields": {"username": "moa", "first_name": "", "last_name": "", "is_active": true, "is_superuser": true, "is_staff": true, "last_login": "2013-04-22T20:45:52.626Z", "groups": [], "user_permissions": [], "password": "pbkdf2_sha256$10000$Y5QJdLK6zWhZ$BA0z0Wm1HDo61inoDnC0fqESchkBYCAwQHRP+acsbTo=", "email": "moa@moa.com", "date_joined": "2013-04-22T20:24:19.738Z"}}]
+[
+{
+  "pk": 1, 
+  "model": "auth.user", 
+  "fields": {
+    "username": "moa", 
+    "first_name": "", 
+    "last_name": "", 
+    "is_active": true, 
+    "is_superuser": true, 
+    "is_staff": true, 
+    "last_login": "2013-04-22T20:45:52.626Z", 
+    "groups": [], 
+    "user_permissions": [], 
+    "password": "pbkdf2_sha256$10000$Y5QJdLK6zWhZ$BA0z0Wm1HDo61inoDnC0fqESchkBYCAwQHRP+acsbTo=", 
+    "email": "moa@moa.com", 
+    "date_joined": "2013-04-22T20:24:19.738Z"
+  }
+},
+{
+  "pk": 1, 
+  "model": "main.profile", 
+  "fields": {
+    "cooperative_center": 1, 
+    "type": "advanced", 
+    "user": 1
+  }
+}
+]
