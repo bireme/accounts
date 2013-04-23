@@ -1,0 +1,1 @@
+curl -X POST -d @../utils/correct-parameters-to-login.json http://localhost:8000/api/auth/login/ --header "Content-Type:application/json" 
