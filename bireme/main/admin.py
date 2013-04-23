@@ -15,15 +15,14 @@ class UserRoleAdmin(admin.TabularInline):
 
 # Define a new User admin
 class UserAdmin(UserAdmin):
+    inlines = (ProfileInline, UserRoleAdmin )
+    
     fieldsets = (
         (None, {'fields': ('username', 'email', 'password', 'is_active', "is_staff", "is_superuser")}),
         ("Information", {'fields': ('first_name', "last_name", 'last_login', "date_joined")}),
     )
 
     readonly_fields = ("last_login", "date_joined")
-
-    inlines = (ProfileInline, UserRoleAdmin )
-
 
 class RoleLocalAdmin(admin.TabularInline):
     model = RoleLocal
@@ -43,9 +42,13 @@ class ServiceAdmin(GenericAdmin):
     inlines = [ServiceLocalAdmin,]
 
 class CooperativeCenterAdmin(GenericAdmin):
+    
     model = CooperativeCenter
-    #raw_id_fields = ("country", )
+    readonly_fields = [field.name for field in model._meta.fields]
 
+    def has_delete_permission(self, request, obj=None):
+        return False
+    
 
 class TopicLocalAdmin(admin.TabularInline):
     model = TopicLocal
