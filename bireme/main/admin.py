@@ -46,6 +46,10 @@ class CooperativeCenterAdmin(GenericAdmin):
     model = CooperativeCenter
     readonly_fields = [field.name for field in model._meta.fields]
 
+    list_display = ['code', 'country']
+    list_filter = ['country', ]
+    search_fields = ['code']
+
     def has_delete_permission(self, request, obj=None):
         return False
     
@@ -63,10 +67,12 @@ class NetworkAdmin(GenericAdmin):
     model = Network 
     list_display = ['acronym', 'type', 'responsible', 'country']
     list_filter = ['type', ]
+    raw_id_fields = ['responsible', ]
 
 class NetworkMembershipAdmin(admin.ModelAdmin):
     model = NetworkMembership
     list_display = ['cooperative_center', 'network']
+    list_filter = ['network', 'network__type']
 
 
 admin.site.register(Role, RoleAdmin)
