@@ -1,0 +1,92 @@
+[
+{
+  "pk": 1, 
+  "model": "main.role", 
+  "fields": {
+    "updated": "2013-04-23T14:19:52.005Z", 
+    "description": "Documentalist", 
+    "creator": 1, 
+    "created": "2013-04-23T14:19:19.653Z", 
+    "updater": 1, 
+    "name": "doc"
+  }
+},
+{
+  "pk": 2, 
+  "model": "main.role", 
+  "fields": {
+    "updated": "2013-04-23T14:20:02.877Z", 
+    "description": "Editor", 
+    "creator": 1, 
+    "created": "2013-04-23T14:19:19.653Z", 
+    "updater": 1, 
+    "name": "edi"
+  }
+},
+{
+  "pk": 3, 
+  "model": "main.role", 
+  "fields": {
+    "updated": "2013-04-23T14:20:22.491Z", 
+    "description": "Administrator", 
+    "creator": 1, 
+    "created": "2013-04-23T14:19:19.653Z", 
+    "updater": 1, 
+    "name": "adm"
+  }
+},
+{
+  "pk": 1, 
+  "model": "main.rolelocal", 
+  "fields": {
+    "role": 1, 
+    "description": "Documentalista", 
+    "language": "pt-br"
+  }
+},
+{
+  "pk": 2, 
+  "model": "main.rolelocal", 
+  "fields": {
+    "role": 1, 
+    "description": "Documentalista", 
+    "language": "es"
+  }
+},
+{
+  "pk": 3, 
+  "model": "main.rolelocal", 
+  "fields": {
+    "role": 2, 
+    "description": "Editor", 
+    "language": "pt-br"
+  }
+},
+{
+  "pk": 4, 
+  "model": "main.rolelocal", 
+  "fields": {
+    "role": 2, 
+    "description": "Editor", 
+    "language": "es"
+  }
+},
+{
+  "pk": 5, 
+  "model": "main.rolelocal", 
+  "fields": {
+    "role": 3, 
+    "description": "Administrador", 
+    "language": "pt-br"
+  }
+},
+{
+  "pk": 6, 
+  "model": "main.rolelocal", 
+  "fields": {
+    "role": 3, 
+    "description": "Administrador", 
+    "language": "es"
+  }
+}
+]

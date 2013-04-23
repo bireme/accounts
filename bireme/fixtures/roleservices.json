@@ -1,0 +1,50 @@
+[
+{
+  "pk": 1, 
+  "model": "main.roleservice", 
+  "fields": {
+    "role": 1, 
+    "service": 1
+  }
+},
+{
+  "pk": 2, 
+  "model": "main.roleservice", 
+  "fields": {
+    "role": 2, 
+    "service": 1
+  }
+},
+{
+  "pk": 3, 
+  "model": "main.roleservice", 
+  "fields": {
+    "role": 3, 
+    "service": 1
+  }
+},
+{
+  "pk": 4, 
+  "model": "main.roleservice", 
+  "fields": {
+    "role": 1, 
+    "service": 2
+  }
+},
+{
+  "pk": 5, 
+  "model": "main.roleservice", 
+  "fields": {
+    "role": 2, 
+    "service": 2
+  }
+},
+{
+  "pk": 6, 
+  "model": "main.roleservice", 
+  "fields": {
+    "role": 3, 
+    "service": 2
+  }
+}
+]
