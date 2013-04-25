@@ -17,6 +17,10 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
     
     url(r'^api/', include("api.urls")),
+
+    url(r'^accounts/', include("registration.urls")),
+
+    url(r'^', include('main.urls')),
 )
 
 if 'rosetta' in settings.INSTALLED_APPS:
