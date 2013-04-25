@@ -1,0 +1,46 @@
+{% load i18n %}
+{% block menu %}
+    {% if user.is_authenticated %}
+
+        <div class="navbar navbar-fixed-top" id="menu">
+            <div class="navbar-inner">
+                <div class="container-fluid">
+                    <div class="row-fluid top">
+                        
+                        <ul class="nav pull-left">
+                            <li><a href="#" title=""><i class="icon-home"></i> {% trans "Dashboard" %}</a></li>
+                            <li><a href="#" title=""><i class="icon-group"></i> {% trans "Users" %}</a></li>
+                            <li><a href="#" title=""><i class="icon-sitemap"></i> {% trans "Networks" %}</a></li>
+                            <li><a href="#" title=""><i class="icon-star"></i> {% trans "Services" %}</a></li>
+                            <li><a href="#" title=""><i class="icon-lock"></i> {% trans "Roles" %}</a></li>
+                        </ul>
+
+                        <ul class="nav pull-right">
+                            <li>
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="menu_language">
+                                    <i class="icon-flag"></i> English <i class="icon-caret-down"></i>
+                                </a>
+                                <ul class="dropdown-menu" role="menu" aria-labelledby="menu_language">
+                                    <li><a href="#" title="">Português</a></li>
+                                    <li><a href="#" title="">Español</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="menu_profile">
+                                    <i class="icon-user"></i><i class="icon-caret-down"></i>
+                                </a>
+                                <ul class="dropdown-menu" role="menu" aria-labelledby="menu_profile">
+                                    <li><a href="#" title="{% trans "Edit profile" %}">{% trans "Edit profile" %}</a></li>
+                                    <li><a href="{% url 'django.contrib.auth.views.password_change'  %}" title="{% trans "Change Password" %}">{% trans "Change password" %}</a></li>
+                                </ul>
+                            </li>
+
+                            <li><a href="{% url 'django.contrib.auth.views.logout' %}" title="Logout"><i class="icon-signout"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    {% endif %}
+{% endblock %}        
