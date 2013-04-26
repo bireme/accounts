@@ -43,8 +43,8 @@ def fixtures(app=None):
     else:
         with prefix('. %s/bin/activate' % env.virtualenv):
             with cd(env.rootpath):
-                run('python manage.py dumpdata --indent=2 > /tmp/submission.json')
-        get('/tmp/submission.json', '../bireme/fixtures')
+                run('python manage.py dumpdata --indent=2 > /tmp/accounts.json')
+        get('/tmp/accounts.json', '../bireme/fixtures')
 
 def migrate():
     """
@@ -67,7 +67,7 @@ def restart_app():
     """
         Restarts remote wsgi.
     """
-    with cd(os.path.join(env.path,'..')):
+    with cd(env.path):
         run("touch application.wsgi")
 
 def update_version_file():
