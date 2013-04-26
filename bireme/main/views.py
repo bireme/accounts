@@ -24,7 +24,6 @@ def index(request):
 def cookie_lang(request):
 
     language = request.REQUEST.get('language')
-    print language
     request.COOKIES[settings.LANGUAGE_COOKIE_NAME] = language
     request.session[settings.LANGUAGE_COOKIE_NAME] = language
 
