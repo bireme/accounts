@@ -15,13 +15,15 @@
 
         <title>{% block "title" %}{% trans "BIREME Accounts" %}{% endblock %}</title>
 
-        <link rel="icon" type="image/x-icon" href="{{ STATIC_URL }}/favicon.ico" />
+        <link rel="icon" type="image/x-icon" href="{% static 'favicon.ico' %}" />
         {% block extrahead %}{% endblock %}
     </head>
 
     <body>
-        <div class='mask'><img src='{% static "/image/loading.gif" %}'></div>
+        <div class='mask'><img src='{% static "image/loading.gif" %}'></div>
         <div class="wrap">
+
+            
 
             {% block "body" %}
                 {% block top %}{% include 'menu.html' %}{% endblock %}
@@ -57,13 +59,16 @@
 
         <!-- javascript files -->
 
-        <script src="{{ STATIC_URL }}/js/jquery.min.js"></script>
-        <script src="{{ STATIC_URL }}/bootstrap/js/bootstrap-dropdown.js"></script>
-        <script src="{{ STATIC_URL }}/bootstrap/js/bootstrap-modal.js"></script>
-        <script src="{{ STATIC_URL }}/bootstrap/js/bootstrap-transition.js"></script>
-        <script src="{{ STATIC_URL }}/bootstrap/js/bootstrap-alert.js"></script>
-        <script src="{{ STATIC_URL }}/bootstrap/js/bootstrap-tab.js"></script>
-        <script src="{{ STATIC_URL }}/bootstrap/js/bootstrap-typeahead.js"></script>
+        <script src="{% static "js/jquery.min.js" %}"></script>
+        <script src="{% static "bootstrap/js/bootstrap-dropdown.js" %}"></script>
+        <script src="{% static "bootstrap/js/bootstrap-modal.js" %}"></script>
+        <script src="{% static "bootstrap/js/bootstrap-transition.js" %}"></script>
+        <script src="{% static "bootstrap/js/bootstrap-alert.js" %}"></script>
+        <script src="{% static "bootstrap/js/bootstrap-tab.js" %}"></script>
+        <script src="{% static "bootstrap/js/bootstrap-typeahead.js" %}"></script>
+
+        {% include "lang.html" %}
+
         {% block extrajs %}{% endblock %}
 
     </body>    

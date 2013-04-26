@@ -105,12 +105,15 @@ TEMPLATE_LOADERS = (
 #     'django.template.loaders.eggs.Loader',
 )
 
+
+
 MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     # Uncomment the next line for simple clickjacking protection:
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
@@ -187,12 +190,13 @@ LOGGING = {
     }
 }
 
+
 # Email
-EMAIL_HOST = 'pombo.bireme.br'
+EMAIL_HOST = ''
 EMAIL_PORT = 25
-EMAIL_HOST_USER = 'appupdate'
-EMAIL_HOST_PASSWORD = 'bir@2012#'
-EMAIL_FROM = 'envio@appbalada.org'
+EMAIL_HOST_USER = ''
+EMAIL_HOST_PASSWORD = ''
+EMAIL_FROM = ''
 
 # this adding the constants of settings to template context
 _context = {} 

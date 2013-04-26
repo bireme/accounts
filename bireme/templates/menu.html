@@ -18,11 +18,16 @@
                         <ul class="nav pull-right">
                             <li>
                                 <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="menu_language">
-                                    <i class="icon-flag"></i> English <i class="icon-caret-down"></i>
+                                    <i class="icon-flag"></i> 
+                                    {% if LANGUAGE_CODE == 'en' %}{% trans "English"|capfirst %}{% endif %}
+                                    {% if LANGUAGE_CODE == 'es' %}{% trans "Spanish"|capfirst %}{% endif %}
+                                    {% if LANGUAGE_CODE == 'pt-br' %}{% trans "Portuguese"|capfirst %}{% endif %}
+                                    <i class="icon-caret-down"></i>
                                 </a>
                                 <ul class="dropdown-menu" role="menu" aria-labelledby="menu_language">
-                                    <li><a href="#" title="">Português</a></li>
-                                    <li><a href="#" title="">Español</a></li>
+                                    {% if LANGUAGE_CODE != "en" %}<li><a href="javascript: change_language('en')" title="{% trans 'English' %}">{% trans 'English'|capfirst %}</a></li>{% endif %}
+                                    {% if LANGUAGE_CODE != "pt-br" %}<li><a href="javascript: change_language('pt-BR')" title="{% trans 'Portuguese' %}">{% trans 'Portuguese'|capfirst %}</a></li>{% endif %}
+                                    {% if LANGUAGE_CODE != "es" %}<li><a href="javascript: change_language('es')" title="{% trans 'Spanish' %}">{% trans 'Spanish'|capfirst %}</a></li>{% endif %}                                    
                                 </ul>
                             </li>
                             <li>
