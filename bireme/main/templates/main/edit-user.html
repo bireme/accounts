@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "Edit" %} {{ user }} | {{ block.super }}{% endblock %}
+
+{% block breadcrumb %}
+    <li><a href="{% url 'main.views.users' %}">{% trans "Users" %}</a> <span class="divider">/</span></li>
+    <li>{% trans "Edit User" %}</li>
+{% endblock %}
+
+{% block extrajs %}
+    <script>
+        $(function(){
+            fields = ['id_is_active', 'id_is_superuser'];
+            for(field in fields) {
+                var field = fields[field];
+                var label = "label[for="+field+"]";
+                
+                $(label).html(" " + $(label).html());
+                $("#" + field).prependTo(label);
+            }
+        });
+    </script>
+{% endblock %}
+
+{% block content %}
+
+<!--  header -->
+<div class='header'>
+    <h2><i class='icon-group'></i> {% trans "Edit User" %}</h2>
+</div>
+
+<div class='body'>
+
+    <ul class="nav nav-tabs" id="tab">
+        <li class="active"><a href="#tab-data" data-toggle="tab">Data</a></li>
+        <li><a href="#tab-permissions" data-toggle="tab">Permissions</a></li>
+    </ul>
+
+    <div class="tab-content">
+        <div id="tab-data" class='tab-pane active'>
+            <form method="POST">{% csrf_token %}
+                <fieldset>                                
+                    {{ form.non_field_errors }}
+                    {% for field in form %}
+                        {{ field.label_tag }}
+                        {{ field }}
+                    {% endfor %}
+                </fieldset>
+
+                <div class="control-panel form-submit">
+                    <button class="btn btn-primary btn-large">Submit</button>
+                </div>
+            </form>
+        </div>
+        <div id="tab-permissions" class='tab-pane'>
+            
+            <ul>
+                <li>
+                    <h3>Diretório de Eventos <small>DIREVE</small></h3>
+                    <div class="checkboxes">
+                        <input type="checkbox"> Documentalist
+                        <input type="checkbox"> Editor
+                        <input type="checkbox"> Administrator
+                    </div>
+                </li>
+
+                <li>
+                    <h3>Lilacs Descrição Bibliográfica e Indexação <small>LILDBI-Web</small></h3>
+                    <div class="checkboxes">
+                        <input type="checkbox"> Documentalist
+                        <input type="checkbox"> Editor
+                        <input type="checkbox"> Administrator
+                    </div>
+                </li>
+            </ul>
+        </div>                    
+    </div>
+</div>
+{% endblock %}

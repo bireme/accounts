@@ -13,6 +13,7 @@ from models import *
 import mimetypes
 import os
 from utils.views import ACTIONS as actions
+from forms import *
 
 @login_required
 def dashboard(request):
@@ -29,7 +30,6 @@ def users(request):
     cc = request.user.profile.cooperative_center
     output = {}
 
-
     # getting action parameters
     for key in actions.keys():
         if request.REQUEST.get(key):
@@ -45,3 +45,22 @@ def users(request):
     output['cc'] = cc
 
     return render_to_response('main/users.html', output, context_instance=RequestContext(request))
+
+@login_required
+def edit_user(request, user):
+
+    user = get_object_or_404(User, id=user)
+    cc = request.user.profile.cooperative_center
+    output = {}
+
+    form = UserForm(instance=user)
+
+    if request.POST:
+        form = UserForm(request.POST, request.FILES, instance=user)
+        if form.is_valid():
+            form.save()
+
+    output['form'] = form
+
+    return render_to_response('main/edit-user.html', output, context_instance=RequestContext(request))
+

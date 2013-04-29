@@ -1,15 +1,19 @@
 $(function(){
 
     var form = document.actions;
-    var orderby = form.orderby.value;
-    var order = form.order.value;
 
-    if(orderby != "" && order != "") {
-        var obj = $("#id_" + orderby);
-        if(order === "-") {
-            obj.html(obj.html() + " <i class='icon-caret-up'></i>");
-        } else {
-            obj.html(obj.html() + " <i class='icon-caret-down'></i>");
+    if(form != null) {
+        
+        var orderby = form.orderby.value;
+        var order = form.order.value;
+
+        if(orderby != "" && order != "") {
+            var obj = $("#id_" + orderby);
+            if(order === "-") {
+                obj.html(obj.html() + " <i class='icon-caret-up'></i>");
+            } else {
+                obj.html(obj.html() + " <i class='icon-caret-down'></i>");
+            }
         }
     }
 });
