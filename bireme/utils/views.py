@@ -1,4 +1,11 @@
 from django.http import Http404, HttpResponse
+    
+# form actions
+ACTIONS = {
+    'orderby': 'id',
+    'order': '+',
+    'page': 1,
+}
 
 def cookie_lang(request):
 

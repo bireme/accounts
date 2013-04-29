@@ -12,6 +12,7 @@ from datetime import datetime
 from models import *
 import mimetypes
 import os
+from utils.views import ACTIONS as actions
 
 @login_required
 def dashboard(request):
@@ -28,11 +29,6 @@ def users(request):
     cc = request.user.profile.cooperative_center
     output = {}
 
-    actions = {
-        'orderby': 'id',
-        'order': '+',
-        'page': 1,
-    }
 
     # getting action parameters
     for key in actions.keys():
