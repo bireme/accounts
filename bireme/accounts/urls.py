@@ -15,13 +15,11 @@ urlpatterns = patterns('',
 
     # Uncomment the next line to enable the admin:
     url(r'^admin/', include(admin.site.urls)),
-    
-    url(r'^api/', include("api.urls")),
-
-    url(r'^accounts/', include("registration.urls")),
-
     url(r'^i18n/', include('django.conf.urls.i18n')),
-
+    
+    url(r'^accounts/', include("registration.urls")),
+    url(r'^api/', include("api.urls")),
+    url(r'^', include('utils.urls')),
     url(r'^', include('main.urls')),
 )
 

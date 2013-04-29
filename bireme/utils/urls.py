@@ -1,6 +1,5 @@
 from django.conf.urls.defaults import patterns
 
 urlpatterns = patterns('',
-    
-    (r'^$', 'main.views.index'),
+    (r'^cookie-lang/?$', 'utils.views.cookie_lang'),
 )
