@@ -8,8 +8,8 @@
                     <div class="row-fluid top">
                         
                         <ul class="nav pull-left">
-                            <li><a href="#" title=""><i class="icon-home"></i> {% trans "Dashboard" %}</a></li>
-                            <li><a href="#" title=""><i class="icon-group"></i> {% trans "Users" %}</a></li>
+                            <li><a href="{% url 'main.views.dashboard' %}" title="{% trans "Dashboard" %}"><i class="icon-home"></i> {% trans "Dashboard" %}</a></li>
+                            <li><a href="{% url 'main.views.users' %}" title="{% trans "Users" %}"><i class="icon-group"></i> {% trans "Users" %}</a></li>
                             <li><a href="#" title=""><i class="icon-sitemap"></i> {% trans "Networks" %}</a></li>
                             <li><a href="#" title=""><i class="icon-star"></i> {% trans "Services" %}</a></li>
                             <li><a href="#" title=""><i class="icon-lock"></i> {% trans "Roles" %}</a></li>

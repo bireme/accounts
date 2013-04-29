@@ -2,5 +2,6 @@ from django.conf.urls.defaults import patterns
 
 urlpatterns = patterns('',
     
-    (r'^$', 'main.views.index'),
+    (r'^users/?$', 'main.views.users'),
+    (r'^$', 'main.views.dashboard'),
 )
