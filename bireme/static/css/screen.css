@@ -8,7 +8,9 @@ body {
 .wrap {
     margin-bottom: 20px;    
 }
-
+ul.alert {
+    margin: 0 0 10px 0;
+}
 /* Set the fixed height of the footer here */
 #push,
 #footer {

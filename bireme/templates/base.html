@@ -65,6 +65,11 @@
         <script src="{% static "bootstrap/js/bootstrap-tab.js" %}"></script>
         <script src="{% static "bootstrap/js/bootstrap-typeahead.js" %}"></script>
         <script src="{% static "js/actions.js" %}"></script>
+        <script>
+            $(function(){
+                $(".errorlist").addClass('alert alert-error');
+            });
+        </script>
 
         {% include "lang.html" %}
         {% include "alert.html" %}

@@ -62,6 +62,8 @@ def edit_user(request, user):
         form = UserForm(request.POST, request.FILES, instance=user)
         if form.is_valid():
             form.save()
+            output['alert'] = _("User successfully edited.")
+            output['alerttype'] = "alert-success"
 
     output['form'] = form
     output['services'] = services

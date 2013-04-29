@@ -11,6 +11,7 @@
 {% block extrajs %}
     <script>
         $(function(){
+            // make checkbox infiter in labels
             fields = ['id_is_active', 'id_is_superuser'];
             for(field in fields) {
                 var field = fields[field];
@@ -20,6 +21,7 @@
                 $("#" + field).prependTo(label);
             }
 
+            // ajax that check and uncheck roles in users
             $(".checkbox_role").click(function(){
                 var service = $(this).attr('data-service');
                 var role = $(this).attr('data-role');
@@ -37,7 +39,6 @@
                         alert("{% trans 'Error' %}");
                     }
                 });
-
             });
         });
     </script>
@@ -63,6 +64,7 @@
                     {{ form.non_field_errors }}
                     {% for field in form %}
                         {{ field.label_tag }}
+                        {{ field.errors }}
                         {{ field }}
                     {% endfor %}
                 </fieldset>
