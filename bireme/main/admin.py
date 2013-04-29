@@ -11,7 +11,7 @@ class ProfileInline(admin.StackedInline):
 
 class UserRoleAdmin(admin.TabularInline):
     model = UserRoleService
-    extra = 0
+    extra = 1
 
 # Define a new User admin
 class UserAdmin(UserAdmin):

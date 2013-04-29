@@ -19,12 +19,31 @@
                 $(label).html(" " + $(label).html());
                 $("#" + field).prependTo(label);
             }
+
+            $(".checkbox_role").click(function(){
+                var service = $(this).attr('data-service');
+                var role = $(this).attr('data-role');
+                var checked = false;
+                if($(this).is(':checked')) {
+                    var checked = true;
+                }
+
+                $.ajax({
+                    type: "GET",
+                    url: "{% url 'main.views.change_user_role_service' %}",
+                    data: { service: service, role: role, checked: checked, user: "{{ user.id }}" }
+                }).done(function(result) {
+                    if(result === "0") {
+                        alert("{% trans 'Error' %}");
+                    }
+                });
+
+            });
         });
     </script>
 {% endblock %}
 
 {% block content %}
-
 <!--  header -->
 <div class='header'>
     <h2><i class='icon-group'></i> {% trans "Edit User" %}</h2>
@@ -56,23 +75,22 @@
         <div id="tab-permissions" class='tab-pane'>
             
             <ul>
-                <li>
-                    <h3>Diretório de Eventos <small>DIREVE</small></h3>
-                    <div class="checkboxes">
-                        <input type="checkbox"> Documentalist
-                        <input type="checkbox"> Editor
-                        <input type="checkbox"> Administrator
-                    </div>
-                </li>
+                {% for service in services %}
+                    <li>
+                        <h3>{{ service.name }} <small>{{ service.acronym }}</small></h3>
+                        <div class="checkboxes">
+                            {% for role in service.roles.all %}
 
-                <li>
-                    <h3>Lilacs Descrição Bibliográfica e Indexação <small>LILDBI-Web</small></h3>
-                    <div class="checkboxes">
-                        <input type="checkbox"> Documentalist
-                        <input type="checkbox"> Editor
-                        <input type="checkbox"> Administrator
-                    </div>
-                </li>
+                                <!-- roles do usuário -->
+                                <input type="checkbox" class="checkbox_role" data-role="{{ role.id }}" data-service="{{ service.id }}"
+                                {% for user_role in user_roles %}
+                                    {% if user_role.role_service.service == service and user_role.role_service.role == role %}checked="true"{% endif %}
+                                {% endfor %}
+                                value="{{ role.name }}"> {{ role.description }}
+                            {% endfor %}
+                        </div>
+                    </li>
+                {% endfor %}
             </ul>
         </div>                    
     </div>

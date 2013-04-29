@@ -69,6 +69,7 @@ class Service(Generic):
 
     acronym = models.CharField(_('acronym'), max_length=55) 
     name = models.CharField(_('name'), max_length=255)
+    roles = models.ManyToManyField("Role", through='RoleService')
 
     def __unicode__(self):
         return unicode(self.acronym)

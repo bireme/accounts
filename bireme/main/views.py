@@ -53,6 +53,9 @@ def edit_user(request, user):
     cc = request.user.profile.cooperative_center
     output = {}
 
+    services = Service.objects.all()
+    user_role_services = UserRoleService.objects.filter(user=user)
+
     form = UserForm(instance=user)
 
     if request.POST:
@@ -61,6 +64,38 @@ def edit_user(request, user):
             form.save()
 
     output['form'] = form
+    output['services'] = services
+    output['user_roles'] = user_role_services
 
     return render_to_response('main/edit-user.html', output, context_instance=RequestContext(request))
 
+@login_required
+def change_user_role_service(request):
+
+    output = {}
+
+    user = request.REQUEST.get('user')
+    role = request.REQUEST.get('role')
+    service = request.REQUEST.get('service')
+
+    user = get_object_or_404(User, id=user)
+    role_service = get_object_or_404(RoleService, role__id=role, service__id=service)
+    
+    if request.REQUEST.get('checked') == "true":
+
+        if not UserRoleService.objects.filter(user=user, role_service=role_service):
+            role = UserRoleService(user=user, role_service=role_service)
+            role.save()
+            return HttpResponse(1)
+    else:
+        try:
+            role = UserRoleService.objects.get(user=user, role_service=role_service)
+            role.delete()
+            return HttpResponse(1)
+        except Exception as e:
+            print e
+            pass
+    
+    return HttpResponse(0)
+
+        
