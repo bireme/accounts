@@ -5,7 +5,11 @@
 
 {% block breadcrumb %}
     <li><a href="{% url 'main.views.users' %}">{% trans "Users" %}</a> <span class="divider">/</span></li>
-    <li>{% trans "Edit User" %}</li>
+    {% if is_new %}
+        <li>{% trans "New User" %}</li>
+    {% else %}
+        <li>{% trans "Edit User" %}</li>
+    {% endif %}
 {% endblock %}
 
 {% block extrajs %}
@@ -58,7 +62,7 @@
 {% block content %}
 <!--  header -->
 <div class='header'>
-    <h2><i class='icon-group'></i> {% trans "Edit User" %}</h2>
+    <h2><i class='icon-group'></i> {% if is_new %}{% trans "New User" %}{% else %}{% trans "Edit User" %}{% endif %}</h2>
 </div>
 
 <div class='body'>
