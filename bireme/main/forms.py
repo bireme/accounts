@@ -29,7 +29,7 @@ class NetworkForm(forms.ModelForm):
 
     class Meta:
         model = Network
-        fields = ('country', 'topic', 'acronym', 'responsible', )
+        fields = ('country', 'topic', 'acronym', 'responsible', 'type')
 
 
 

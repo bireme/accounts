@@ -38,23 +38,23 @@
         });
 
         // ajax that check and uncheck roles in users
-            $(".checkbox_member").live('click', function(){
-                var cc = $(this).attr('data-id');
-                var checked = false;
-                if($(this).is(':checked')) {
-                    var checked = true;
-                }
+        $(".checkbox_member").live('click', function(){
+            var cc = $(this).attr('data-id');
+            var checked = false;
+            if($(this).is(':checked')) {
+                var checked = true;
+            }
 
-                $.ajax({
-                    type: "GET",
-                    url: "{% url 'api.views.change_network_member' %}",
-                    data: {checked: checked, cc: cc, network: "{{ network.id }}"}
-                }).done(function(result) {
-                    if(result === "0") {
-                        alert("{% trans 'Error' %}");
-                    }
-                });
+            $.ajax({
+                type: "GET",
+                url: "{% url 'api.views.change_network_member' %}",
+                data: {checked: checked, cc: cc, network: "{{ network.id }}"}
+            }).done(function(result) {
+                if(result === "0") {
+                    alert("{% trans 'Error' %}");
+                }
             });
+        });
     });
 </script>
 {% endblock %}
@@ -66,10 +66,12 @@
 
 <div class='body'>
 
+    {% if not is_new %}
     <ul class="nav nav-tabs" id='tab'>
         <li class="active"><a href="#tab-data" data-toggle="tab">{% trans "Data" %}</a></li>
         <li><a href="#tab-centers" data-toggle="tab">{% trans "Included Centers" %}</a></li>
     </ul>
+    {% endif %}
 
     <div class="tab-content">
         <div id="tab-data" class="tab-pane active">
@@ -88,6 +90,8 @@
                 </div>
             </form>
         </div>
+
+        {% if not is_new %}
         <div id='tab-centers' class="tab-pane">
             <input type="hidden" id="ccs_country" value="{{ cc_country }}">
             <div class='body'>
@@ -114,9 +118,9 @@
                         {% endfor %}
                     </tbody>
                 </table>
-          
             </div>  
-        </div>                    
+        </div>          
+        {% endif %}          
     </div>
 </div>
 {% endblock %}

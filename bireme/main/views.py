@@ -163,3 +163,25 @@ def edit_network(request, network):
     output['members'] = members
     
     return render_to_response('main/edit-network.html', output, context_instance=RequestContext(request))
+
+@login_required
+def new_network(request):
+
+    output = {}
+
+    network = Network(creator=request.user)
+    form = NetworkForm(instance=network)
+
+    if request.POST:
+        form = NetworkForm(request.POST, request.FILES, instance=network)
+        
+        if form.is_valid():
+            form.save()
+            output['alert'] = _("Network successfully created.")
+            output['alerttype'] = "alert-success"
+
+    output['is_new'] = True
+    output['form'] = form
+    output['network'] = network
+    
+    return render_to_response('main/edit-network.html', output, context_instance=RequestContext(request))
