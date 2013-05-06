@@ -41,7 +41,7 @@
         <tbody>
             {% for network in networks %}
                 <tr>
-                    <td><a href="#">{{ network.id }}</a></td>
+                    <td><a href="{% url 'main.views.edit_network' network.id %}">{{ network.id }}</a></td>
                     <td>{{ network.acronym }}</td>
                     <td>{{ network.responsible }}</td>
                     <td><a href="#" class='btn btn-mini'><i class='icon-pencil'></i></a></td>
@@ -50,8 +50,7 @@
             
         </tbody>
     </table>
-
-    <? include 'pagination.php' ?>              
+     
 </div>  
 
 {% endblock %}

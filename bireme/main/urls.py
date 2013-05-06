@@ -8,6 +8,7 @@ urlpatterns = patterns('',
     (r'^users/edit/change-user-role-service/?$', 'main.views.change_user_role_service'),
     
     (r'^networks/?$', 'main.views.networks'),
+    (r'^network/edit/(?P<network>\d+)/?$', 'main.views.edit_network'),
     
     (r'^$', 'main.views.dashboard'),
 )

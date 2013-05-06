@@ -163,3 +163,29 @@ def networks(request):
     output['actions'] = actions
 
     return render_to_response('main/networks.html', output, context_instance=RequestContext(request))
+
+@login_required
+def edit_network(request, network):
+
+    network = get_object_or_404(Network, id=network)
+    output = {}
+
+    form = NetworkForm(instance=network)
+
+    ccs = CooperativeCenter.objects.all()
+    if network.type == 'national' or network.country:
+        cc_country = network.country.id
+        ccs = ccs.filter(country=network.country)
+
+    if request.POST:
+        form = NetworkForm(request.POST, request.FILES, instance=network)
+        if form.is_valid():
+            form.save()
+            output['alert'] = _("Network successfully edited.")
+            output['alerttype'] = "alert-success"
+
+    output['form'] = form
+    output['ccs'] = ccs
+    output['cc_country'] = cc_country
+    
+    return render_to_response('main/edit-network.html', output, context_instance=RequestContext(request))

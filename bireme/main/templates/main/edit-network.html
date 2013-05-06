@@ -1,0 +1,102 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "Users" %} | {{ block.super }}{% endblock %}
+
+{% block breadcrumb %}
+    <li><a href="{% url 'main.views.networks' %}">{% trans "Networks" %}</a> <span class="divider">/</span></li>
+    {% if is_new %}<li>{% trans "New Network" %}</li>
+    {% else %}<li>{% trans "Edit Network" %}</li>{% endif %}
+{% endblock %}
+
+{% block extrajs %}
+<script>
+    $(function(){
+
+        // adding permalinks to tabs
+        var hash = window.location.hash,
+        hashPart=hash.split('!')[1],
+        activeTab=$('ul.nav a[href="#' + hashPart + '"]');
+        activeTab && activeTab.tab('show');
+         
+        $('.nav-tabs a').click(function (e) {
+            $(this).tab('show');
+            window.location.hash = '#!'+$(this).attr('href').split('#')[1];
+        });
+
+        search_field = $("#ccs_s");
+        search_field.live('input', function(){
+            $.ajax({
+                url: "{% url 'api.views.get_ccs' %}",
+                data: {code: search_field.val(), country: $("#ccs_country").val()},
+                success: function(data){
+                    $("#ccs_content").empty();
+                    $("#ccs_content").html(data);
+                }
+            });
+        });
+    });
+</script>
+{% endblock %}
+
+{% block content %}  
+<div class='header'>
+    <h2><i class='icon-sitemap'></i> {% trans "Edit Network" %}</h2>
+</div>
+
+<div class='body'>
+
+    <ul class="nav nav-tabs" id='tab'>
+        <li class="active"><a href="#tab-data" data-toggle="tab">{% trans "Data" %}</a></li>
+        <li><a href="#tab-centers" data-toggle="tab">{% trans "Included Centers" %}</a></li>
+    </ul>
+
+    <div class="tab-content">
+        <div id="tab-data" class="tab-pane active">
+            <form method="POST">{% csrf_token %}
+                <fieldset>                                
+                    {{ form.non_field_errors }}
+                    {% for field in form %}
+                        {{ field.label_tag }}
+                        {{ field.errors }}
+                        {{ field }}
+                    {% endfor %}
+                </fieldset>
+
+                <div class="control-panel form-submit">
+                    <button class="btn btn-primary btn-large">{% trans "Submit" %}</button>
+                </div>
+            </form>
+        </div>
+        <div id='tab-centers' class="tab-pane">
+            <input type="hidden" id="ccs_country" value="{{ cc_country }}">
+            <div class='body'>
+                <div class='pull-right'>
+                    <div class="input-append">
+                        <input type='text' name="s" id="ccs_s" placeholder="Type your center">
+                        <button class="btn" type="button"><i class='icon-search'></i></button>
+                    </div>
+                </div>
+
+                <table class='table'>
+                    <thead>
+                        <th></th>
+                        <th>{% trans "Code" %}</th>
+                        <th>{% trans "Institution" %}</th>
+                    </thead>
+                    <tbody id="ccs_content">
+                        {% for cc in ccs %}
+                        <tr>
+                            <td><input type='checkbox'></td>
+                            <td>{{ cc.code }}</td>
+                            <td><span title="{{ cc.institution }}">{{ cc.institution|truncatechars:"80" }}</span></td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+          
+            </div>  
+        </div>                    
+    </div>
+</div>
+{% endblock %}

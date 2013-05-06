@@ -1,0 +1,7 @@
+{% for cc in ccs %}
+<tr>
+    <td><input type='checkbox'></td>
+    <td>{{ cc.code }}</td>
+    <td><span title="{{ cc.institution }}">{{ cc.institution|truncatechars:"80" }}</span></td>
+</tr>
+{% endfor %}

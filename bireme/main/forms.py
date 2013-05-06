@@ -1,7 +1,7 @@
 from django.shortcuts import get_object_or_404
 from django.utils.translation import ugettext_lazy as _
 from django.contrib.auth.models import User
-from models import Profile
+from models import *
 from django import forms
 
 class UserForm(forms.ModelForm):
@@ -24,7 +24,12 @@ class UserForm(forms.ModelForm):
         self.instance.profile.save()
 
         return self.instance
-        
+
+class NetworkForm(forms.ModelForm):
+
+    class Meta:
+        model = Network
+        fields = ('country', 'topic', 'acronym', 'responsible', )
 
 
 
