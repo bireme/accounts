@@ -7,7 +7,7 @@ from django.core.urlresolvers import reverse
 from django.core.paginator import Paginator
 from django.contrib.auth.models import User
 from django.template import RequestContext
-from utils.views import ACTIONS as actions
+from utils.views import ACTIONS
 from django.conf import settings
 from datetime import datetime
 from models import *
@@ -31,9 +31,13 @@ def users(request):
     output = {}
 
     # getting action parameters
-    for key in actions.keys():
+    actions = {}
+    for key in ACTIONS.keys():
         if request.REQUEST.get(key):
             actions[key] = request.REQUEST.get(key)
+        else:
+            actions[key] = ACTIONS[key]
+
 
     users = User.objects.filter(profile__cooperative_center=cc)
     users = users.order_by(actions["orderby"])
@@ -136,4 +140,26 @@ def change_user_role_service(request):
     
     return HttpResponse(0)
 
-        
+@login_required
+def networks(request):
+
+    user = request.user
+    output = {}
+
+    # getting action parameters
+    actions = {}
+    for key in ACTIONS.keys():
+        if request.REQUEST.get(key):
+            actions[key] = request.REQUEST.get(key)
+        else:
+            actions[key] = ACTIONS[key]
+
+    networks = Network.objects.all()
+    networks = networks.order_by(actions["orderby"])
+    if actions['order'] == "-":
+        networks = networks.order_by("%s%s" % (actions["order"], actions["orderby"]))
+
+    output['networks'] = networks
+    output['actions'] = actions
+
+    return render_to_response('main/networks.html', output, context_instance=RequestContext(request))

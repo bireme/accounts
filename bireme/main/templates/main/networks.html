@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "Users" %} | {{ block.super }}{% endblock %}
+
+{% block breadcrumb %}
+    <li>{% trans "Networks" %}</li>
+{% endblock %}
+
+{% block content %}
+<form name="actions">
+    <input type="hidden" name="orderby" value="{{ actions.orderby }}">
+    <input type="hidden" name="order" value="{{ actions.order }}">
+    <input type="hidden" name="page" value="{{ actions.page }}">
+</form>
+
+<!--  header -->
+<div class='header'>
+    <h2><i class='icon-sitemap'></i> Networks</h2>
+
+    <div class='pull-right'>
+        <a href='new-network.php' class='btn btn-primary'><i class='icon-file'></i> New Network</a>
+    </div>
+</div>
+
+<div class='body'>
+    <div class='pull-right'>
+        <div class="input-append">
+            <input type='text' name="s" placeholder="Type your network">
+            <button class="btn" type="button"><i class='icon-search'></i></button>
+        </div>
+    </div>
+
+    <table class='table'>
+        <thead>
+            <th><a href="javascript:orderby('id');" id="id_id">#</a></th>
+            <th><a href="javascript:orderby('acronym');" id="id_acronym">Name</a></th>
+            <th><a href="javascript:orderby('responsible');" id="id_responsible">Center Coordinator</a></th>
+            <th>Actions</th>
+        </thead>
+        <tbody>
+            {% for network in networks %}
+                <tr>
+                    <td><a href="#">{{ network.id }}</a></td>
+                    <td>{{ network.acronym }}</td>
+                    <td>{{ network.responsible }}</td>
+                    <td><a href="#" class='btn btn-mini'><i class='icon-pencil'></i></a></td>
+                </tr>
+            {% endfor %}
+            
+        </tbody>
+    </table>
+
+    <? include 'pagination.php' ?>              
+</div>  
+
+{% endblock %}
