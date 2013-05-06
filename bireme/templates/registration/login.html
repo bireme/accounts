@@ -8,17 +8,18 @@
         $(function(){
             document.login.username.focus();
             $('div.content').addClass('login')
+            $('.breadcrumb').hide();
         });
     </script>
     {% if request.user.is_authenticated %}
-        <script>window.location = "{% url 'main.views.index' %}"</script>
+        <script>window.location = "{% url 'main.views.dashboard' %}"</script>
     {% endif %}
 {% endblock %}
 
 {% block top %}{% endblock %}
 
-{% block breadcrumb %}{% endblock %}
 
+{% block breadcrumb %}{% endblock %}
 {% block content %}
 
     <div id="loginForm">
@@ -30,7 +31,7 @@
 
         <form class="form-signin" action="{% url 'django.contrib.auth.views.login' %}" method="post" name="login">
             
-            {% csrf_token %}<input type="hidden" name="next" value="{% url 'main.views.index' %}" />
+            {% csrf_token %}<input type="hidden" name="next" value="{% url 'main.views.dashboard' %}" />
 
             <h2 class="form-signin-heading">{% trans "Login" %}</h2>
 

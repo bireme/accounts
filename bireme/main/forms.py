@@ -19,9 +19,13 @@ class UserForm(forms.ModelForm):
 
     def save(self, commit=True, *args, **kw):
         super(UserForm, self).save(commit=True, *args, **kw)
-
-        self.instance.profile.type == self.cleaned_data["type"]
+        
+        self.instance.profile.type = self.cleaned_data["type"]
         self.instance.profile.save()
+
+        return self.instance
+        
+
 
 
 

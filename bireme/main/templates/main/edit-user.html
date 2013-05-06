@@ -11,6 +11,17 @@
 {% block extrajs %}
     <script>
         $(function(){
+
+            var hash = window.location.hash,
+            hashPart=hash.split('!')[1],
+            activeTab=$('ul.nav a[href="#' + hashPart + '"]');
+            activeTab && activeTab.tab('show');
+             
+            $('.nav-tabs a').click(function (e) {
+                $(this).tab('show');
+                window.location.hash = '#!'+$(this).attr('href').split('#')[1];
+            });
+
             // make checkbox infiter in labels
             fields = ['id_is_active', 'id_is_superuser'];
             for(field in fields) {
@@ -52,14 +63,17 @@
 
 <div class='body'>
 
+    {% if not is_new %}
     <ul class="nav nav-tabs" id="tab">
         <li class="active"><a href="#tab-data" data-toggle="tab">Data</a></li>
         <li><a href="#tab-permissions" data-toggle="tab">Permissions</a></li>
     </ul>
+    {% endif %}
 
     <div class="tab-content">
         <div id="tab-data" class='tab-pane active'>
             <form method="POST">{% csrf_token %}
+
                 <fieldset>                                
                     {{ form.non_field_errors }}
                     {% for field in form %}
