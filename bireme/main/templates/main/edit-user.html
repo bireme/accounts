@@ -48,7 +48,7 @@
 
                 $.ajax({
                     type: "GET",
-                    url: "{% url 'main.views.change_user_role_service' %}",
+                    url: "{% url 'api.views.change_user_role_service' %}",
                     data: { service: service, role: role, checked: checked, user: "{{ user.id }}" }
                 }).done(function(result) {
                     if(result === "0") {

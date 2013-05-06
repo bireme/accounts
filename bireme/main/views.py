@@ -112,35 +112,6 @@ def new_user(request):
     return render_to_response('main/edit-user.html', output, context_instance=RequestContext(request))
 
 @login_required
-def change_user_role_service(request):
-
-    output = {}
-
-    user = request.REQUEST.get('user')
-    role = request.REQUEST.get('role')
-    service = request.REQUEST.get('service')
-
-    user = get_object_or_404(User, id=user)
-    role_service = get_object_or_404(RoleService, role__id=role, service__id=service)
-    
-    if request.REQUEST.get('checked') == "true":
-
-        if not UserRoleService.objects.filter(user=user, role_service=role_service):
-            role = UserRoleService(user=user, role_service=role_service)
-            role.save()
-            return HttpResponse(1)
-    else:
-        try:
-            role = UserRoleService.objects.get(user=user, role_service=role_service)
-            role.delete()
-            return HttpResponse(1)
-        except Exception as e:
-            print e
-            pass
-    
-    return HttpResponse(0)
-
-@login_required
 def networks(request):
 
     user = request.user
@@ -168,6 +139,7 @@ def networks(request):
 def edit_network(request, network):
 
     network = get_object_or_404(Network, id=network)
+    members = [cc.id for cc in network.members.all()]
     output = {}
 
     form = NetworkForm(instance=network)
@@ -185,7 +157,9 @@ def edit_network(request, network):
             output['alerttype'] = "alert-success"
 
     output['form'] = form
+    output['network'] = network
     output['ccs'] = ccs
     output['cc_country'] = cc_country
+    output['members'] = members
     
     return render_to_response('main/edit-network.html', output, context_instance=RequestContext(request))

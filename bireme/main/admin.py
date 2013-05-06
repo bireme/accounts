@@ -71,6 +71,7 @@ class NetworkAdmin(GenericAdmin):
 
 class NetworkMembershipAdmin(admin.ModelAdmin):
     model = NetworkMembership
+    search_fields = ['cooperative_center__id']
     list_display = ['cooperative_center', 'network']
     list_filter = ['network', 'network__type']
 

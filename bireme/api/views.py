@@ -17,14 +17,70 @@ import os
 import json
 
 @login_required
+def change_user_role_service(request):
+
+    output = {}
+
+    user = request.REQUEST.get('user')
+    role = request.REQUEST.get('role')
+    service = request.REQUEST.get('service')
+
+    user = get_object_or_404(User, id=user)
+    role_service = get_object_or_404(RoleService, role__id=role, service__id=service)
+    
+    if request.REQUEST.get('checked') == "true":
+
+        if not UserRoleService.objects.filter(user=user, role_service=role_service):
+            role = UserRoleService(user=user, role_service=role_service)
+            role.save()
+            return HttpResponse(1)
+    else:
+        try:
+            role = UserRoleService.objects.get(user=user, role_service=role_service)
+            role.delete()
+            return HttpResponse(1)
+        except Exception as e:
+            print e
+            pass
+    
+    return HttpResponse(0)
+
+@login_required
+def change_network_member(request):
+
+    output = {}
+
+    network = get_object_or_404(Network, id=request.REQUEST.get('network'))
+    cc = get_object_or_404(CooperativeCenter, id=request.REQUEST.get('cc'))
+    member, trash = NetworkMembership.objects.get_or_create(**{'network': network, 'cooperative_center': cc})
+
+    if request.REQUEST.get('checked') == "true":
+        member.save()
+        return HttpResponse(1)
+    else:
+        member.delete()
+        return HttpResponse(1)
+    
+    return HttpResponse(0)
+
+@login_required
 def get_ccs(request):
 
     ccs = CooperativeCenter.objects.all()
+    output = {}
+    members = []
+    
     if request.GET.get('code'):
         ccs = ccs.filter(code__istartswith=request.GET.get('code'))
+    
     if request.GET.get('country'):
         ccs = ccs.filter(country__id=request.GET.get('country'))
 
-    output = {'ccs': ccs}
+    if request.GET.get('network'):
+        network = get_object_or_404(Network, id=request.GET.get('network'))
+        members = [cc.id for cc in network.members.all()]
+
+    output['ccs'] = ccs
+    output['members'] = members
 
     return render_to_response('api/get-ccs.html', output, context_instance=RequestContext(request))

@@ -7,6 +7,9 @@ urlpatterns = patterns('',
 
     url(r'^auth/', include(user_resource.urls)),
 
+    (r'^users/edit/change-user-role-service/?$', 'api.views.change_user_role_service'),
+    (r'^networks/edit/change-network-member/?$', 'api.views.change_network_member'),
+
     url(r'^get_ccs/?$', 'api.views.get_ccs')
     
 )
