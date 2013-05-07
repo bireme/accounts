@@ -32,7 +32,17 @@ class NetworkForm(forms.ModelForm):
         fields = ('country', 'topic', 'acronym', 'responsible', 'type')
 
 
+class ServiceForm(forms.ModelForm):
+
+    class Meta:
+        model = Service
+        fields = ( 'name', 'acronym')
 
 
 
+class RoleForm(forms.ModelForm):
+
+    class Meta:
+        model = Role
+        fields = ( 'name', 'acronym', 'description')
 

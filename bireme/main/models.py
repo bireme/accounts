@@ -51,7 +51,8 @@ class Role(Generic):
         verbose_name = _("role")
         verbose_name_plural = _("roles")
 
-    name = models.CharField(_('name'), max_length=55)
+    acronym = models.CharField(_('acronym'), max_length=55) 
+    name = models.CharField(_('name'), max_length=255)
     description = models.TextField(_("description"), null=True, blank=True)
 
     def __unicode__(self):
@@ -63,8 +64,9 @@ class RoleLocal(models.Model):
         verbose_name = _("role translation")
         verbose_name_plural = _("role translations")
 
-    role = models.ForeignKey(Role, verbose_name=_("role"))
+    role = models.ForeignKey(Role, verbose_name=_("role"))    
     language = models.CharField(_("language"), max_length=10, choices=LANGUAGES_CHOICES[1:])
+    name = models.CharField(_('name'), max_length=255)
     description = models.TextField(_("description"), null=True, blank=True)
 
     def unicode(self):

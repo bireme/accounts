@@ -185,3 +185,137 @@ def new_network(request):
     output['network'] = network
     
     return render_to_response('main/edit-network.html', output, context_instance=RequestContext(request))
+
+
+@login_required
+def services(request):
+
+    user = request.user
+    output = {}
+
+    # getting action parameters
+    actions = {}
+    for key in ACTIONS.keys():
+        if request.REQUEST.get(key):
+            actions[key] = request.REQUEST.get(key)
+        else:
+            actions[key] = ACTIONS[key]
+
+    services = Service.objects.all()
+    services = services.order_by(actions["orderby"])
+    if actions['order'] == "-":
+        services = services.order_by("%s%s" % (actions["order"], actions["orderby"]))
+
+    output['services'] = services
+    output['actions'] = actions
+
+    return render_to_response('main/services.html', output, context_instance=RequestContext(request))
+
+
+@login_required
+def edit_service(request, service):
+
+    service = get_object_or_404(Service, id=service)    
+    output = {}
+
+    form = ServiceForm(instance=service)
+
+    if request.POST:
+        form = ServiceForm(request.POST, request.FILES, instance=service)
+        if form.is_valid():
+            form.save()
+            output['alert'] = _("Service successfully edited.")
+            output['alerttype'] = "alert-success"
+
+    output['form'] = form
+    output['service'] = service
+    
+    return render_to_response('main/edit-service.html', output, context_instance=RequestContext(request))
+
+@login_required
+def new_service(request):
+
+    output = {}
+
+    service = Service(creator=request.user)
+    form = ServiceForm(instance=service)
+
+    if request.POST:
+        form =ServiceForm(request.POST, request.FILES, instance=service)
+        
+        if form.is_valid():
+            form.save()
+            output['alert'] = _("Service successfully created.")
+            output['alerttype'] = "alert-success"
+
+    output['is_new'] = True
+    output['form'] = form
+    output['service'] = service
+    
+    return render_to_response('main/edit-service.html', output, context_instance=RequestContext(request))
+
+@login_required
+def roles(request):
+
+    user = request.user
+    output = {}
+
+    # getting action parameters
+    actions = {}
+    for key in ACTIONS.keys():
+        if request.REQUEST.get(key):
+            actions[key] = request.REQUEST.get(key)
+        else:
+            actions[key] = ACTIONS[key]
+
+    roles = Role.objects.all()
+    roles = roles.order_by(actions["orderby"])
+    if actions['order'] == "-":
+        roles = roles.order_by("%s%s" % (actions["order"], actions["orderby"]))
+
+    output['roles'] = roles
+    output['actions'] = actions
+
+    return render_to_response('main/roles.html', output, context_instance=RequestContext(request))
+
+@login_required
+def edit_role(request, role):
+
+    role = get_object_or_404(Role, id=role)    
+    output = {}
+
+    form = RoleForm(instance=role)
+
+    if request.POST:
+        form = RoleForm(request.POST, request.FILES, instance=role)
+        if form.is_valid():
+            form.save()
+            output['alert'] = _("Role successfully edited.")
+            output['alerttype'] = "alert-success"
+
+    output['form'] = form
+    output['role'] = role
+    
+    return render_to_response('main/edit-role.html', output, context_instance=RequestContext(request))
+
+@login_required
+def new_role(request):
+
+    output = {}
+
+    role = Role(creator=request.user)
+    form = RoleForm(instance=role)
+
+    if request.POST:
+        form = RoleForm(request.POST, request.FILES, instance=role)
+        
+        if form.is_valid():
+            form.save()
+            output['alert'] = _("Role successfully created.")
+            output['alerttype'] = "alert-success"
+
+    output['is_new'] = True
+    output['form'] = form
+    output['role'] = role
+    
+    return render_to_response('main/edit-role.html', output, context_instance=RequestContext(request))

@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "Users" %} | {{ block.super }}{% endblock %}
+
+{% block breadcrumb %}
+    <li><a href="{% url 'main.views.services' %}">{% trans "Services" %}</a> <span class="divider">/</span></li>
+    {% if is_new %}<li>{% trans "New Service" %}</li>
+    {% else %}<li>{% trans "Edit Service" %}</li>{% endif %}
+{% endblock %}
+
+{% block extrajs %}
+{% endblock %}
+
+{% block content %}  
+<div class='header'>
+    <h2><i class='icon-sitemap'></i> {% if is_new %} {% trans "New Service" %}{% else %}{% trans "Edit Service" %}{% endif %}</h2>
+</div>
+
+<div class='body'>
+        
+    <form method="POST">{% csrf_token %}
+        <fieldset>                                
+            {{ form.non_field_errors }}
+            {% for field in form %}
+                {{ field.label_tag }}
+                {{ field.errors }}
+                {{ field }}
+            {% endfor %}
+        </fieldset>
+
+        <div class="control-panel form-submit">
+            <button class="btn btn-primary btn-large">{% trans "Submit" %}</button>
+        </div>
+    </form>
+    
+</div>
+{% endblock %}
