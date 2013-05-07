@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-04-23 11:37-0300\n"
+"POT-Creation-Date: 2013-05-07 08:24-0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,149 +18,347 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: main/models.py:14 utils/models.py:17
+#: main/forms.py:13
+msgid "Type"
+msgstr ""
+
+#: main/models.py:15 utils/models.py:17
 msgid "created"
 msgstr ""
 
-#: main/models.py:15 utils/models.py:18
+#: main/models.py:16 utils/models.py:18
 msgid "updated"
 msgstr ""
 
-#: main/models.py:27
+#: main/models.py:28
 msgid "profile"
 msgstr ""
 
-#: main/models.py:28
+#: main/models.py:29
 msgid "profiles"
 msgstr ""
 
-#: main/models.py:31
+#: main/models.py:32
 msgid "Basic"
 msgstr ""
 
-#: main/models.py:32
+#: main/models.py:33
 msgid "Advanced"
 msgstr ""
 
-#: main/models.py:35 main/models.py:166
+#: main/models.py:36 main/models.py:179
 msgid "Cooperative Center"
 msgstr ""
 
-#: main/models.py:37 main/models.py:151
+#: main/models.py:38 main/models.py:160
 msgid "type"
 msgstr ""
 
-#: main/models.py:42 main/models.py:57
+#: main/models.py:51 main/models.py:66
 msgid "role"
 msgstr ""
 
-#: main/models.py:43
+#: main/models.py:52
 msgid "roles"
 msgstr ""
 
-#: main/models.py:45 main/models.py:71 main/models.py:84 main/models.py:121
+#: main/models.py:54 main/models.py:80 main/models.py:94 main/models.py:131
 #: utils/models.py:33 utils/models.py:47
 msgid "name"
 msgstr ""
 
-#: main/models.py:46 main/models.py:59
+#: main/models.py:55 main/models.py:68
 msgid "description"
 msgstr ""
 
-#: main/models.py:54
+#: main/models.py:63
 msgid "role translation"
 msgstr ""
 
-#: main/models.py:55
+#: main/models.py:64
 msgid "role translations"
 msgstr ""
 
-#: main/models.py:58 main/models.py:83 main/models.py:133 utils/models.py:46
+#: main/models.py:67 main/models.py:93 main/models.py:143 utils/models.py:46
 msgid "language"
 msgstr ""
 
-#: main/models.py:67 main/models.py:82
+#: main/models.py:76 main/models.py:92
 msgid "service"
 msgstr ""
 
-#: main/models.py:68
+#: main/models.py:77
 msgid "services"
 msgstr ""
 
-#: main/models.py:70 main/models.py:148
+#: main/models.py:79 main/models.py:157
 msgid "acronym"
 msgstr ""
 
-#: main/models.py:79
+#: main/models.py:89
 msgid "service translation"
 msgstr ""
 
-#: main/models.py:80
+#: main/models.py:90
 msgid "service translations"
 msgstr ""
 
-#: main/models.py:105
+#: main/models.py:115
 msgid "cooperative center"
 msgstr ""
 
-#: main/models.py:106
+#: main/models.py:116
 msgid "cooperative centers"
 msgstr ""
 
-#: main/models.py:108 utils/models.py:32
+#: main/models.py:118 utils/models.py:32
 msgid "code"
 msgstr ""
 
-#: main/models.py:109 main/models.py:152 utils/models.py:45
+#: main/models.py:119 main/models.py:161 utils/models.py:45
 msgid "country"
 msgstr ""
 
-#: main/models.py:110
+#: main/models.py:120
 msgid "institution"
 msgstr ""
 
-#: main/models.py:118 main/models.py:132 main/models.py:150
+#: main/models.py:128 main/models.py:142 main/models.py:159
 msgid "topic"
 msgstr ""
 
-#: main/models.py:119
+#: main/models.py:129
 msgid "topics"
 msgstr ""
 
-#: main/models.py:129
+#: main/models.py:139
 msgid "topic translation"
 msgstr ""
 
-#: main/models.py:130
+#: main/models.py:140
 msgid "topic translations"
 msgstr ""
 
-#: main/models.py:140
+#: main/models.py:149
 msgid "network"
 msgstr ""
 
-#: main/models.py:141
+#: main/models.py:150
 msgid "networks"
 msgstr ""
 
-#: main/models.py:144
+#: main/models.py:153
 msgid "National"
 msgstr ""
 
-#: main/models.py:145
+#: main/models.py:154
 msgid "Thematic"
 msgstr ""
 
-#: main/models.py:149
+#: main/models.py:158
 msgid "Responsible Cooperative Center"
 msgstr ""
 
-#: main/models.py:162
+#: main/models.py:175
 msgid "Network Membership"
 msgstr ""
 
-#: main/models.py:163
+#: main/models.py:176
 msgid "Network Memberships"
+msgstr ""
+
+#: main/views.py:69 main/views.py:102 registration/views.py:28
+msgid "User successfully edited."
+msgstr ""
+
+#: main/views.py:156
+msgid "Network successfully edited."
+msgstr ""
+
+#: main/views.py:180
+msgid "Network successfully created."
+msgstr ""
+
+#: main/templates/main/edit-network.html:4
+#: main/templates/main/edit-user.html:7 main/templates/main/networks.html:4
+#: main/templates/main/users.html:4 main/templates/main/users.html.py:7
+#: main/templates/main/users.html:20 templates/menu.html:12
+msgid "Users"
+msgstr ""
+
+#: main/templates/main/edit-network.html:7 main/templates/main/networks.html:7
+#: main/templates/main/networks.html:19 templates/menu.html:13
+msgid "Networks"
+msgstr ""
+
+#: main/templates/main/edit-network.html:8
+#: main/templates/main/networks.html:22
+msgid "New Network"
+msgstr ""
+
+#: main/templates/main/edit-network.html:9
+#: main/templates/main/edit-network.html:64
+msgid "Edit Network"
+msgstr ""
+
+#: main/templates/main/edit-network.html:54
+#: main/templates/main/edit-user.html:55
+msgid "Error"
+msgstr ""
+
+#: main/templates/main/edit-network.html:71
+#: main/templates/main/edit-user.html:73
+msgid "Data"
+msgstr ""
+
+#: main/templates/main/edit-network.html:72
+msgid "Included Centers"
+msgstr ""
+
+#: main/templates/main/edit-network.html:89
+#: main/templates/main/edit-user.html:92
+#: registration/templates/registration/change-password.html:23
+#: registration/templates/registration/change-profile.html:40
+msgid "Submit"
+msgstr ""
+
+#: main/templates/main/edit-network.html:108
+msgid "Code"
+msgstr ""
+
+#: main/templates/main/edit-network.html:109
+msgid "Institution"
+msgstr ""
+
+#: main/templates/main/edit-user.html:4 main/templates/main/users.html:50
+msgid "Edit"
+msgstr ""
+
+#: main/templates/main/edit-user.html:9 main/templates/main/edit-user.html:66
+#: main/templates/main/users.html:23
+msgid "New User"
+msgstr ""
+
+#: main/templates/main/edit-user.html:11 main/templates/main/edit-user.html:66
+msgid "Edit User"
+msgstr ""
+
+#: main/templates/main/edit-user.html:74
+msgid "Permissions"
+msgstr ""
+
+#: main/templates/main/index.html:4 templates/menu.html:11
+msgid "Dashboard"
+msgstr ""
+
+#: main/templates/main/index.html:12
+msgid "Success!"
+msgstr ""
+
+#: main/templates/main/networks.html:37 main/templates/main/users.html:38
+msgid "Name"
+msgstr ""
+
+#: main/templates/main/networks.html:38
+msgid "Center Coordinator"
+msgstr ""
+
+#: main/templates/main/networks.html:39 main/templates/main/users.html:41
+msgid "Actions"
+msgstr ""
+
+#: main/templates/main/users.html:30
+msgid "Type your users"
+msgstr ""
+
+#: main/templates/main/users.html:39
+msgid "Email"
+msgstr ""
+
+#: main/templates/main/users.html:40
+msgid "Active?"
+msgstr ""
+
+#: registration/templates/registration/change-password-done.html:6
+#: registration/templates/registration/change-password.html:13
+#: templates/menu.html:39
+msgid "Change password"
+msgstr ""
+
+#: registration/templates/registration/change-password-done.html:11
+msgid "Password has been changed."
+msgstr ""
+
+#: registration/templates/registration/change-password.html:4
+#: registration/templates/registration/change-password.html:8
+#: registration/templates/registration/change-profile.html:27
+#: templates/menu.html:39
+msgid "Change Password"
+msgstr ""
+
+#: registration/templates/registration/change-password.html:7
+#: registration/templates/registration/change-profile.html:7
+msgid "Your Profile"
+msgstr ""
+
+#: registration/templates/registration/change-profile.html:4
+#: registration/templates/registration/change-profile.html:8
+msgid "Change Profile"
+msgstr ""
+
+#: registration/templates/registration/change-profile.html:14
+msgid "Edit Your Profile"
+msgstr ""
+
+#: templates/base.html:16 templates/registration/login.html:28
+#: templates/registration/logout.html:11
+msgid "BIREME Accounts"
+msgstr ""
+
+#: templates/base.html:48
+msgid "Centro Latino-Americano e do Caribe de Informação em Ciências da Saúde"
+msgstr ""
+
+#: templates/base.html:49
+msgid ""
+"Rua Botucatu, 862 | cep: 04023-901 | São Paulo - SP | Tel: (55 11) 5576-9800 "
+"| Fax: (55 11) 5575-8868 "
+msgstr ""
+
+#: templates/base.html:50
+msgid "Site Institucional da Bireme"
+msgstr ""
+
+#: templates/base.html:51
+msgid "Project source on GitHub"
+msgstr ""
+
+#: templates/base.html:51
+msgid "code on github"
+msgstr ""
+
+#: templates/menu.html:14
+msgid "Services"
+msgstr ""
+
+#: templates/menu.html:15
+msgid "Roles"
+msgstr ""
+
+#: templates/menu.html:22 templates/menu.html.py:28
+msgid "English"
+msgstr ""
+
+#: templates/menu.html:23 templates/menu.html.py:30
+msgid "Spanish"
+msgstr ""
+
+#: templates/menu.html:24 templates/menu.html.py:29
+msgid "Portuguese"
+msgstr ""
+
+#: templates/menu.html:38
+msgid "Edit profile"
 msgstr ""
 
 #: templates/admin/base_site.html:4
@@ -173,4 +371,25 @@ msgstr ""
 
 #: templates/admin/base_site.html:13
 msgid "Translations"
+msgstr ""
+
+#: templates/registration/login.html:4 templates/registration/login.html:36
+#: templates/registration/login.html:52 templates/registration/logout.html:17
+msgid "Login"
+msgstr ""
+
+#: templates/registration/login.html:50
+msgid "Forgot my password"
+msgstr ""
+
+#: templates/registration/logout.html:16
+msgid "You are logged out. Please"
+msgstr ""
+
+#: templates/registration/logout.html:17
+msgid "login"
+msgstr ""
+
+#: templates/registration/logout.html:18
+msgid "again clicking below."
 msgstr ""
