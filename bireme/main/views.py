@@ -191,6 +191,7 @@ def new_network(request):
 def services(request):
 
     user = request.user
+    search = request.REQUEST.get('s')
     output = {}
 
     # getting action parameters
@@ -201,12 +202,17 @@ def services(request):
         else:
             actions[key] = ACTIONS[key]
 
-    services = Service.objects.all()
+    if search:
+        services = Service.objects.filter(name__icontains=search)
+    else:
+        services = Service.objects.all()
+
     services = services.order_by(actions["orderby"])
     if actions['order'] == "-":
         services = services.order_by("%s%s" % (actions["order"], actions["orderby"]))
 
     output['services'] = services
+    output['search'] = search
     output['actions'] = actions
 
     return render_to_response('main/services.html', output, context_instance=RequestContext(request))
@@ -279,6 +285,7 @@ def new_service(request):
 def roles(request):
 
     user = request.user
+    search = request.REQUEST.get('s')
     output = {}
 
     # getting action parameters
@@ -289,12 +296,17 @@ def roles(request):
         else:
             actions[key] = ACTIONS[key]
 
-    roles = Role.objects.all()
+    if search:
+        roles = Role.objects.filter(name__icontains=search)
+    else:
+        roles = Role.objects.all()
+
     roles = roles.order_by(actions["orderby"])
     if actions['order'] == "-":
         roles = roles.order_by("%s%s" % (actions["order"], actions["orderby"]))
 
     output['roles'] = roles
+    output['search'] = search
     output['actions'] = actions
 
     return render_to_response('main/roles.html', output, context_instance=RequestContext(request))
