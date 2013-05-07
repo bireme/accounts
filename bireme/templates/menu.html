@@ -35,8 +35,8 @@
                                     <i class="icon-user"></i><i class="icon-caret-down"></i>
                                 </a>
                                 <ul class="dropdown-menu" role="menu" aria-labelledby="menu_profile">
-                                    <li><a href="#" title="{% trans "Edit profile" %}">{% trans "Edit profile" %}</a></li>
-                                    <li><a href="{% url 'django.contrib.auth.views.password_change'  %}" title="{% trans "Change Password" %}">{% trans "Change password" %}</a></li>
+                                    <li><a href="{% url 'registration.views.change_profile' %}" title="{% trans "Edit profile" %}">{% trans "Edit profile" %}</a></li>
+                                    <li><a href="{% url 'django.contrib.auth.views.password_change' %}" title="{% trans "Change Password" %}">{% trans "Change password" %}</a></li>
                                 </ul>
                             </li>
 
