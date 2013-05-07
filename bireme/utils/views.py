@@ -1,4 +1,5 @@
 from django.http import Http404, HttpResponse
+from django.conf import settings
     
 # form actions
 ACTIONS = {
