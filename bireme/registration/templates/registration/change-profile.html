@@ -4,8 +4,8 @@
 {% block title %}{% trans "Change Profile" %} | {{ block.super }}{% endblock %}
 
 {% block breadcrumb %}
-    <li><a href="{% url 'main.views.users' %}">{% trans "Users" %}</a> <span class="divider">/</span></li>
-    <li>{% trans "Edit Your Profile" %}</li>
+    <li><a href="{% url 'registration.views.change_profile' %}">{% trans "Your Profile" %}</a> <span class="divider">/</span></li>
+    <li>{% trans "Change Profile" %}</li>
 {% endblock %}
 
 {% block content %}
