@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load i18n %}
 
-{% block title %}{% trans "Users" %} | {{ block.super }}{% endblock %}
+{% block title %}{% trans "Edit Service" %} | {{ block.super }}{% endblock %}
 
 {% block breadcrumb %}
     <li><a href="{% url 'main.views.services' %}">{% trans "Services" %}</a> <span class="divider">/</span></li>
@@ -27,6 +27,22 @@
                 {{ field.errors }}
                 {{ field }}
             {% endfor %}
+        </fieldset>
+
+        <fieldset>                                
+            <legend>{% trans "Roles" %}</legend>
+            <div class="field">
+                <ul>
+                <!-- associate roles to the service -->                        
+                {% for role in roles %}
+                    <li><input name="roles_associated" value="{{ role.id }}" type="checkbox" id="{{ role.id }}"
+                    {% for service_role in service_roles %}
+                        {% if service_role.role == role %}checked="true"{% endif %}
+                    {% endfor %}
+                        ><label for="{{ role.id }}"> {{ role.name }}</label></li>
+                {% endfor %}    
+                </ul>   
+            </div>
         </fieldset>
 
         <div class="control-panel form-submit">

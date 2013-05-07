@@ -215,7 +215,12 @@ def services(request):
 @login_required
 def edit_service(request, service):
 
-    service = get_object_or_404(Service, id=service)    
+    service = get_object_or_404(Service, id=service)   
+    roles = Role.objects.all() 
+    service_roles = RoleService.objects.filter(service=service)
+    
+    role_associated_list = request.REQUEST.getlist('roles_associated')
+
     output = {}
 
     form = ServiceForm(instance=service)
@@ -224,10 +229,24 @@ def edit_service(request, service):
         form = ServiceForm(request.POST, request.FILES, instance=service)
         if form.is_valid():
             form.save()
+            if role_associated_list:
+                # delete previous service/roles association
+                previous_service_roles = RoleService.objects.filter(service=service)
+                previous_service_roles.delete()
+
+                # save/update service/role association
+                for role_id in role_associated_list:
+                    role = Role.objects.get(pk=role_id)
+                    role_service = RoleService(service=service, role=role)
+                    role_service.save() 
+           
+
             output['alert'] = _("Service successfully edited.")
             output['alerttype'] = "alert-success"
 
     output['form'] = form
+    output['roles'] = roles
+    output['service_roles'] = service_roles
     output['service'] = service
     
     return render_to_response('main/edit-service.html', output, context_instance=RequestContext(request))
@@ -238,6 +257,7 @@ def new_service(request):
     output = {}
 
     service = Service(creator=request.user)
+    roles = Role.objects.all()
     form = ServiceForm(instance=service)
 
     if request.POST:
@@ -250,6 +270,7 @@ def new_service(request):
 
     output['is_new'] = True
     output['form'] = form
+    output['roles'] = roles
     output['service'] = service
     
     return render_to_response('main/edit-service.html', output, context_instance=RequestContext(request))
