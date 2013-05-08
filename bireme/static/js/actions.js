@@ -39,3 +39,9 @@ function page(param) {
     form.page.value = param;
     form.submit();
 }
+
+function search() {
+    var form = document.actions;
+    form.s.value = document.search.s.value;
+    form.submit();
+}

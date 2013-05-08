@@ -285,28 +285,21 @@ def new_service(request):
 def roles(request):
 
     user = request.user
-    search = request.REQUEST.get('s')
     output = {}
 
     # getting action parameters
     actions = {}
     for key in ACTIONS.keys():
+        actions[key] = ACTIONS[key]
         if request.REQUEST.get(key):
-            actions[key] = request.REQUEST.get(key)
-        else:
-            actions[key] = ACTIONS[key]
+            actions[key] = request.REQUEST.get(key)       
 
-    if search:
-        roles = Role.objects.filter(name__icontains=search)
-    else:
-        roles = Role.objects.all()
-
+    roles = Role.objects.filter(name__icontains=actions['s'])
     roles = roles.order_by(actions["orderby"])
     if actions['order'] == "-":
         roles = roles.order_by("%s%s" % (actions["order"], actions["orderby"]))
 
     output['roles'] = roles
-    output['search'] = search
     output['actions'] = actions
 
     return render_to_response('main/roles.html', output, context_instance=RequestContext(request))

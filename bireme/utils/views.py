@@ -6,6 +6,7 @@ ACTIONS = {
     'orderby': 'id',
     'order': '+',
     'page': 1,
+    's': "",
 }
 
 def cookie_lang(request):
