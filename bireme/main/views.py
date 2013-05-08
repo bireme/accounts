@@ -260,21 +260,36 @@ def new_service(request):
     output = {}
 
     service = Service(creator=request.user)
-    roles = Role.objects.all()
     form = ServiceForm(instance=service)
+    roles = Role.objects.all()
+
+    role_associated_list = request.REQUEST.getlist('roles_associated')
 
     if request.POST:
-        form =ServiceForm(request.POST, request.FILES, instance=service)
+        form = ServiceForm(request.POST, request.FILES, instance=service)
         
         if form.is_valid():
-            form.save()
+            
+            service = form.save()
+
+            # save/update service/role association
+            for role_id in role_associated_list:
+                role = Role.objects.get(pk=role_id)
+                role_service = RoleService(service=service, role=role)
+                role_service.save() 
+            
             output['alert'] = _("Service successfully created.")
             output['alerttype'] = "alert-success"
+
+            return redirect(reverse("main.views.edit_service", args=[service.id]))
+
+    service_roles = RoleService.objects.filter(service=service)
 
     output['is_new'] = True
     output['form'] = form
     output['roles'] = roles
     output['service'] = service
+    output['service_roles'] = service_roles
     
     return render_to_response('main/edit-service.html', output, context_instance=RequestContext(request))
 
