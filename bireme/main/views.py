@@ -39,7 +39,7 @@ def users(request):
             actions[key] = ACTIONS[key]
 
 
-    users = User.objects.filter(profile__cooperative_center=cc)
+    users = User.objects.filter(profile__cooperative_center=cc, username__icontains=actions['s'])
     users = users.order_by(actions["orderby"])
     if actions['order'] == "-":
         users = users.order_by("%s%s" % (actions["order"], actions["orderby"]))
@@ -125,7 +125,8 @@ def networks(request):
         else:
             actions[key] = ACTIONS[key]
 
-    networks = Network.objects.all()
+    networks = Network.objects.filter(acronym__icontains=actions['s'])
+
     networks = networks.order_by(actions["orderby"])
     if actions['order'] == "-":
         networks = networks.order_by("%s%s" % (actions["order"], actions["orderby"]))
@@ -191,7 +192,6 @@ def new_network(request):
 def services(request):
 
     user = request.user
-    search = request.REQUEST.get('s')
     output = {}
 
     # getting action parameters
@@ -202,17 +202,14 @@ def services(request):
         else:
             actions[key] = ACTIONS[key]
 
-    if search:
-        services = Service.objects.filter(name__icontains=search)
-    else:
-        services = Service.objects.all()
+
+    services = Service.objects.filter(name__icontains=actions['s'])
 
     services = services.order_by(actions["orderby"])
     if actions['order'] == "-":
         services = services.order_by("%s%s" % (actions["order"], actions["orderby"]))
 
     output['services'] = services
-    output['search'] = search
     output['actions'] = actions
 
     return render_to_response('main/services.html', output, context_instance=RequestContext(request))

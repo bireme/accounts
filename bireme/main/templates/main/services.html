@@ -12,6 +12,7 @@
     <input type="hidden" name="orderby" value="{{ actions.orderby }}">
     <input type="hidden" name="order" value="{{ actions.order }}">
     <input type="hidden" name="page" value="{{ actions.page }}">
+    <input type='hidden' name="s"  value="{{ actions.s }}">
 </form>
 
 <!--  header -->
@@ -24,16 +25,18 @@
 </div>
 
 <div class='body'>
-    {% if search %}
-        <div class="alert alert-info">
-            {% trans "Search" %}: <strong>{{ search }}</strong> <a href="{% url 'main.views.services' %}"><i class="icon-remove-circle"></i></a>
+    {% if actions.s %}
+        <div>
+            {% trans "Search" %}: <strong>{{ actions.s }}</strong> 
+            <a href="{% url 'main.views.services' %}">[{% trans "clear" %}]</a>
         </div>
     {% endif %}
+
     <div class='pull-right'>
         <div class="input-append">
-            <form name="search" action="{% url 'main.views.services' %}">
-                <input type='text' name="s" placeholder="{% trans "Search" %}">
-                <button class="btn" type="button"><i class='icon-search'></i></button>
+            <form name="search" onSubmit="return search();">
+                <input type='text' name="s"  value="{{ actions.s }}" placeholder="{% trans "Search" %}">
+                <button class="btn" type="submit"><i class='icon-search'></i></button>
             </form>
         </div>
     </div>

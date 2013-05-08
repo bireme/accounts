@@ -26,9 +26,9 @@
 
 <div class='body'>
     {% if actions.s %}
-        <div class="alert alert-info">
+        <div>
             {% trans "Search" %}: <strong>{{ actions.s }}</strong> 
-            <a href="{% url 'main.views.roles' %}">[clean]</a>
+            <a href="{% url 'main.views.roles' %}">[{% trans "clear" %}]</a>
         </div>
     {% endif %}
 
