@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-05-07 08:24-0300\n"
+"POT-Creation-Date: 2013-05-13 12:46-0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -46,15 +46,15 @@ msgstr ""
 msgid "Advanced"
 msgstr ""
 
-#: main/models.py:36 main/models.py:179
+#: main/models.py:36 main/models.py:181
 msgid "Cooperative Center"
 msgstr ""
 
-#: main/models.py:38 main/models.py:160
+#: main/models.py:38 main/models.py:162
 msgid "type"
 msgstr ""
 
-#: main/models.py:51 main/models.py:66
+#: main/models.py:51 main/models.py:67
 msgid "role"
 msgstr ""
 
@@ -62,108 +62,108 @@ msgstr ""
 msgid "roles"
 msgstr ""
 
-#: main/models.py:54 main/models.py:80 main/models.py:94 main/models.py:131
-#: utils/models.py:33 utils/models.py:47
-msgid "name"
-msgstr ""
-
-#: main/models.py:55 main/models.py:68
-msgid "description"
-msgstr ""
-
-#: main/models.py:63
-msgid "role translation"
-msgstr ""
-
-#: main/models.py:64
-msgid "role translations"
-msgstr ""
-
-#: main/models.py:67 main/models.py:93 main/models.py:143 utils/models.py:46
-msgid "language"
-msgstr ""
-
-#: main/models.py:76 main/models.py:92
-msgid "service"
-msgstr ""
-
-#: main/models.py:77
-msgid "services"
-msgstr ""
-
-#: main/models.py:79 main/models.py:157
+#: main/models.py:54 main/models.py:81 main/models.py:159
 msgid "acronym"
 msgstr ""
 
-#: main/models.py:89
+#: main/models.py:55 main/models.py:69 main/models.py:82 main/models.py:96
+#: main/models.py:133 utils/models.py:33 utils/models.py:47
+msgid "name"
+msgstr ""
+
+#: main/models.py:56 main/models.py:70
+msgid "description"
+msgstr ""
+
+#: main/models.py:64
+msgid "role translation"
+msgstr ""
+
+#: main/models.py:65
+msgid "role translations"
+msgstr ""
+
+#: main/models.py:68 main/models.py:95 main/models.py:145 utils/models.py:46
+msgid "language"
+msgstr ""
+
+#: main/models.py:78 main/models.py:94
+msgid "service"
+msgstr ""
+
+#: main/models.py:79
+msgid "services"
+msgstr ""
+
+#: main/models.py:91
 msgid "service translation"
 msgstr ""
 
-#: main/models.py:90
+#: main/models.py:92
 msgid "service translations"
 msgstr ""
 
-#: main/models.py:115
+#: main/models.py:117
 msgid "cooperative center"
 msgstr ""
 
-#: main/models.py:116
+#: main/models.py:118
 msgid "cooperative centers"
 msgstr ""
 
-#: main/models.py:118 utils/models.py:32
+#: main/models.py:120 utils/models.py:32
 msgid "code"
 msgstr ""
 
-#: main/models.py:119 main/models.py:161 utils/models.py:45
+#: main/models.py:121 main/models.py:163 utils/models.py:45
 msgid "country"
 msgstr ""
 
-#: main/models.py:120
+#: main/models.py:122
 msgid "institution"
 msgstr ""
 
-#: main/models.py:128 main/models.py:142 main/models.py:159
+#: main/models.py:130 main/models.py:144 main/models.py:161
 msgid "topic"
 msgstr ""
 
-#: main/models.py:129
+#: main/models.py:131
 msgid "topics"
 msgstr ""
 
-#: main/models.py:139
+#: main/models.py:141
 msgid "topic translation"
 msgstr ""
 
-#: main/models.py:140
+#: main/models.py:142
 msgid "topic translations"
 msgstr ""
 
-#: main/models.py:149
+#: main/models.py:151
 msgid "network"
 msgstr ""
 
-#: main/models.py:150
+#: main/models.py:152
 msgid "networks"
 msgstr ""
 
-#: main/models.py:153
+#: main/models.py:155
 msgid "National"
 msgstr ""
 
-#: main/models.py:154
+#: main/models.py:156
 msgid "Thematic"
 msgstr ""
 
-#: main/models.py:158
+#: main/models.py:160
 msgid "Responsible Cooperative Center"
 msgstr ""
 
-#: main/models.py:175
+#: main/models.py:177
 msgid "Network Membership"
 msgstr ""
 
-#: main/models.py:176
+#: main/models.py:178
 msgid "Network Memberships"
 msgstr ""
 
@@ -171,28 +171,41 @@ msgstr ""
 msgid "User successfully edited."
 msgstr ""
 
-#: main/views.py:156
+#: main/views.py:158 main/views.py:181
 msgid "Network successfully edited."
 msgstr ""
 
-#: main/views.py:180
-msgid "Network successfully created."
+#: main/views.py:249
+msgid "Service successfully edited."
+msgstr ""
+
+#: main/views.py:283
+msgid "Service successfully created."
+msgstr ""
+
+#: main/views.py:333
+msgid "Role successfully edited."
+msgstr ""
+
+#: main/views.py:354
+msgid "Role successfully created."
 msgstr ""
 
 #: main/templates/main/edit-network.html:4
-#: main/templates/main/edit-user.html:7 main/templates/main/networks.html:4
+#: main/templates/main/edit-user.html:7 main/templates/main/roles.html:4
 #: main/templates/main/users.html:4 main/templates/main/users.html.py:7
-#: main/templates/main/users.html:20 templates/menu.html:12
+#: main/templates/main/users.html:21 templates/menu.html:12
 msgid "Users"
 msgstr ""
 
-#: main/templates/main/edit-network.html:7 main/templates/main/networks.html:7
-#: main/templates/main/networks.html:19 templates/menu.html:13
+#: main/templates/main/edit-network.html:7 main/templates/main/networks.html:4
+#: main/templates/main/networks.html:7 main/templates/main/networks.html:20
+#: templates/menu.html:13
 msgid "Networks"
 msgstr ""
 
 #: main/templates/main/edit-network.html:8
-#: main/templates/main/networks.html:22
+#: main/templates/main/networks.html:23
 msgid "New Network"
 msgstr ""
 
@@ -216,9 +229,13 @@ msgid "Included Centers"
 msgstr ""
 
 #: main/templates/main/edit-network.html:89
+#: main/templates/main/edit-role.html:33
+#: main/templates/main/edit-service.html:49
 #: main/templates/main/edit-user.html:92
 #: registration/templates/registration/change-password.html:23
 #: registration/templates/registration/change-profile.html:40
+#: registration/templates/registration/password-reset-confirm.html:37
+#: registration/templates/registration/password-reset.html:38
 msgid "Submit"
 msgstr ""
 
@@ -230,12 +247,46 @@ msgstr ""
 msgid "Institution"
 msgstr ""
 
-#: main/templates/main/edit-user.html:4 main/templates/main/users.html:50
+#: main/templates/main/edit-role.html:4 main/templates/main/edit-role.html:9
+#: main/templates/main/edit-role.html:17
+msgid "Edit Role"
+msgstr ""
+
+#: main/templates/main/edit-role.html:7
+#: main/templates/main/edit-service.html:33 main/templates/main/roles.html:7
+#: main/templates/main/roles.html.py:20 templates/menu.html:15
+msgid "Roles"
+msgstr ""
+
+#: main/templates/main/edit-role.html:8 main/templates/main/edit-role.html:17
+#: main/templates/main/roles.html:23
+msgid "New Role"
+msgstr ""
+
+#: main/templates/main/edit-service.html:4
+#: main/templates/main/edit-service.html:9
+#: main/templates/main/edit-service.html:17
+msgid "Edit Service"
+msgstr ""
+
+#: main/templates/main/edit-service.html:7 main/templates/main/services.html:4
+#: main/templates/main/services.html:7 main/templates/main/services.html:20
+#: templates/menu.html:14
+msgid "Services"
+msgstr ""
+
+#: main/templates/main/edit-service.html:8
+#: main/templates/main/edit-service.html:17
+#: main/templates/main/services.html:23
+msgid "New Service"
+msgstr ""
+
+#: main/templates/main/edit-user.html:4 main/templates/main/users.html:60
 msgid "Edit"
 msgstr ""
 
 #: main/templates/main/edit-user.html:9 main/templates/main/edit-user.html:66
-#: main/templates/main/users.html:23
+#: main/templates/main/users.html:24
 msgid "New User"
 msgstr ""
 
@@ -255,27 +306,41 @@ msgstr ""
 msgid "Success!"
 msgstr ""
 
-#: main/templates/main/networks.html:37 main/templates/main/users.html:38
+#: main/templates/main/networks.html:30 main/templates/main/networks.html:38
+#: main/templates/main/roles.html:30 main/templates/main/roles.html.py:38
+#: main/templates/main/services.html:30 main/templates/main/services.html:38
+#: main/templates/main/users.html:31 main/templates/main/users.html.py:39
+msgid "Search"
+msgstr ""
+
+#: main/templates/main/networks.html:31 main/templates/main/roles.html:31
+#: main/templates/main/services.html:31 main/templates/main/users.html:32
+msgid "clear"
+msgstr ""
+
+#: main/templates/main/networks.html:47 main/templates/main/roles.html:47
+#: main/templates/main/services.html:47 main/templates/main/users.html:48
 msgid "Name"
 msgstr ""
 
-#: main/templates/main/networks.html:38
+#: main/templates/main/networks.html:48
 msgid "Center Coordinator"
 msgstr ""
 
-#: main/templates/main/networks.html:39 main/templates/main/users.html:41
+#: main/templates/main/networks.html:49 main/templates/main/roles.html:49
+#: main/templates/main/services.html:49 main/templates/main/users.html:51
 msgid "Actions"
 msgstr ""
 
-#: main/templates/main/users.html:30
-msgid "Type your users"
+#: main/templates/main/roles.html:48 main/templates/main/services.html:48
+msgid "Acronym"
 msgstr ""
 
-#: main/templates/main/users.html:39
+#: main/templates/main/users.html:49
 msgid "Email"
 msgstr ""
 
-#: main/templates/main/users.html:40
+#: main/templates/main/users.html:50
 msgid "Active?"
 msgstr ""
 
@@ -310,9 +375,61 @@ msgstr ""
 msgid "Edit Your Profile"
 msgstr ""
 
-#: templates/base.html:16 templates/registration/login.html:28
-#: templates/registration/logout.html:11
+#: registration/templates/registration/login.html:4
+#: registration/templates/registration/login.html:36
+#: registration/templates/registration/login.html:52
+#: registration/templates/registration/logout.html:17
+#: registration/templates/registration/password-reset-complete.html:4
+#: registration/templates/registration/password-reset-confirm.html:4
+#: registration/templates/registration/password-reset-done.html:4
+#: registration/templates/registration/password-reset.html:4
+msgid "Login"
+msgstr ""
+
+#: registration/templates/registration/login.html:28
+#: registration/templates/registration/logout.html:11
+#: registration/templates/registration/password-reset-complete.html:27
+#: registration/templates/registration/password-reset-confirm.html:27
+#: registration/templates/registration/password-reset-done.html:27
+#: registration/templates/registration/password-reset.html:27
+#: templates/base.html:16
 msgid "BIREME Accounts"
+msgstr ""
+
+#: registration/templates/registration/login.html:50
+msgid "Forgot my password"
+msgstr ""
+
+#: registration/templates/registration/logout.html:16
+msgid "You are logged out. Please"
+msgstr ""
+
+#: registration/templates/registration/logout.html:17
+msgid "login"
+msgstr ""
+
+#: registration/templates/registration/logout.html:18
+msgid "again clicking below."
+msgstr ""
+
+#: registration/templates/registration/password-reset-complete.html:32
+#: registration/templates/registration/password-reset-confirm.html:32
+#: registration/templates/registration/password-reset-done.html:32
+#: registration/templates/registration/password-reset.html:33
+msgid "Reset Password"
+msgstr ""
+
+#: registration/templates/registration/password-reset-complete.html:34
+msgid "Your password has been changed."
+msgstr ""
+
+#: registration/templates/registration/password-reset-complete.html:35
+#: registration/templates/registration/password-reset-complete.html:36
+msgid "Go to login"
+msgstr ""
+
+#: registration/templates/registration/password-reset-done.html:33
+msgid "We send us a email containing the instructions to procced."
 msgstr ""
 
 #: templates/base.html:48
@@ -335,14 +452,6 @@ msgstr ""
 
 #: templates/base.html:51
 msgid "code on github"
-msgstr ""
-
-#: templates/menu.html:14
-msgid "Services"
-msgstr ""
-
-#: templates/menu.html:15
-msgid "Roles"
 msgstr ""
 
 #: templates/menu.html:22 templates/menu.html.py:28
@@ -371,25 +480,4 @@ msgstr ""
 
 #: templates/admin/base_site.html:13
 msgid "Translations"
-msgstr ""
-
-#: templates/registration/login.html:4 templates/registration/login.html:36
-#: templates/registration/login.html:52 templates/registration/logout.html:17
-msgid "Login"
-msgstr ""
-
-#: templates/registration/login.html:50
-msgid "Forgot my password"
-msgstr ""
-
-#: templates/registration/logout.html:16
-msgid "You are logged out. Please"
-msgstr ""
-
-#: templates/registration/logout.html:17
-msgid "login"
-msgstr ""
-
-#: templates/registration/logout.html:18
-msgid "again clicking below."
 msgstr ""
