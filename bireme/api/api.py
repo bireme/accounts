@@ -36,7 +36,7 @@ class UserResource(ModelResource):
                 cc = user.profile.cooperative_center
                 ccs = [cc.code]
                 networks = [network.acronym for network in cc.network_set.all()]
-                roles = [role.role_service.role.name for role in UserRoleService.objects.filter(user=user, role_service__service__acronym=service)]
+                roles = [role.role_service.role.acronym for role in UserRoleService.objects.filter(user=user, role_service__service__acronym=service)]
                 
                 # if not have roles in this service, is unauthorized
                 if not roles:
