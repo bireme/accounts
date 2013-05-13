@@ -46,7 +46,6 @@ LANGUAGES = (
     ('es', u'Espanhol'),
 )
 
-
 SITE_ID = 1
 
 # If you set this to False, Django will make some optimizations so as not
@@ -87,6 +86,11 @@ STATICFILES_DIRS = (
     os.path.join(PROJECT_ROOT_PATH, 'static'),
 )
 
+AUTHENTICATION_BACKENDS = (
+    'utils.authenticate.EmailModelBackend',
+    'django.contrib.auth.backends.ModelBackend', 
+)
+
 # List of finder classes that know how to find static files in
 # various locations.
 STATICFILES_FINDERS = (
@@ -104,8 +108,6 @@ TEMPLATE_LOADERS = (
     'django.template.loaders.app_directories.Loader',
 #     'django.template.loaders.eggs.Loader',
 )
-
-
 
 MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
