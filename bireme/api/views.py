@@ -8,8 +8,9 @@ from django.core.paginator import Paginator
 from django.contrib.auth.models import User
 from django.template import RequestContext
 from django.core import serializers
-from utils.views import ACTIONS
 from django.conf import settings
+from utils.views import ACTIONS
+from django.db.models import Q
 from datetime import datetime
 from main.models import *
 import mimetypes
@@ -71,7 +72,7 @@ def get_ccs(request):
     members = []
     
     if request.GET.get('code'):
-        ccs = ccs.filter(code__istartswith=request.GET.get('code'))
+        ccs = ccs.filter(Q(code__istartswith=request.GET.get('code')) | Q(institution__icontains=request.GET.get('code')))
     
     if request.GET.get('country'):
         ccs = ccs.filter(country__id=request.GET.get('country'))
