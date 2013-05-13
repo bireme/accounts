@@ -149,6 +149,7 @@ def edit_network(request, network):
     if network.type == 'national' or network.country:
         cc_country = network.country.id
         ccs = ccs.filter(country=network.country)
+        output['cc_country'] = cc_country
 
     if request.POST:
         form = NetworkForm(request.POST, request.FILES, instance=network)
@@ -160,7 +161,6 @@ def edit_network(request, network):
     output['form'] = form
     output['network'] = network
     output['ccs'] = ccs
-    output['cc_country'] = cc_country
     output['members'] = members
     
     return render_to_response('main/edit-network.html', output, context_instance=RequestContext(request))
@@ -177,9 +177,11 @@ def new_network(request):
         form = NetworkForm(request.POST, request.FILES, instance=network)
         
         if form.is_valid():
-            form.save()
-            output['alert'] = _("Network successfully created.")
+            network = form.save()
+            output['alert'] = _("Network successfully edited.")
             output['alerttype'] = "alert-success"
+
+            return redirect("%s/#!tab-centers" % reverse("main.views.edit_network", args=[network.id]))
 
     output['is_new'] = True
     output['form'] = form
