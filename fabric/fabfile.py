@@ -3,24 +3,31 @@ import os
 from fabric.api import env, local, settings, abort, run, cd
 from fabric.operations import local, put, sudo, get
 from fabric.context_managers import prefix
-from environment import *
 
-def locale():
-    """
-        Make locale files download from the server
-    """
-    with cd(env.rootpath):
-        get('locale/*', '../bireme/locale')
- 
-def reset_db(app):
-    """
-        Realiza reset do app
-    """    
-    with prefix('. %s/bin/activate' % env.virtualenv):
-        with cd(env.rootpath):   
-            run('python manage.py reset %s' % app) 
-            run('python manage.py syncdb')
-            run('python manage.py loaddata fixtures/%s.json' % app)    
+env.appname = 'accounts'
+
+env.user = ''
+env.path = '/home/aplicacoes/' + env.appname + '/'
+env.rootpath = env.path + 'bireme/'
+env.gitpath = env.path + 'git/'
+env.virtualenv = env.path + 'env/'
+
+# including local environment from fabric
+try: from environment import *
+except: pass
+
+def test():
+    """Test server"""
+    env.hosts = ['ts01dx']
+
+def stage():
+    """Stage server"""
+    env.hosts = ['hm01dx']
+
+def production():
+    """Main server"""
+    env.hosts = ['pr20dx:8022']
+
 
 def requirements():
     """
@@ -30,45 +37,20 @@ def requirements():
         with prefix('. %s/bin/activate' % env.virtualenv):
             run('pip install -r requirements.txt')
 
-def fixtures(app=None):
-    """
-        Make new fixtures in server and download it
-    """
-    if app:
-        with prefix('. %s/bin/activate' % env.virtualenv):
-            with cd(env.rootpath):
-                run('python manage.py dumpdata %s --indent=2 > /tmp/%s.json' % (app, app))
-        get('/tmp/%s.json' % app, '../bireme/fixtures')
-
-    else:
-        with prefix('. %s/bin/activate' % env.virtualenv):
-            with cd(env.rootpath):
-                run('python manage.py dumpdata --indent=2 > /tmp/accounts.json')
-        get('/tmp/accounts.json', '../bireme/fixtures')
-
 def migrate():
     """
         Realiza migration local
     """    
-    with cd(env.path):
+    with cd(env.rootpath):
         with prefix('. %s/bin/activate' % env.virtualenv):
             run('python manage.py migrate')
-
-def compilemessages():
-    """
-        Compile translations from server
-    """
-    with prefix('. %s/bin/activate' % env.virtualenv):
-        with cd(env.rootpath):
-            run('python manage.py compilemessages')
-    restart_app()
 
 def restart_app():
     """
         Restarts remote wsgi.
     """
-    with cd(env.path):
-        run("touch application.wsgi")
+    with cd(os.path.join(env.gitpath ,'tools')):
+        run("./restart.sh")
 
 def update_version_file():
     with cd(env.rootpath):
@@ -78,27 +60,17 @@ def update_version_file():
 
 def update():
     """
-        Somente atualiza código (git pull) e restart serviço
+        Atualiza código (git pull) e restart serviço
     """
     with cd(env.gitpath):
         run("git pull")
 
+    requirements()
+    #migrate()
     update_version_file()
     restart_app()
 
-def full_update():
-    """
-        Install requirements, update source and make migrations and update 
-    """
-    update()
-    requirements()
-    migrate()
+def update_production():
 
-def tag(tag):
-    """
-        Checkout a tag in the server
-    """
-    with cd(env.path):
-        run('git checkout %s' % tag)
-    
-    restart_app()
+    with cd(os.path.join(env.gitpath, 'fabric')):
+        run("fab production update")
