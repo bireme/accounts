@@ -2,6 +2,7 @@
 from django.shortcuts import redirect, render_to_response, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.utils.translation import ugettext_lazy as _
+from django.contrib.auth import forms as auth_forms
 from django.http import Http404, HttpResponse
 from django.core.urlresolvers import reverse
 from django.core.paginator import Paginator
@@ -98,6 +99,15 @@ def new_user(request):
             # saving profile
             new_user.profile.cooperative_center = cc
             new_user.profile.save()
+
+            # send an email to user that to make him change your password from the first time
+            password_form = auth_forms.PasswordResetForm({'email': new_user.email})
+            if password_form.is_valid():
+                opts = {
+                    'use_https': request.is_secure(),
+                    'request': request,
+                }
+                password_form.save(**opts)
 
             output['alert'] = _("User successfully edited.")
             output['alerttype'] = "alert-success"
