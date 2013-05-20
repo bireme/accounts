@@ -46,6 +46,10 @@ LANGUAGES = (
     ('es', u'Espanhol'),
 )
 
+LOCALE_PATHS =(
+    os.path.join(PROJECT_ROOT_PATH, 'locale'),
+)
+
 SITE_ID = 1
 
 # If you set this to False, Django will make some optimizations so as not
