@@ -47,6 +47,7 @@
             <th><a href="javascript:orderby('id');" id="id_id">#</a></th>
             <th><a href="javascript:orderby('username');" id="id_username">{% trans "Name" %}</a></th>
             <th><a href="javascript:orderby('email');" id="id_email">{% trans "Email" %}</a></th>
+            <th><a href="javascript:orderby('services');" id="id_email">{% trans "Services" %}</a></th>
             <th><a href="javascript:orderby('is_active');" id="id_is_active">{% trans "Active?" %}</a></th>
             <th>{% trans "Actions" %}</th>
         </thead>
@@ -56,6 +57,11 @@
                     <td>{{ user.id }}</td>
                     <td>{{ user }}</td>
                     <td>{{ user.email }}</td>
+                    <td>{% for service, roles in user.profile.get_role_services.items %}
+                        
+                        <span title="{% for role in roles %}{{ role }}{% if not forloop.last %}, {% endif %}{% endfor %}">{{ service }}</span>
+                        {% if not forloop.last %} | {% endif %}
+                    {% endfor %}</td>
                     <td>{% if user.is_active %}<i class='icon-ok'></i>{% else %}<i class='icon-minus-sign'></i>{% endif %}</td>
                     <td><a href="{% url 'main.views.edit_user' user.id %}" class='btn btn-mini' title="{% trans 'Edit' %}"><i class='icon-pencil'></i></a></td>
                 </tr>

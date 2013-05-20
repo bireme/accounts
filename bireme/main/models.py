@@ -37,6 +37,17 @@ class Profile(models.Model):
     user = models.OneToOneField(User, verbose_name="user") # allow extension of default django User
     type = models.CharField(_("type"), max_length=30, choices=USER_TYPE_CHOICES, default="basic")
 
+    def get_role_services(self):
+        services = {}
+        for item in UserRoleService.objects.filter(user=self):
+            try:
+                services[item.role_service.service].append(item.role_service.role)
+            except:
+                services[item.role_service.service] = [item.role_service.role]
+        return services
+        
+        
+
     def is_basic(self):
         if self.type == "basic":
             return True
