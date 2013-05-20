@@ -16,6 +16,8 @@ from forms import *
 import mimetypes
 import os
 
+from decorators import *
+
 @login_required
 def dashboard(request):
     
@@ -25,6 +27,7 @@ def dashboard(request):
     return render_to_response('main/index.html', output, context_instance=RequestContext(request))
 
 @login_required
+@advanced_permission
 def users(request):
 
     user = request.user
@@ -52,6 +55,7 @@ def users(request):
     return render_to_response('main/users.html', output, context_instance=RequestContext(request))
 
 @login_required
+@advanced_permission
 def edit_user(request, user):
 
     user = get_object_or_404(User, id=user)
@@ -71,13 +75,14 @@ def edit_user(request, user):
             output['alerttype'] = "alert-success"
 
     output['form'] = form
-    output['user'] = user
+    output['edit_user'] = user
     output['services'] = services
     output['user_roles'] = user_role_services
 
     return render_to_response('main/edit-user.html', output, context_instance=RequestContext(request))
 
 @login_required
+@advanced_permission
 def new_user(request):
 
     user = request.user
@@ -122,6 +127,7 @@ def new_user(request):
     return render_to_response('main/edit-user.html', output, context_instance=RequestContext(request))
 
 @login_required
+@advanced_permission
 def networks(request):
 
     user = request.user
@@ -137,6 +143,9 @@ def networks(request):
 
     networks = Network.objects.filter(acronym__icontains=actions['s'])
 
+    if not user.is_superuser:
+        networks = networks.filter(responsible=user.profile.cooperative_center)
+
     networks = networks.order_by(actions["orderby"])
     if actions['order'] == "-":
         networks = networks.order_by("%s%s" % (actions["order"], actions["orderby"]))
@@ -147,6 +156,7 @@ def networks(request):
     return render_to_response('main/networks.html', output, context_instance=RequestContext(request))
 
 @login_required
+@advanced_permission
 def edit_network(request, network):
 
     network = get_object_or_404(Network, id=network)
@@ -201,6 +211,7 @@ def new_network(request):
 
 
 @login_required
+@superuser_permission
 def services(request):
 
     user = request.user
@@ -228,6 +239,7 @@ def services(request):
 
 
 @login_required
+@superuser_permission
 def edit_service(request, service):
 
     service = get_object_or_404(Service, id=service)   
@@ -267,6 +279,7 @@ def edit_service(request, service):
     return render_to_response('main/edit-service.html', output, context_instance=RequestContext(request))
 
 @login_required
+@superuser_permission
 def new_service(request):
 
     output = {}
@@ -306,6 +319,7 @@ def new_service(request):
     return render_to_response('main/edit-service.html', output, context_instance=RequestContext(request))
 
 @login_required
+@superuser_permission
 def roles(request):
 
     user = request.user
@@ -329,6 +343,7 @@ def roles(request):
     return render_to_response('main/roles.html', output, context_instance=RequestContext(request))
 
 @login_required
+@superuser_permission
 def edit_role(request, role):
 
     role = get_object_or_404(Role, id=role)    
@@ -349,6 +364,7 @@ def edit_role(request, role):
     return render_to_response('main/edit-role.html', output, context_instance=RequestContext(request))
 
 @login_required
+@superuser_permission
 def new_role(request):
 
     output = {}

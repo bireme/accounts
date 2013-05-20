@@ -37,6 +37,16 @@ class Profile(models.Model):
     user = models.OneToOneField(User, verbose_name="user") # allow extension of default django User
     type = models.CharField(_("type"), max_length=30, choices=USER_TYPE_CHOICES, default="basic")
 
+    def is_basic(self):
+        if self.type == "basic":
+            return True
+        return False
+
+    def is_advanced(self):
+        if self.type == "advanced":
+            return True
+        return False
+
 # creates automatically and profile
 def create_profile(sender, instance, created, **kwargs):
     if created:

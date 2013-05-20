@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load i18n %}
 
-{% block title %}{% trans "Edit" %} {{ user }} | {{ block.super }}{% endblock %}
+{% block title %}{% trans "Edit" %} {{ edit_user }} | {{ block.super }}{% endblock %}
 
 {% block breadcrumb %}
     <li><a href="{% url 'main.views.users' %}">{% trans "Users" %}</a> <span class="divider">/</span></li>
@@ -49,7 +49,7 @@
                 $.ajax({
                     type: "GET",
                     url: "{% url 'api.views.change_user_role_service' %}",
-                    data: { service: service, role: role, checked: checked, user: "{{ user.id }}" }
+                    data: { service: service, role: role, checked: checked, user: "{{ edit_user.id }}" }
                 }).done(function(result) {
                     if(result === "0") {
                         alert("{% trans 'Error' %}");
