@@ -6,6 +6,7 @@ from django.contrib.auth import forms as auth_forms
 from django.http import Http404, HttpResponse
 from django.core.urlresolvers import reverse
 from django.core.paginator import Paginator
+from django.core import mail
 from django.contrib.auth.models import User
 from django.template import RequestContext
 from utils.views import ACTIONS
@@ -60,6 +61,7 @@ def edit_user(request, user):
 
     user = get_object_or_404(User, id=user)
     cc = request.user.profile.cooperative_center
+    resend_email = request.REQUEST.get('resend_email_flag')
     output = {}
 
     services = Service.objects.all()
@@ -73,6 +75,19 @@ def edit_user(request, user):
             form.save()
             output['alert'] = _("User successfully edited.")
             output['alerttype'] = "alert-success"
+
+            if resend_email == 'true':
+                # send an email to user that to make him change your password from the first time            
+                password_form = auth_forms.PasswordResetForm({'email': user.email})
+                if password_form.is_valid():
+                    opts = {
+                        'use_https': request.is_secure(),
+                        'request': request,
+                    }
+                    password_form.save(**opts)
+         
+                    output['alert'] = _("Activation email re-sent")
+                    output['alerttype'] = "alert-success"
 
     output['form'] = form
     output['edit_user'] = user
@@ -105,7 +120,7 @@ def new_user(request):
             new_user.profile.cooperative_center = cc
             new_user.profile.save()
 
-            # send an email to user that to make him change your password from the first time
+            # send an email to user that to make him change your password from the first time            
             password_form = auth_forms.PasswordResetForm({'email': new_user.email})
             if password_form.is_valid():
                 opts = {
@@ -125,6 +140,7 @@ def new_user(request):
     output['is_new'] = True
 
     return render_to_response('main/edit-user.html', output, context_instance=RequestContext(request))
+
 
 @login_required
 @advanced_permission
