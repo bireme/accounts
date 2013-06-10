@@ -25,6 +25,9 @@ def dashboard(request):
     user = request.user
     output = {}
 
+    if not user.is_superuser and user.profile.type == "basic":
+        return redirect(reverse("registration.views.change_profile"))
+
     return render_to_response('main/index.html', output, context_instance=RequestContext(request))
 
 @login_required
