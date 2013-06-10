@@ -2,20 +2,20 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# 
+#
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-06-03 16:05-0300\n"
-"PO-Revision-Date: 2013-06-03 16:08-0300\n"
-"Last-Translator:   <admin@locahost.com>\n"
+"POT-Creation-Date: 2013-05-20 17:07-0300\n"
+"PO-Revision-Date: 2013-05-13 12:56-0306\n"
+"Last-Translator:   <moa.moda@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: \n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Translated-Using: django-rosetta 0.7.1\n"
 
@@ -168,31 +168,27 @@ msgstr "Membros da Rede"
 msgid "Network Memberships"
 msgstr "Mebro da Rede"
 
-#: main/views.py:76 main/views.py:132 registration/views.py:28
+#: main/views.py:74 main/views.py:117 registration/views.py:28
 msgid "User successfully edited."
 msgstr "Usuário editado com sucesso."
 
-#: main/views.py:89
-msgid "Activation email re-sent"
-msgstr ""
-
-#: main/views.py:194 main/views.py:217
+#: main/views.py:178 main/views.py:201
 msgid "Network successfully edited."
 msgstr "Rede editada com sucesso."
 
-#: main/views.py:287
+#: main/views.py:271
 msgid "Service successfully edited."
 msgstr "Serviço editado com sucesso."
 
-#: main/views.py:322
+#: main/views.py:306
 msgid "Service successfully created."
 msgstr "Serviço criado com sucesso."
 
-#: main/views.py:374
+#: main/views.py:358
 msgid "Role successfully edited."
 msgstr "Papel editado com sucesso."
 
-#: main/views.py:396
+#: main/views.py:380
 msgid "Role successfully created."
 msgstr "Papel criado com sucesso."
 
@@ -225,7 +221,7 @@ msgid "Error"
 msgstr "Erro"
 
 #: main/templates/main/edit-network.html:71
-#: main/templates/main/edit-user.html:78
+#: main/templates/main/edit-user.html:73
 msgid "Data"
 msgstr "Dados"
 
@@ -236,7 +232,7 @@ msgstr "Centros Incluidos"
 #: main/templates/main/edit-network.html:89
 #: main/templates/main/edit-role.html:33
 #: main/templates/main/edit-service.html:49
-#: main/templates/main/edit-user.html:101
+#: main/templates/main/edit-user.html:92
 #: registration/templates/registration/change-password.html:23
 #: registration/templates/registration/change-profile.html:40
 #: registration/templates/registration/password-reset-confirm.html:37
@@ -290,16 +286,16 @@ msgstr "Novo Serviço"
 msgid "Edit"
 msgstr "Editar"
 
-#: main/templates/main/edit-user.html:9 main/templates/main/edit-user.html:71
+#: main/templates/main/edit-user.html:9 main/templates/main/edit-user.html:66
 #: main/templates/main/users.html:24
 msgid "New User"
 msgstr "Novo Usuário"
 
-#: main/templates/main/edit-user.html:11 main/templates/main/edit-user.html:71
+#: main/templates/main/edit-user.html:11 main/templates/main/edit-user.html:66
 msgid "Edit User"
 msgstr "Editar Usuário"
 
-#: main/templates/main/edit-user.html:79
+#: main/templates/main/edit-user.html:74
 msgid "Permissions"
 msgstr "Permissões"
 
@@ -447,8 +443,8 @@ msgstr ""
 
 #: templates/base.html:49
 msgid ""
-"Rua Botucatu, 862 | cep: 04023-901 | São Paulo - SP | Tel: (55 11) 5576-9800"
-" | Fax: (55 11) 5575-8868 "
+"Rua Botucatu, 862 | cep: 04023-901 | São Paulo - SP | Tel: (55 11) 5576-9800 "
+"| Fax: (55 11) 5575-8868 "
 msgstr ""
 
 #: templates/base.html:50
@@ -495,44 +491,33 @@ msgstr "Administração do BIREME Accounts"
 msgid "Translations"
 msgstr "Traduções"
 
-#: templates/registration/password_reset_email.html:5
-msgid ""
-"Hello, You have just been registered in BIREME Accounts system. Please "
-"complete your registration to have access to BIREME services."
-msgstr ""
-"Olá, Você acaba de ser registrado no sistema BIREME Accounts. Por favor "
-"complete seu cadastro para ter acesso aos serviços da BIREME."
-
-#: templates/registration/password_reset_email.html:7
-#: templates/registration/password_reset_email.html:20
-msgid "Please go to the following page and choose a new password:"
-msgstr ""
-
-#: templates/registration/password_reset_email.html:11
-#: templates/registration/password_reset_email.html:26
-msgid "Thanks for using our site!"
-msgstr ""
-
-#: templates/registration/password_reset_email.html:13
-#: templates/registration/password_reset_email.html:28
-#, python-format
-msgid "The %(site_name)s team"
-msgstr ""
-
-#: templates/registration/password_reset_email.html:18
+#: templates/registration/password_reset_email.html:17
 #, python-format
 msgid ""
 "You're receiving this email because you requested a password reset for your "
 "user account at %(site_name)s."
 msgstr ""
 
-#: templates/registration/password_reset_email.html:24
+#: templates/registration/password_reset_email.html:19
+msgid "Please go to the following page and choose a new password:"
+msgstr ""
+
+#: templates/registration/password_reset_email.html:23
 msgid "Your username, in case you've forgotten:"
+msgstr ""
+
+#: templates/registration/password_reset_email.html:25
+msgid "Thanks for using our site!"
+msgstr ""
+
+#: templates/registration/password_reset_email.html:27
+#, python-format
+msgid "The %(site_name)s team"
 msgstr ""
 
 #: templates/registration/password_reset_subject.txt:4
 msgid "Create your password to access our systems"
-msgstr "Crie sua senha para acessar nossos serviços"
+msgstr ""
 
 #: templates/registration/password_reset_subject.txt:6
 #, fuzzy
