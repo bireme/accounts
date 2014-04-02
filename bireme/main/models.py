@@ -34,7 +34,7 @@ class Profile(models.Model):
     )
 
     cooperative_center = models.ForeignKey("CooperativeCenter", verbose_name=_("Cooperative Center"), null=True, blank=True)
-    user = models.OneToOneField(User, verbose_name="user") # allow extension of default django User
+    user = models.OneToOneField(User, verbose_name="user", primary_key=True) # allow extension of default django User
     type = models.CharField(_("type"), max_length=30, choices=USER_TYPE_CHOICES, default="basic")
 
     def get_role_services(self):
@@ -64,7 +64,7 @@ def create_profile(sender, instance, created, **kwargs):
         profile = Profile(user=instance)
         profile.save()
 
-post_save.connect(create_profile, sender=User, dispatch_uid="some.unique.string.id")
+post_save.connect(create_profile, sender=User, dispatch_uid="user_create_profile")
     
 class Role(Generic):
     
