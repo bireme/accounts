@@ -34,6 +34,11 @@ class UserResource(ModelResource):
             if user.is_active:
 
                 cc = user.profile.cooperative_center
+
+                # if not have cooperative center code is unauthorized
+                if hasattr(cc, 'code'):
+                    return self.create_response(request, {'success': False, 'reason': "user has not a cooperative center code"}, HttpUnauthorized)
+
                 ccs = [cc.code]
                 networks = [network.acronym for network in cc.network_set.all()]
                 roles = [role.role_service.role.acronym for role in UserRoleService.objects.filter(user=user, role_service__service__acronym=service)]
