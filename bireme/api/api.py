@@ -36,7 +36,7 @@ class UserResource(ModelResource):
                 cc = user.profile.cooperative_center
 
                 # if not have cooperative center code is unauthorized
-                if hasattr(cc, 'code'):
+                if not hasattr(cc, 'code'):
                     return self.create_response(request, {'success': False, 'reason': "user has not a cooperative center code"}, HttpUnauthorized)
 
                 ccs = [cc.code]
