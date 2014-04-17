@@ -40,7 +40,7 @@ class UserResource(ModelResource):
                 
                 # if not have roles in this service, is unauthorized
                 if not roles:
-                    return self.create_response(request, {'success': False, 'reason': "user doesn't allow to connect"}, HttpUnauthorized)
+                    return self.create_response(request, {'success': False, 'reason': "user has no role in service"}, HttpUnauthorized)
                 
                 output = {
                     'success': True,
@@ -69,9 +69,9 @@ class UserResource(ModelResource):
                 login(request, user)
                 return self.create_response(request, output)
             else:
-                return self.create_response(request, {'success': False, 'reason': 'disabled'}, HttpForbidden)
+                return self.create_response(request, {'success': False, 'reason': 'user not active'}, HttpForbidden)
         else:
-            return self.create_response(request, {'success': False, 'reason': 'incorrect'}, HttpUnauthorized)
+            return self.create_response(request, {'success': False, 'reason': 'user or password incorrect'}, HttpUnauthorized)
 
     def logout(self, request, **kwargs):
         self.method_check(request, allowed=['get'])
