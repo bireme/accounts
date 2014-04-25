@@ -39,13 +39,18 @@ class UserResource(ModelResource):
                 if not hasattr(cc, 'code'):
                     return self.create_response(request, {'success': False, 'reason': "user has not a cooperative center code"}, HttpUnauthorized)
 
-                ccs = [cc.code]
                 networks = [network.acronym for network in cc.network_set.all()]
                 roles = [role.role_service.role.acronym for role in UserRoleService.objects.filter(user=user, role_service__service__acronym=service)]
-                
+
                 # if not have roles in this service, is unauthorized
                 if not roles:
                     return self.create_response(request, {'success': False, 'reason': "user has no role in service"}, HttpUnauthorized)
+              
+                ccs = []
+                # loop at all networks that user cc participate (ex. BR9.9 participate of 3 networks)
+                for network in cc.network_set.all():
+                    # return all cc codes of current network
+                    ccs.extend( [cc.code for cc in network.members.all()] )
                 
                 output = {
                     'success': True,
@@ -54,6 +59,7 @@ class UserResource(ModelResource):
                         'cc': cc,
                         'ccs': ccs,
                         'role': roles,
+                        'networks' : networks,
                     }
                 }
 
