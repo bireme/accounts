@@ -50,7 +50,7 @@ class UserResource(ModelResource):
                 # loop at all networks that user cc participate (ex. BR9.9 participate of 3 networks)
                 for network in cc.network_set.all():
                     # return all cc codes of current network
-                    ccs.extend( [cc.code for cc in network.members.all()] )
+                    ccs.extend( [member.code for member in network.members.all()] )
                 
                 output = {
                     'success': True,
