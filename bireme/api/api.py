@@ -28,6 +28,8 @@ class UserResource(ModelResource):
         username = data.get('username', '')
         password = data.get('password', '')
         service = data.get('service', '')
+        roles = []
+        service_role = []
 
         user = authenticate(username=username, password=password)
         if user:
@@ -40,10 +42,19 @@ class UserResource(ModelResource):
                     return self.create_response(request, {'success': False, 'reason': "user has not a cooperative center code"}, HttpUnauthorized)
 
                 networks = [network.acronym for network in cc.network_set.all()]
-                roles = [role.role_service.role.acronym for role in UserRoleService.objects.filter(user=user, role_service__service__acronym=service)]
 
-                # if not have roles in this service, is unauthorized
-                if not roles:
+                # if service is informed return only user role of the service
+                # otherwise return a list of service/role associated with the user
+                if service != '':
+                    roles = [role.role_service.role.acronym for role in 
+                        UserRoleService.objects.filter(user=user, role_service__service__acronym=service)]
+                else:
+                    service_role = [ {role.role_service.service.acronym: role.role_service.role.acronym} for role in 
+                        UserRoleService.objects.filter(user=user)]
+
+
+                # if service is informed and user doesn't have role in the service return unauthorized
+                if service != '' and not roles:
                     return self.create_response(request, {'success': False, 'reason': "user has no role in service"}, HttpUnauthorized)
               
                 ccs = []
@@ -59,6 +70,7 @@ class UserResource(ModelResource):
                         'cc': cc,
                         'ccs': ccs,
                         'role': roles,
+                        'service_role': service_role,
                         'networks' : networks,
                     }
                 }
