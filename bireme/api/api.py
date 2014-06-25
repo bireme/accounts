@@ -28,8 +28,14 @@ class UserResource(ModelResource):
         username = data.get('username', '')
         password = data.get('password', '')
         service = data.get('service', '')
+        list_all_ccs = data.get('list_all_ccs', True)
+        list_responsible = data.get('list_responsible', False)
         roles = []
         service_role = []
+        network = []
+        networks_responsible = []
+        ccs_networks_responsible = []
+        ccs = []
 
         user = authenticate(username=username, password=password)
         if user:
@@ -42,6 +48,12 @@ class UserResource(ModelResource):
                     return self.create_response(request, {'success': False, 'reason': "user has not a cooperative center code"}, HttpUnauthorized)
 
                 networks = [network.acronym for network in cc.network_set.all()]
+
+                if list_responsible:
+                    networks_managed = Network.objects.filter(responsible=cc)
+                    networks_responsible = [network.acronym for network in networks_managed]
+                    for net_managed in networks_managed:
+                        ccs_networks_responsible.extend( [member.code for member in net_managed.members.all()] )
 
                 # if service is informed return only user role of the service
                 # otherwise return a list of service/role associated with the user
@@ -57,23 +69,29 @@ class UserResource(ModelResource):
                 if service != '' and not roles:
                     return self.create_response(request, {'success': False, 'reason': "user has no role in service"}, HttpUnauthorized)
               
-                ccs = []
-                # loop at all networks that user cc participate (ex. BR9.9 participate of 3 networks)
-                for network in cc.network_set.all():
-                    # return all cc codes of current network
-                    ccs.extend( [member.code for member in network.members.all()] )
+                if list_all_ccs:
+                    # loop at all networks that user cc participate (ex. BR9.9 participate of 3 networks)
+                    for network in cc.network_set.all():
+                        # return all cc codes of current network
+                        ccs.extend( [member.code for member in network.members.all()] )
                 
                 output = {
                     'success': True,
                     'data': {
                         'user': user,
-                        'cc': cc,
-                        'ccs': ccs,
+                        'cc': cc,                        
                         'role': roles,
                         'service_role': service_role,
                         'networks' : networks,
                     }
                 }
+                if list_all_ccs:
+                    output['data']['ccs'] = ccs
+
+                if list_responsible:
+                    output['data']['networks_responsible'] = networks_responsible,
+                    output['data']['ccs_networks_responsible'] = ccs_networks_responsible,
+
 
                 if user.profile.type == "advanced":
                     
