@@ -49,20 +49,28 @@
             <th><a href="javascript:orderby('email');" id="id_email">{% trans "Email" %}</a></th>
             <th><a href="javascript:orderby('services');" id="id_email">{% trans "Services" %}</a></th>
             <th><a href="javascript:orderby('is_active');" id="id_is_active">{% trans "Active?" %}</a></th>
+            {% if user.is_superuser %}
+                <th>{% trans "Cooperative Center" %}</th>
+            {% endif %}
             <th>{% trans "Actions" %}</th>
         </thead>
         <tbody>
-            {% for user in users %}
+            {% for appuser in users %}
                 <tr>
-                    <td>{{ user.id }}</td>
-                    <td>{{ user }}</td>
-                    <td>{{ user.email }}</td>
-                    <td>{% for service, roles in user.profile.get_role_services.items %}
+                    <td>{{ appuser.id }}</td>
+                    <td>{{ appuser }}</td>
+                    <td>{{ appuser.email }}</td>
+                    <td>{% for service, roles in appuser.profile.get_role_services.items %}
                         
                         <span title="{% for role in roles %}{{ role }}{% if not forloop.last %}, {% endif %}{% endfor %}">{{ service }}</span>
                         {% if not forloop.last %} | {% endif %}
                     {% endfor %}</td>
-                    <td>{% if user.is_active %}<i class='icon-ok'></i>{% else %}<i class='icon-minus-sign'></i>{% endif %}</td>
+                    <td>{% if appuser.is_active %}<i class='icon-ok'></i>{% else %}<i class='icon-minus-sign'></i>{% endif %}</td>
+
+                    {% if user.is_superuser %}
+                        <td>{{ appuser.profile.cooperative_center.code }}</th>
+                    {% endif %}
+
                     <td><a href="{% url 'main.views.edit_user' user.id %}" class='btn btn-mini' title="{% trans 'Edit' %}"><i class='icon-pencil'></i></a></td>
                 </tr>
             {% endfor %}
