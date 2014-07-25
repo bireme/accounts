@@ -37,6 +37,7 @@ def users(request):
     user = request.user
     cc = request.user.profile.cooperative_center
     output = {}
+    users = None
 
     # getting action parameters
     actions = {}
@@ -46,8 +47,10 @@ def users(request):
         else:
             actions[key] = ACTIONS[key]
 
+    users = User.objects.filter(username__icontains=actions['s'])
+    if not user.is_superuser:
+        users = users.filter(profile__cooperative_center=cc)
 
-    users = User.objects.filter(profile__cooperative_center=cc, username__icontains=actions['s'])
     users = users.order_by(actions["orderby"])
     if actions['order'] == "-":
         users = users.order_by("%s%s" % (actions["order"], actions["orderby"]))
