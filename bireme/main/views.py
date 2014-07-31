@@ -73,10 +73,10 @@ def edit_user(request, user):
     services = Service.objects.all()
     user_role_services = UserRoleService.objects.filter(user=user)
 
-    form = UserForm(instance=user)
+    form = UserForm(instance=user, request=request)
 
     if request.POST:
-        form = UserForm(request.POST, request.FILES, instance=user)
+        form = UserForm(request.POST, request.FILES, instance=user, request=request)
         if form.is_valid():
             form.save()
             output['alert'] = _("User successfully edited.")
@@ -113,18 +113,21 @@ def new_user(request):
     services = Service.objects.all()
     user_role_services = UserRoleService.objects.filter(user=user)
 
-    form = UserForm()
+    form = UserForm(request=request)
 
     if request.POST:
-        form = UserForm(request.POST, request.FILES)
+        form = UserForm(request.POST, request.FILES, request=request)
         if form.is_valid():
             
             # saving user
             new_user = form.save()
 
             # saving profile
-            new_user.profile.cooperative_center = cc
-            new_user.profile.save()
+            # if is a avanced user (center coordinator) each user created get same cc code
+            # superuser select the user center
+            if not user.is_superuser:
+                new_user.profile.cooperative_center = cc
+                new_user.profile.save()
 
             # send an email to user that to make him change your password from the first time            
             password_form = auth_forms.PasswordResetForm({'email': new_user.email})
