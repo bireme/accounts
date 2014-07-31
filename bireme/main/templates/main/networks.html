@@ -56,7 +56,11 @@
                     <td><a href="{% url 'main.views.edit_network' network.id %}">{{ network.id }}</a></td>
                     <td>{{ network.acronym }}</td>
                     <td>{{ network.responsible }}</td>
-                    <td><a href="{% url 'main.views.edit_network' network.id %}" class='btn btn-mini'><i class='icon-pencil'></i></a></td>
+                    <td>
+                        <a href="{% url 'main.views.edit_network' network.id %}" class='btn btn-mini'><i class='icon-pencil'></i></a>
+                        <a href="#" class='btn btn-mini' title="{% trans 'Remove' %}"><i class='icon-remove'></i></a>
+                    </td>
+
                 </tr>
             {% endfor %}
             
