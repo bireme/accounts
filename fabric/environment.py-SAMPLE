@@ -1,13 +1,16 @@
 from fabric.api import env
 
-env.user = ''
-env.path = '/home/aplicacoes/accounts/'
-env.rootpath = env.path + 'bireme/'
-env.gitpath = env.path + 'git/'
-env.virtualenv = env.path + 'env/'
+env.use_ssh_config = True
+env.ssh_config_path = '/etc/ssh/ssh_config'
 
-def test():
-    env.hosts = ['ts01dx']
-
-def homolog():
-    env.hosts = ['hm01dx']
+# Define stages servers
+STAGES = {
+    'test': {
+        'hosts': ['user@server'],
+        'path': '/home/apps/accounts',
+    },
+    'production': {
+        'hosts': ['user@server'],
+        'path': '/home/apps/accounts',
+    },
+}
