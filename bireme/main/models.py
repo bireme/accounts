@@ -175,6 +175,7 @@ class Network(Generic):
     NETWORK_TYPE_CHOICES = (
         ('national', _('National')),
         ('thematic', _('Thematic')),
+        ('institutional', _('Institutional')),
     )
 
     acronym = models.CharField(_('acronym'), max_length=255)
