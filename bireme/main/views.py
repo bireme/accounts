@@ -8,6 +8,7 @@ from django.core.urlresolvers import reverse
 from django.core.paginator import Paginator
 from django.core import mail
 from django.contrib.auth.models import User
+from django.db.models import Q
 from django.template import RequestContext
 from utils.views import ACTIONS
 from django.conf import settings
@@ -15,6 +16,7 @@ from datetime import datetime
 from models import *
 from forms import *
 import mimetypes
+import operator
 import os
 
 from decorators import *
@@ -38,6 +40,7 @@ def users(request):
     cc = request.user.profile.cooperative_center
     output = {}
     users = None
+    ccs_networks_responsible = []
 
     # getting action parameters
     actions = {}
@@ -47,9 +50,23 @@ def users(request):
         else:
             actions[key] = ACTIONS[key]
 
-    users = User.objects.filter(username__icontains=actions['s'])
+    users = User.objects.filter(username__icontains=actions['s'])    
     if not user.is_superuser:
-        users = users.filter(profile__cooperative_center=cc)
+        # tk39 - advanced user can view users of CCs of networks that his center coordinate
+      
+        # check networks that CC manages
+        networks_managed = Network.objects.filter(responsible=cc)
+        # create list with all CCs that user can view users 
+        for net_managed in networks_managed:
+            ccs_networks_responsible.extend( [member.pk for member in net_managed.members.all()] )
+
+        # make list of CCs that user can view users (based on network that the center manages)
+        if networks_managed:
+            q_list = [ Q( ('profile__cooperative_center',cc_pk) ) for cc_pk in ccs_networks_responsible]
+            users = users.filter(reduce(operator.or_, q_list))
+        else:
+            users = users.filter(profile__cooperative_center=cc)
+        
 
     users = users.order_by(actions["orderby"])
     if actions['order'] == "-":
@@ -58,6 +75,7 @@ def users(request):
     output['users'] = users
     output['actions'] = actions
     output['cc'] = cc
+    output['show_users_cc'] = True if len(ccs_networks_responsible) > 1 else False
 
     return render_to_response('main/users.html', output, context_instance=RequestContext(request))
 
