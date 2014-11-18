@@ -19,7 +19,7 @@ class UserForm(forms.ModelForm):
         # reordering 
         self.fields.keyOrder = ['username', 'email', 'type', 'is_active']
 
-        self.fields['type'].initial = self.instance.profile.type
+        self.fields['type'].initial = self.instance.profile.type if self.instance.id else None
 
         # allow superuser to edit center code profile field
         if self.request.user.is_superuser:
