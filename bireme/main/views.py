@@ -113,6 +113,8 @@ def edit_user(request, user):
                     output['alert'] = _("Activation email re-sent")
                     output['alerttype'] = "alert-success"
 
+            return redirect(reverse("main.views.users"))
+
     output['form'] = form
     output['edit_user'] = user
     output['services'] = services
