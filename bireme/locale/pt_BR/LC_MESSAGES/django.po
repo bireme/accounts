@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-05-20 17:07-0300\n"
-"PO-Revision-Date: 2013-05-13 12:56-0306\n"
-"Last-Translator:   <moa.moda@gmail.com>\n"
+"POT-Creation-Date: 2015-03-27 15:25-0300\n"
+"PO-Revision-Date: 2015-03-27 15:19-0300\n"
+"Last-Translator:   <admin@locahost.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
@@ -19,9 +19,14 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Translated-Using: django-rosetta 0.7.1\n"
 
-#: main/forms.py:13
+#: main/forms.py:14
 msgid "Type"
 msgstr "Tipo"
+
+#: main/forms.py:29 main/forms.py:46 main/models.py:36 main/models.py:203
+#: main/templates/main/users.html:53
+msgid "Cooperative Center"
+msgstr "Centro Cooperante"
 
 #: main/models.py:15 utils/models.py:17
 msgid "created"
@@ -47,11 +52,7 @@ msgstr "Básico"
 msgid "Advanced"
 msgstr "Avançado"
 
-#: main/models.py:36 main/models.py:202
-msgid "Cooperative Center"
-msgstr "Centro Cooperante"
-
-#: main/models.py:38 main/models.py:183
+#: main/models.py:38 main/models.py:184
 msgid "type"
 msgstr "Tipo"
 
@@ -63,7 +64,7 @@ msgstr "papel"
 msgid "roles"
 msgstr "papeis"
 
-#: main/models.py:75 main/models.py:102 main/models.py:180
+#: main/models.py:75 main/models.py:102 main/models.py:181
 msgid "acronym"
 msgstr "acrônimo"
 
@@ -116,7 +117,7 @@ msgstr "centros cooperantes"
 msgid "code"
 msgstr "código"
 
-#: main/models.py:142 main/models.py:184 utils/models.py:45
+#: main/models.py:142 main/models.py:185 utils/models.py:45
 msgid "country"
 msgstr "cidade"
 
@@ -124,7 +125,7 @@ msgstr "cidade"
 msgid "institution"
 msgstr "instituição"
 
-#: main/models.py:151 main/models.py:165 main/models.py:182
+#: main/models.py:151 main/models.py:165 main/models.py:183
 msgid "topic"
 msgstr "tópico"
 
@@ -156,39 +157,47 @@ msgstr "Nacional"
 msgid "Thematic"
 msgstr "Temática"
 
-#: main/models.py:181
+#: main/models.py:178
+msgid "Institutional"
+msgstr "Institucional"
+
+#: main/models.py:182
 msgid "Responsible Cooperative Center"
 msgstr "Centro Cooperante Responsável"
 
-#: main/models.py:198
+#: main/models.py:199
 msgid "Network Membership"
 msgstr "Membros da Rede"
 
-#: main/models.py:199
+#: main/models.py:200
 msgid "Network Memberships"
 msgstr "Mebro da Rede"
 
-#: main/views.py:74 main/views.py:117 registration/views.py:28
+#: main/views.py:100 main/views.py:159 registration/views.py:28
 msgid "User successfully edited."
 msgstr "Usuário editado com sucesso."
 
-#: main/views.py:178 main/views.py:201
+#: main/views.py:113
+msgid "Activation email re-sent"
+msgstr "Re-enviar o email de redefinir senha"
+
+#: main/views.py:221 main/views.py:244
 msgid "Network successfully edited."
 msgstr "Rede editada com sucesso."
 
-#: main/views.py:271
+#: main/views.py:314
 msgid "Service successfully edited."
 msgstr "Serviço editado com sucesso."
 
-#: main/views.py:306
+#: main/views.py:349
 msgid "Service successfully created."
 msgstr "Serviço criado com sucesso."
 
-#: main/views.py:358
+#: main/views.py:401
 msgid "Role successfully edited."
 msgstr "Papel editado com sucesso."
 
-#: main/views.py:380
+#: main/views.py:423
 msgid "Role successfully created."
 msgstr "Papel criado com sucesso."
 
@@ -221,7 +230,7 @@ msgid "Error"
 msgstr "Erro"
 
 #: main/templates/main/edit-network.html:71
-#: main/templates/main/edit-user.html:73
+#: main/templates/main/edit-user.html:78
 msgid "Data"
 msgstr "Dados"
 
@@ -232,7 +241,7 @@ msgstr "Centros Incluidos"
 #: main/templates/main/edit-network.html:89
 #: main/templates/main/edit-role.html:33
 #: main/templates/main/edit-service.html:49
-#: main/templates/main/edit-user.html:92
+#: main/templates/main/edit-user.html:101
 #: registration/templates/registration/change-password.html:23
 #: registration/templates/registration/change-profile.html:40
 #: registration/templates/registration/password-reset-confirm.html:37
@@ -282,20 +291,20 @@ msgstr "Serviços"
 msgid "New Service"
 msgstr "Novo Serviço"
 
-#: main/templates/main/edit-user.html:4 main/templates/main/users.html:66
+#: main/templates/main/edit-user.html:4 main/templates/main/users.html:74
 msgid "Edit"
 msgstr "Editar"
 
-#: main/templates/main/edit-user.html:9 main/templates/main/edit-user.html:66
+#: main/templates/main/edit-user.html:9 main/templates/main/edit-user.html:71
 #: main/templates/main/users.html:24
 msgid "New User"
 msgstr "Novo Usuário"
 
-#: main/templates/main/edit-user.html:11 main/templates/main/edit-user.html:66
+#: main/templates/main/edit-user.html:11 main/templates/main/edit-user.html:71
 msgid "Edit User"
 msgstr "Editar Usuário"
 
-#: main/templates/main/edit-user.html:74
+#: main/templates/main/edit-user.html:79
 msgid "Permissions"
 msgstr "Permissões"
 
@@ -329,9 +338,13 @@ msgid "Center Coordinator"
 msgstr "Centro Cooperante Coordenador"
 
 #: main/templates/main/networks.html:51 main/templates/main/roles.html:49
-#: main/templates/main/services.html:49 main/templates/main/users.html:52
+#: main/templates/main/services.html:49 main/templates/main/users.html:55
 msgid "Actions"
 msgstr "Ações"
+
+#: main/templates/main/networks.html:61
+msgid "Remove"
+msgstr "Remover"
 
 #: main/templates/main/roles.html:48 main/templates/main/services.html:48
 msgid "Acronym"
@@ -411,7 +424,7 @@ msgstr "login"
 
 #: registration/templates/registration/logout.html:18
 msgid "again clicking below."
-msgstr ""
+msgstr "novamente clicando abaixo"
 
 #: registration/templates/registration/password-reset-complete.html:32
 #: registration/templates/registration/password-reset-done.html:32
@@ -429,39 +442,36 @@ msgid "Go to login"
 msgstr "Ir para tela de login"
 
 #: registration/templates/registration/password-reset-confirm.html:32
-#, fuzzy
 msgid "New Password"
-msgstr "Redefinir Senha"
+msgstr "Nova Senha"
 
 #: registration/templates/registration/password-reset-done.html:33
 msgid "We send us a email containing the instructions to procced."
 msgstr "Enviamos um email contendo as instruções para preosseguir."
 
+#: templates/base.html:47
+msgid "BIREME - PAHO - WHO"
+msgstr "BIREME - OPAS - OMS"
+
 #: templates/base.html:48
-msgid "Centro Latino-Americano e do Caribe de Informação em Ciências da Saúde"
-msgstr ""
+msgid "Latin-American and Caribbean Center on Health Sciences Information"
+msgstr "Centro Latino-Americano e do Caribe de Informação em Ciências da Saúde"
 
 #: templates/base.html:49
-msgid ""
-"Rua Botucatu, 862 | cep: 04023-901 | São Paulo - SP | Tel: (55 11) 5576-9800 "
-"| Fax: (55 11) 5575-8868 "
-msgstr ""
+msgid "BIREME site"
+msgstr "Site BIREME"
 
 #: templates/base.html:50
-msgid "Site Institucional da Bireme"
-msgstr ""
-
-#: templates/base.html:51
 msgid "Project source on GitHub"
 msgstr "Código do Projeto no GitHub"
 
-#: templates/base.html:51
+#: templates/base.html:50
 msgid "code on github"
 msgstr "código no github"
 
-#: templates/menu.html:21
+#: templates/menu.html:21 templates/admin/base_site.html:4
 msgid "Django Admin"
-msgstr ""
+msgstr "Administrador Django"
 
 #: templates/menu.html:29 templates/menu.html.py:35
 msgid "English"
@@ -479,10 +489,6 @@ msgstr "Português"
 msgid "Edit profile"
 msgstr "Editar perfil"
 
-#: templates/admin/base_site.html:4
-msgid "Django site admin"
-msgstr ""
-
 #: templates/admin/base_site.html:7
 msgid "BIREME Accounts administration"
 msgstr "Administração do BIREME Accounts"
@@ -491,35 +497,53 @@ msgstr "Administração do BIREME Accounts"
 msgid "Translations"
 msgstr "Traduções"
 
-#: templates/registration/password_reset_email.html:17
-#, python-format
+#: templates/registration/password_reset_email.html:5
 msgid ""
-"You're receiving this email because you requested a password reset for your "
-"user account at %(site_name)s."
+"Hello, You have just been registered in BIREME Accounts system. Please "
+"complete your registration to have access to BIREME services."
 msgstr ""
+"Olá, foi criado uma conta para você no sistema de identificação da BIREME. "
+"Por favor complete seu registro para acessar os serviços da BIREME."
 
-#: templates/registration/password_reset_email.html:19
+#: templates/registration/password_reset_email.html:7
+msgid "This is your username:"
+msgstr "Este é o seu usuário:"
+
+#: templates/registration/password_reset_email.html:9
+#: templates/registration/password_reset_email.html:22
 msgid "Please go to the following page and choose a new password:"
-msgstr ""
+msgstr "Por favor clique no link abaixo e escolha uma nova senha:"
 
-#: templates/registration/password_reset_email.html:23
-msgid "Your username, in case you've forgotten:"
-msgstr ""
-
-#: templates/registration/password_reset_email.html:25
+#: templates/registration/password_reset_email.html:13
 msgid "Thanks for using our site!"
-msgstr ""
+msgstr "Obrigado por usar nossos sistemas."
 
-#: templates/registration/password_reset_email.html:27
+#: templates/registration/password_reset_email.html:15
+#: templates/registration/password_reset_email.html:30
 #, python-format
 msgid "The %(site_name)s team"
+msgstr "%(site_name)s "
+
+#: templates/registration/password_reset_email.html:20
+#, python-format
+msgid ""
+"You're receiving this email to reset your user password at %(site_name)s."
 msgstr ""
+"Você esta recebendo este email para redefinição da sua senha em "
+"%(site_name)s."
+
+#: templates/registration/password_reset_email.html:26
+msgid "Your username, in case you've forgotten:"
+msgstr "Seu usuário, caso você tenha esquecido:"
+
+#: templates/registration/password_reset_email.html:28
+msgid "Thanks for using our service"
+msgstr "Obrigado por usar nossos serviços."
 
 #: templates/registration/password_reset_subject.txt:4
 msgid "Create your password to access our systems"
-msgstr ""
+msgstr "Crie sua senha para acessar os nossos sistemas"
 
 #: templates/registration/password_reset_subject.txt:6
-#, fuzzy
 msgid "Reset your password"
 msgstr "Redefinir Senha"

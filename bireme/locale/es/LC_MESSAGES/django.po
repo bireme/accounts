@@ -2,26 +2,31 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# 
+#
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-06-03 16:05-0300\n"
-"PO-Revision-Date: 2013-06-03 16:10-0300\n"
+"POT-Creation-Date: 2015-03-27 15:25-0300\n"
+"PO-Revision-Date: 2015-03-27 15:25-0300\n"
 "Last-Translator:   <admin@locahost.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: \n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Translated-Using: django-rosetta 0.7.1\n"
 
-#: main/forms.py:13
+#: main/forms.py:14
 msgid "Type"
 msgstr "Tipo"
+
+#: main/forms.py:29 main/forms.py:46 main/models.py:36 main/models.py:203
+#: main/templates/main/users.html:53
+msgid "Cooperative Center"
+msgstr "Centro Cooperante"
 
 #: main/models.py:15 utils/models.py:17
 msgid "created"
@@ -47,11 +52,7 @@ msgstr "Básico"
 msgid "Advanced"
 msgstr "Avanzado"
 
-#: main/models.py:36 main/models.py:202
-msgid "Cooperative Center"
-msgstr "Centro Cooperante"
-
-#: main/models.py:38 main/models.py:183
+#: main/models.py:38 main/models.py:184
 msgid "type"
 msgstr "Tipo"
 
@@ -63,7 +64,7 @@ msgstr "papel"
 msgid "roles"
 msgstr "papeles"
 
-#: main/models.py:75 main/models.py:102 main/models.py:180
+#: main/models.py:75 main/models.py:102 main/models.py:181
 msgid "acronym"
 msgstr "acrónimo"
 
@@ -116,7 +117,7 @@ msgstr "centros cooperantes"
 msgid "code"
 msgstr "código"
 
-#: main/models.py:142 main/models.py:184 utils/models.py:45
+#: main/models.py:142 main/models.py:185 utils/models.py:45
 msgid "country"
 msgstr "país"
 
@@ -124,7 +125,7 @@ msgstr "país"
 msgid "institution"
 msgstr "institución"
 
-#: main/models.py:151 main/models.py:165 main/models.py:182
+#: main/models.py:151 main/models.py:165 main/models.py:183
 msgid "topic"
 msgstr "tópico"
 
@@ -156,43 +157,47 @@ msgstr "Nacional"
 msgid "Thematic"
 msgstr "Temático"
 
-#: main/models.py:181
+#: main/models.py:178
+msgid "Institutional"
+msgstr "Institucional"
+
+#: main/models.py:182
 msgid "Responsible Cooperative Center"
 msgstr "Centro Cooperante Responsable"
 
-#: main/models.py:198
+#: main/models.py:199
 msgid "Network Membership"
 msgstr "Miembro de la Red"
 
-#: main/models.py:199
+#: main/models.py:200
 msgid "Network Memberships"
 msgstr "Miembros de la Red"
 
-#: main/views.py:76 main/views.py:132 registration/views.py:28
+#: main/views.py:100 main/views.py:159 registration/views.py:28
 msgid "User successfully edited."
 msgstr "Usuario editado con éxito. "
 
-#: main/views.py:89
+#: main/views.py:113
 msgid "Activation email re-sent"
-msgstr ""
+msgstr "Email de activación re-enviado"
 
-#: main/views.py:194 main/views.py:217
+#: main/views.py:221 main/views.py:244
 msgid "Network successfully edited."
 msgstr "Red editada con éxito."
 
-#: main/views.py:287
+#: main/views.py:314
 msgid "Service successfully edited."
 msgstr "Servicio editado con éxito."
 
-#: main/views.py:322
+#: main/views.py:349
 msgid "Service successfully created."
 msgstr "Servicio creado con éxito."
 
-#: main/views.py:374
+#: main/views.py:401
 msgid "Role successfully edited."
 msgstr "Papel editado con éxito."
 
-#: main/views.py:396
+#: main/views.py:423
 msgid "Role successfully created."
 msgstr "Papel creado con éxito."
 
@@ -286,7 +291,7 @@ msgstr "Servicios"
 msgid "New Service"
 msgstr "Novo Servicio"
 
-#: main/templates/main/edit-user.html:4 main/templates/main/users.html:66
+#: main/templates/main/edit-user.html:4 main/templates/main/users.html:74
 msgid "Edit"
 msgstr "Editar"
 
@@ -333,9 +338,13 @@ msgid "Center Coordinator"
 msgstr "Coordinador del Centro"
 
 #: main/templates/main/networks.html:51 main/templates/main/roles.html:49
-#: main/templates/main/services.html:49 main/templates/main/users.html:52
+#: main/templates/main/services.html:49 main/templates/main/users.html:55
 msgid "Actions"
 msgstr "Acciones"
+
+#: main/templates/main/networks.html:61
+msgid "Remove"
+msgstr "Remover"
 
 #: main/templates/main/roles.html:48 main/templates/main/services.html:48
 msgid "Acronym"
@@ -433,9 +442,8 @@ msgid "Go to login"
 msgstr "Ir para el login"
 
 #: registration/templates/registration/password-reset-confirm.html:32
-#, fuzzy
 msgid "New Password"
-msgstr "Restablecer contraseña"
+msgstr "Nueva contraseña"
 
 #: registration/templates/registration/password-reset-done.html:33
 msgid "We send us a email containing the instructions to procced."
@@ -443,52 +451,46 @@ msgstr ""
 "Nosotros le enviamos un correo electrónico con las instrucciones para "
 "proceder."
 
+#: templates/base.html:47
+msgid "BIREME - PAHO - WHO"
+msgstr "BIREME - OPS - OMS "
+
 #: templates/base.html:48
-msgid "Centro Latino-Americano e do Caribe de Informação em Ciências da Saúde"
+msgid "Latin-American and Caribbean Center on Health Sciences Information"
 msgstr ""
 "Centro Latinoamericano y del Caribe de Información en Ciencias de la Salud"
 
 #: templates/base.html:49
-msgid ""
-"Rua Botucatu, 862 | cep: 04023-901 | São Paulo - SP | Tel: (55 11) 5576-9800"
-" | Fax: (55 11) 5575-8868 "
-msgstr ""
+msgid "BIREME site"
+msgstr "Sitio BIREME"
 
 #: templates/base.html:50
-msgid "Site Institucional da Bireme"
-msgstr "Sitio Institucional de BIREME"
-
-#: templates/base.html:51
 msgid "Project source on GitHub"
 msgstr "Código fuente del proyecto en GitHub"
 
-#: templates/base.html:51
+#: templates/base.html:50
 msgid "code on github"
 msgstr "código en github"
 
-#: templates/menu.html:21
+#: templates/menu.html:21 templates/admin/base_site.html:4
 msgid "Django Admin"
-msgstr ""
+msgstr "Administración Django"
 
 #: templates/menu.html:29 templates/menu.html.py:35
 msgid "English"
-msgstr ""
+msgstr "Inglés"
 
 #: templates/menu.html:30 templates/menu.html.py:37
 msgid "Spanish"
-msgstr ""
+msgstr "Español"
 
 #: templates/menu.html:31 templates/menu.html.py:36
 msgid "Portuguese"
-msgstr ""
+msgstr "Portugués"
 
 #: templates/menu.html:45
 msgid "Edit profile"
 msgstr "Editar perfil"
-
-#: templates/admin/base_site.html:4
-msgid "Django site admin"
-msgstr ""
 
 #: templates/admin/base_site.html:7
 msgid "BIREME Accounts administration"
@@ -503,42 +505,61 @@ msgid ""
 "Hello, You have just been registered in BIREME Accounts system. Please "
 "complete your registration to have access to BIREME services."
 msgstr ""
-"Hola, Usted acaba de ser registrado en el sistema  BIREME Accounts. Por favor complete la información de registro para tener acceso a los servicios de BIREME.\n"
+"Hola, Usted acaba de ser registrado en el sistema  BIREME Accounts. Por "
+"favor complete la información de registro para tener acceso a los servicios "
+"de BIREME.\n"
 "\n"
-"Olá, Você acaba de ser registrado no sistema BIREME Accounts. Por favor complete seu cadastro para ter acesso aos serviços da BIREME."
+"Olá, Você acaba de ser registrado no sistema BIREME Accounts. Por favor "
+"complete seu cadastro para ter acesso aos serviços da BIREME."
 
 #: templates/registration/password_reset_email.html:7
-#: templates/registration/password_reset_email.html:20
+msgid "This is your username:"
+msgstr "Este es su nombre de usuario:"
+
+#: templates/registration/password_reset_email.html:9
+#: templates/registration/password_reset_email.html:22
 msgid "Please go to the following page and choose a new password:"
 msgstr ""
-
-#: templates/registration/password_reset_email.html:11
-#: templates/registration/password_reset_email.html:26
-msgid "Thanks for using our site!"
-msgstr ""
+"Por favor, vaya a la siguiente página para elegir una nueva contraseña:"
 
 #: templates/registration/password_reset_email.html:13
-#: templates/registration/password_reset_email.html:28
+msgid "Thanks for using our site!"
+msgstr "Gracias por usar nuestro servicio."
+
+#: templates/registration/password_reset_email.html:15
+#: templates/registration/password_reset_email.html:30
 #, python-format
 msgid "The %(site_name)s team"
-msgstr ""
+msgstr "%(site_name)s"
 
-#: templates/registration/password_reset_email.html:18
+#: templates/registration/password_reset_email.html:20
 #, python-format
 msgid ""
-"You're receiving this email because you requested a password reset for your "
-"user account at %(site_name)s."
+"You're receiving this email to reset your user password at %(site_name)s."
 msgstr ""
+"Usted está recibiendo este correo electrónico para reinicializar la "
+"contraseña de usuario en %(site_name)s."
 
-#: templates/registration/password_reset_email.html:24
+#: templates/registration/password_reset_email.html:26
 msgid "Your username, in case you've forgotten:"
-msgstr ""
+msgstr "Su nombre de usuario, en caso de que hayas olvidado:"
+
+#: templates/registration/password_reset_email.html:28
+msgid "Thanks for using our service"
+msgstr "Gracias por usar nuestro servicio."
 
 #: templates/registration/password_reset_subject.txt:4
 msgid "Create your password to access our systems"
 msgstr "Crea tu contraseña para acceder a nuestros sistemas"
 
 #: templates/registration/password_reset_subject.txt:6
-#, fuzzy
 msgid "Reset your password"
-msgstr "Restablecer contraseña"
+msgstr "Reinicializar contraseña"
+
+#~ msgid ""
+#~ "Centro Latino-Americano e do Caribe de Informação em Ciências da Saúde"
+#~ msgstr ""
+#~ "Centro Latinoamericano y del Caribe de Información en Ciencias de la Salud"
+
+#~ msgid "Site Institucional da Bireme"
+#~ msgstr "Sitio Institucional de BIREME"
