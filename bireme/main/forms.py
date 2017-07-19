@@ -25,7 +25,7 @@ class UserForm(forms.ModelForm):
         if self.request.user.is_superuser:
             selected_cc = self.instance.profile.cooperative_center if self.instance.id else None
 
-            self.fields['cc'] = forms.ModelChoiceField( queryset=CooperativeCenter.objects.all(),
+            self.fields['cc'] = forms.ModelChoiceField( queryset=CooperativeCenter.objects.order_by('code'),
                 empty_label=None, initial=selected_cc, label=_("Cooperative Center") )
         else:
             # tk39 - allow advanced user to select cooperative center of users in their network (manage by his center)
@@ -42,7 +42,7 @@ class UserForm(forms.ModelForm):
             if len(ccs_networks_responsible) > 1:
                 selected_cc = self.instance.profile.cooperative_center if self.instance.id else None
                 self.fields['cc'] = forms.ModelChoiceField( 
-                        queryset=CooperativeCenter.objects.filter(pk__in=ccs_networks_responsible ),
+                        queryset=CooperativeCenter.objects.filter(pk__in=ccs_networks_responsible).order_by('code'),
                         empty_label=None, initial=selected_cc, label=_("Cooperative Center") )                
 
 
