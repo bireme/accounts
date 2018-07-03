@@ -21,7 +21,7 @@
             hashPart=hash.split('!')[1],
             activeTab=$('ul.nav a[href="#' + hashPart + '"]');
             activeTab && activeTab.tab('show');
-             
+
             $('.nav-tabs a').click(function (e) {
                 $(this).tab('show');
                 window.location.hash = '#!'+$(this).attr('href').split('#')[1];
@@ -32,7 +32,7 @@
             for(field in fields) {
                 var field = fields[field];
                 var label = "label[for="+field+"]";
-                
+
                 $(label).html(" " + $(label).html());
                 $("#" + field).prependTo(label);
             }
@@ -85,22 +85,22 @@
             <form method="POST" id="edit_form">{% csrf_token %}
                 <input type="hidden" name="resend_email_flag" value=""/>
 
-                <fieldset>                                
+                <fieldset>
                     {{ form.non_field_errors }}
-                    {% for field in form %}                        
+                    {% for field in form %}
                         {{ field.label_tag }}
                         {{ field.errors }}
                         {{ field }}
                         {% if field.name == 'email' and not is_new %}
                             <a href="#" onclick="resend_activate_link();" class="btn btn-mini" title=""><i class="icon-repeat"></i>resend email activation</a>
                         {% endif %}
-                    {% endfor %} 
+                    {% endfor %}
                 </fieldset>
 
             </form>
         </div>
         <div id="tab-permissions" class='tab-pane'>
-            
+
             <ul>
                 {% for service in services %}
                     <li>
@@ -113,7 +113,7 @@
                                 {% for user_role in user_roles %}
                                     {% if user_role.role_service.service == service and user_role.role_service.role == role %}checked="true"{% endif %}
                                 {% endfor %}
-                                value="{{ role.name }}"> {{ role.description }}
+                                value="{{ role.name }}"> {{ role.name }}
                             {% endfor %}
                         </div>
                     </li>
