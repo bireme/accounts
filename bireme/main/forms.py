@@ -23,7 +23,9 @@ class UserForm(forms.ModelForm):
 
         # allow superuser to edit center code profile field
         if self.request.user.is_superuser:
-            selected_cc = self.instance.profile.cooperative_center if self.instance.id else None
+            selected_cc = None
+            if self.instance.pk:
+                selected_cc = self.instance.profile.cooperative_center
 
             self.fields['cc'] = forms.ModelChoiceField( queryset=CooperativeCenter.objects.order_by('code'),
                 empty_label=None, initial=selected_cc, label=_("Cooperative Center") )

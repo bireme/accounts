@@ -23,7 +23,7 @@ from decorators import *
 
 @login_required
 def dashboard(request):
-    
+
     user = request.user
     output = {}
 
@@ -37,10 +37,10 @@ def dashboard(request):
 def users(request):
 
     user = request.user
-    cc = request.user.profile.cooperative_center
-    output = {}
+    cc = None
     users = None
     ccs_networks_responsible = []
+    output = {}
 
     # getting action parameters
     actions = {}
@@ -50,13 +50,14 @@ def users(request):
         else:
             actions[key] = ACTIONS[key]
 
-    users = User.objects.filter(username__icontains=actions['s'])    
+    users = User.objects.filter(username__icontains=actions['s'])
     if not user.is_superuser:
         # tk39 - advanced user can view users of CCs of networks that his center coordinate
-      
+
         # check networks that CC manages
+        cc = request.user.profile.cooperative_center
         networks_managed = Network.objects.filter(responsible=cc)
-        # create list with all CCs that user can view users 
+        # create list with all CCs that user can view users
         for net_managed in networks_managed:
             ccs_networks_responsible.extend( [member.pk for member in net_managed.members.all()] )
 
@@ -66,7 +67,7 @@ def users(request):
             users = users.filter(reduce(operator.or_, q_list))
         else:
             users = users.filter(profile__cooperative_center=cc)
-        
+
 
     users = users.order_by(actions["orderby"])
     if actions['order'] == "-":
@@ -84,7 +85,6 @@ def users(request):
 def edit_user(request, user):
 
     user = get_object_or_404(User, id=user)
-    cc = request.user.profile.cooperative_center
     resend_email = request.REQUEST.get('resend_email_flag')
     output = {}
 
@@ -101,7 +101,7 @@ def edit_user(request, user):
             output['alerttype'] = "alert-success"
 
             if resend_email == 'true':
-                # send an email to user that to make him change your password from the first time            
+                # send an email to user that to make him change your password from the first time
                 password_form = auth_forms.PasswordResetForm({'email': user.email})
                 if password_form.is_valid():
                     opts = {
@@ -109,7 +109,7 @@ def edit_user(request, user):
                         'request': request,
                     }
                     password_form.save(**opts)
-         
+
                     output['alert'] = _("Activation email re-sent")
                     output['alerttype'] = "alert-success"
 
@@ -127,7 +127,7 @@ def edit_user(request, user):
 def new_user(request):
 
     user = request.user
-    cc = request.user.profile.cooperative_center
+    cc = None
     output = {}
 
     services = Service.objects.all()
@@ -138,7 +138,7 @@ def new_user(request):
     if request.POST:
         form = UserForm(request.POST, request.FILES, request=request)
         if form.is_valid():
-            
+
             # saving user
             new_user = form.save()
 
@@ -146,10 +146,11 @@ def new_user(request):
             # if is a avanced user (center coordinator) each user created get same cc code
             # superuser select the user center
             if not user.is_superuser:
+                cc = request.user.profile.cooperative_center
                 new_user.profile.cooperative_center = cc
                 new_user.profile.save()
 
-            # send an email to user that to make him change your password from the first time            
+            # send an email to user that to make him change your password from the first time
             password_form = auth_forms.PasswordResetForm({'email': new_user.email})
             if password_form.is_valid():
                 opts = {
@@ -227,7 +228,7 @@ def edit_network(request, network):
     output['network'] = network
     output['ccs'] = ccs
     output['members'] = members
-    
+
     return render_to_response('main/edit-network.html', output, context_instance=RequestContext(request))
 
 @login_required
@@ -240,7 +241,7 @@ def new_network(request):
 
     if request.POST:
         form = NetworkForm(request.POST, request.FILES, instance=network)
-        
+
         if form.is_valid():
             network = form.save()
             output['alert'] = _("Network successfully edited.")
@@ -251,7 +252,7 @@ def new_network(request):
     output['is_new'] = True
     output['form'] = form
     output['network'] = network
-    
+
     return render_to_response('main/edit-network.html', output, context_instance=RequestContext(request))
 
 
@@ -287,10 +288,10 @@ def services(request):
 @superuser_permission
 def edit_service(request, service):
 
-    service = get_object_or_404(Service, id=service)   
-    roles = Role.objects.all() 
+    service = get_object_or_404(Service, id=service)
+    roles = Role.objects.all()
     service_roles = RoleService.objects.filter(service=service)
-    
+
     role_associated_list = request.REQUEST.getlist('roles_associated')
 
     output = {}
@@ -310,8 +311,8 @@ def edit_service(request, service):
                 for role_id in role_associated_list:
                     role = Role.objects.get(pk=role_id)
                     role_service = RoleService(service=service, role=role)
-                    role_service.save() 
-           
+                    role_service.save()
+
 
             output['alert'] = _("Service successfully edited.")
             output['alerttype'] = "alert-success"
@@ -320,7 +321,7 @@ def edit_service(request, service):
     output['roles'] = roles
     output['service_roles'] = service_roles
     output['service'] = service
-    
+
     return render_to_response('main/edit-service.html', output, context_instance=RequestContext(request))
 
 @login_required
@@ -337,17 +338,17 @@ def new_service(request):
 
     if request.POST:
         form = ServiceForm(request.POST, request.FILES, instance=service)
-        
+
         if form.is_valid():
-            
+
             service = form.save()
 
             # save/update service/role association
             for role_id in role_associated_list:
                 role = Role.objects.get(pk=role_id)
                 role_service = RoleService(service=service, role=role)
-                role_service.save() 
-            
+                role_service.save()
+
             output['alert'] = _("Service successfully created.")
             output['alerttype'] = "alert-success"
 
@@ -360,7 +361,7 @@ def new_service(request):
     output['roles'] = roles
     output['service'] = service
     output['service_roles'] = service_roles
-    
+
     return render_to_response('main/edit-service.html', output, context_instance=RequestContext(request))
 
 @login_required
@@ -375,7 +376,7 @@ def roles(request):
     for key in ACTIONS.keys():
         actions[key] = ACTIONS[key]
         if request.REQUEST.get(key):
-            actions[key] = request.REQUEST.get(key)       
+            actions[key] = request.REQUEST.get(key)
 
     roles = Role.objects.filter(name__icontains=actions['s'])
     roles = roles.order_by(actions["orderby"])
@@ -391,7 +392,7 @@ def roles(request):
 @superuser_permission
 def edit_role(request, role):
 
-    role = get_object_or_404(Role, id=role)    
+    role = get_object_or_404(Role, id=role)
     output = {}
 
     form = RoleForm(instance=role)
@@ -405,7 +406,7 @@ def edit_role(request, role):
 
     output['form'] = form
     output['role'] = role
-    
+
     return render_to_response('main/edit-role.html', output, context_instance=RequestContext(request))
 
 @login_required
@@ -419,7 +420,7 @@ def new_role(request):
 
     if request.POST:
         form = RoleForm(request.POST, request.FILES, instance=role)
-        
+
         if form.is_valid():
             form.save()
             output['alert'] = _("Role successfully created.")
@@ -428,5 +429,5 @@ def new_role(request):
     output['is_new'] = True
     output['form'] = form
     output['role'] = role
-    
+
     return render_to_response('main/edit-role.html', output, context_instance=RequestContext(request))
