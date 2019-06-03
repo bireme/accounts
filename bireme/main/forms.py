@@ -19,12 +19,13 @@ class UserForm(forms.ModelForm):
         # reordering
         self.fields.keyOrder = ['username', 'email', 'type', 'is_active']
 
-        self.fields['type'].initial = self.instance.profile.type if self.instance.id else None
+        if hasattr(self.instance, 'profile'):
+            self.fields['type'].initial = self.instance.profile.type
 
         # allow superuser to edit center code profile field
         if self.request.user.is_superuser:
             selected_cc = None
-            if self.instance.pk:
+            if hasattr(self.instance, 'profile'):
                 selected_cc = self.instance.profile.cooperative_center
 
             self.fields['cc'] = forms.ModelChoiceField( queryset=CooperativeCenter.objects.order_by('code'),
@@ -52,9 +53,14 @@ class UserForm(forms.ModelForm):
     def save(self, commit=True, *args, **kw):
         super(UserForm, self).save(commit=True, *args, **kw)
 
-        self.instance.profile.type = self.cleaned_data["type"]
+        if self.request.user.is_superuser and not hasattr(self.instance, 'profile'):
+            profile = Profile(user=self.request.user)
+            profile.save()
+
+        self.instance.profile.type = self.cleaned_data.get('type')
         if 'cc' in self.cleaned_data:
-            self.instance.profile.cooperative_center = self.cleaned_data["cc"]
+            self.instance.profile.cooperative_center = self.cleaned_data.get('cc')
+
         self.instance.profile.save()
 
         return self.instance
