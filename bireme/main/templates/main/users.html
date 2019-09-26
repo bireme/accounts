@@ -28,7 +28,7 @@
 <div class='body'>
     {% if actions.s %}
         <div>
-            {% trans "Search" %}: <strong>{{ actions.s }}</strong> 
+            {% trans "Search" %}: <strong>{{ actions.s }}</strong>
             <a href="{% url 'main.views.users' %}">[{% trans "clear" %}]</a>
         </div>
     {% endif %}
@@ -61,7 +61,7 @@
                     <td>{{ appuser }}</td>
                     <td>{{ appuser.email }}</td>
                     <td>{% for service, roles in appuser.profile.get_role_services.items %}
-                        
+
                         <span title="{% for role in roles %}{{ role }}{% if not forloop.last %}, {% endif %}{% endfor %}">{{ service }}</span>
                         {% if not forloop.last %} | {% endif %}
                     {% endfor %}</td>
@@ -76,5 +76,34 @@
             {% endfor %}
         </tbody>
     </table>
-</div> 
+    <div class="pagination pull-right">
+        <ul>
+        {% if users.has_previous %}
+            <li>
+                <a href="?page={{ users.previous_page_number }}" class="">Anterior</a>
+            </li>
+        {% else %}
+            <li class="disabled">
+                <a href="">Anterior</a>
+            </li>
+        {% endif %}
+
+        {% for page in pages %}
+        <li {% if page == users.number %}class="active"{% endif %}>
+            <a href="?page={{ page }}">{{ page }}</a>
+        </li>
+        {% endfor %}
+
+        {% if users.has_next %}
+            <li>
+                <a href="?page={{ users.next_page_number }}">Próxima</a>
+            </li>
+        {% else %}
+            <li class="disabled">
+                <a href="">Próxima</a>
+            </li>
+        {% endif %}
+        </ul>
+    </div>
+</div>
 {% endblock %}

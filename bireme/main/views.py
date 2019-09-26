@@ -5,7 +5,7 @@ from django.utils.translation import ugettext_lazy as _
 from django.contrib.auth import forms as auth_forms
 from django.http import Http404, HttpResponse
 from django.core.urlresolvers import reverse
-from django.core.paginator import Paginator
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.core import mail
 from django.contrib.auth.models import User
 from django.db.models import Q
@@ -20,6 +20,9 @@ import operator
 import os
 
 from decorators import *
+
+MAX_USERS_PER_PAGE = 25
+
 
 @login_required
 def dashboard(request):
@@ -73,7 +76,17 @@ def users(request):
     if actions['order'] == "-":
         users = users.order_by("%s%s" % (actions["order"], actions["orderby"]))
 
+    paginator = Paginator(users, MAX_USERS_PER_PAGE)
+    page = actions.get("page")
+    try:
+        users = paginator.page(page)
+    except PageNotAnInteger:
+        users = paginator.page(1)
+    except EmptyPage:
+        users = paginator.page(paginator.num_pages)
+
     output['users'] = users
+    output["pages"] = range(1, (paginator.num_pages + 1))
     output['actions'] = actions
     output['cc'] = cc
     output['show_users_cc'] = True if len(ccs_networks_responsible) > 1 else False
