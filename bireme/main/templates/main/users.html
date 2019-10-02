@@ -80,7 +80,7 @@
         <ul>
         {% if users.has_previous %}
             <li>
-                <a href="?page={{ users.previous_page_number }}" class="">Anterior</a>
+                <a href="?page={{ users.previous_page_number }}&s={{ actions.s }}&orderby={{ actions.orderby }}&order={{ actions.order }}" class="">Anterior</a>
             </li>
         {% else %}
             <li class="disabled">
@@ -90,13 +90,13 @@
 
         {% for page in pages %}
         <li {% if page == users.number %}class="active"{% endif %}>
-            <a href="?page={{ page }}">{{ page }}</a>
+            <a href="?page={{ page }}&s={{ actions.s }}&orderby={{ actions.orderby }}&order={{ actions.order }}">{{ page }}</a>
         </li>
         {% endfor %}
 
         {% if users.has_next %}
             <li>
-                <a href="?page={{ users.next_page_number }}">Próxima</a>
+                <a href="?page={{ users.next_page_number }}&s={{ actions.s }}&orderby={{ actions.orderby }}&order={{ actions.order }}">Próxima</a>
             </li>
         {% else %}
             <li class="disabled">
