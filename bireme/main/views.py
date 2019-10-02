@@ -23,6 +23,15 @@ from decorators import *
 
 MAX_USERS_PER_PAGE = 25
 
+try:
+    users_per_page = settings.ITEMS_PER_PAGE
+
+    if isinstance(users_per_page, int) and users_per_page > 0:
+        MAX_USERS_PER_PAGE = users_per_page
+
+except Exception:
+    pass
+
 
 @login_required
 def dashboard(request):
@@ -78,6 +87,7 @@ def users(request):
 
     paginator = Paginator(users, MAX_USERS_PER_PAGE)
     page = actions.get("page")
+
     try:
         users = paginator.page(page)
     except PageNotAnInteger:
