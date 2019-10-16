@@ -62,7 +62,9 @@ def users(request):
         else:
             actions[key] = ACTIONS[key]
 
-    users = User.objects.filter(username__icontains=actions['s'])
+    users = User.objects.filter(
+        Q(username__icontains=actions['s']) | Q(email__icontains=actions['s'])
+    )
     if not user.is_superuser:
         # tk39 - advanced user can view users of CCs of networks that his center coordinate
 
