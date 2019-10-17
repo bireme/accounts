@@ -62,7 +62,17 @@ def users(request):
         else:
             actions[key] = ACTIONS[key]
 
-    users = User.objects.filter(username__icontains=actions['s'])
+    users = User.objects.filter(
+        Q(username__icontains=actions['s'])
+        | Q(email__icontains=actions['s'])
+    )
+
+    actions['cc'] = request.GET.get('cc', '')
+    if actions['cc']:
+        users = users.filter(profile__cooperative_center__pk=actions['cc'])
+
+    cooperative_centers = CooperativeCenter.objects.all()
+
     if not user.is_superuser:
         # tk39 - advanced user can view users of CCs of networks that his center coordinate
 
@@ -77,9 +87,10 @@ def users(request):
         if networks_managed:
             q_list = [ Q( ('profile__cooperative_center',cc_pk) ) for cc_pk in ccs_networks_responsible]
             users = users.filter(reduce(operator.or_, q_list))
+            cooperative_centers = cooperative_centers.filter(id__in=ccs_networks_responsible)
         else:
             users = users.filter(profile__cooperative_center=cc)
-
+            cooperative_centers = cooperative_centers.filter(id=cc.pk)
 
     users = users.order_by(actions["orderby"])
     if actions['order'] == "-":
@@ -98,8 +109,8 @@ def users(request):
     output['users'] = users
     output["pages"] = range(1, (paginator.num_pages + 1))
     output['actions'] = actions
-    output['cc'] = cc
     output['show_users_cc'] = True if len(ccs_networks_responsible) > 1 else False
+    output['cooperative_centers'] = cooperative_centers.order_by('code')
 
     return render_to_response('main/users.html', output, context_instance=RequestContext(request))
 
