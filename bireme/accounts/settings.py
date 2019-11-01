@@ -92,7 +92,7 @@ STATICFILES_DIRS = (
 
 AUTHENTICATION_BACKENDS = (
     'utils.authenticate.EmailModelBackend',
-    'django.contrib.auth.backends.ModelBackend', 
+    'django.contrib.auth.backends.ModelBackend',
 )
 
 # List of finder classes that know how to find static files in
@@ -152,11 +152,12 @@ INSTALLED_APPS = (
 
     'rosetta',
     'tastypie',
-    
+
     'registration',
     'utils',
     'main',
     'api',
+    'log',
 )
 
 # A sample logging configuration. The only tangible logging
@@ -206,7 +207,7 @@ DEFAULT_FROM_EMAIL = ''
 EMAIL_FROM = ''
 
 # this adding the constants of settings to template context
-_context = {} 
+_context = {}
 local_context = locals()
 for (k,v) in local_context.items():
     if re.search('^[A-Z0-9_]+$',k):
