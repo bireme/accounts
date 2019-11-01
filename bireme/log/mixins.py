@@ -1,3 +1,7 @@
+#-*- coding: utf-8 -*-
+from django.forms.models import model_to_dict
+
+
 class AuditLog(object):
     '''
     Class used to mark wich models audit log of changes will be recorded

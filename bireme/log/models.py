@@ -1,7 +1,6 @@
 #-*- coding: utf-8 -*-
 from django.contrib.admin.models import LogEntry
 from django.db import models
-from django.forms.models import model_to_dict
 from django.utils.translation import ugettext_lazy as _
 
 from utils.models import Generic
