@@ -4,6 +4,7 @@ from datetime import datetime
 from django.contrib.auth.models import User
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
+from pytz import utc
 
 LANGUAGES_CHOICES = (
     ('en', 'English'), # default language
@@ -12,8 +13,8 @@ LANGUAGES_CHOICES = (
 )
 
 class Generic(models.Model):
-    created = models.DateTimeField(_("created"), default=datetime.now())
-    updated = models.DateTimeField(_("updated"), default=datetime.now())
+    created = models.DateTimeField(_("created"), default=datetime.now(utc))
+    updated = models.DateTimeField(_("updated"), default=datetime.now(utc))
     creator = models.ForeignKey(User, null=True, blank=True, related_name="+")
     updater = models.ForeignKey(User, null=True, blank=True, related_name="+")
 

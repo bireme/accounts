@@ -210,7 +210,7 @@ EMAIL_FROM = ''
 # don't registry changes at specific fields on audit log (ex. control fields)
 EXCLUDE_AUDITLOG_FIELDS = (
     'content_type', 'object_id', 'reference_title',
-    'literature_type', 'code', 'short_url'
+    'literature_type', 'code', 'short_url',
 )
 
 # this adding the constants of settings to template context

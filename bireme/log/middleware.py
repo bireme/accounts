@@ -75,7 +75,7 @@ class WhodidMiddleware(object):
                                 'new_value': new_values}]
                 field_change_json = json.dumps(field_change, encoding="utf-8", ensure_ascii=False)
 
-                LogEntry.objects.log_action(user_id=user.id,
+                LogEntry.objects.log_action(user_id=user.pk,
                                             content_type_id=log_object_ct_id,
                                             object_id=log_object_id,
                                             object_repr=log_repr,
@@ -132,7 +132,7 @@ class WhodidMiddleware(object):
 
                 # only create log entry for not empty change message
                 if fields_change:
-                    LogEntry.objects.log_action(user_id=user.id,
+                    LogEntry.objects.log_action(user_id=user.pk,
                                                 content_type_id=log_object_ct_id,
                                                 object_id=log_object_id,
                                                 object_repr=log_repr,
@@ -147,12 +147,12 @@ class WhodidMiddleware(object):
         if isinstance(instance, AuditLog) and created:
             # filter by log without object_id from the current user and action_flag = ADDITION
             log = LogEntry.objects.filter(object_id='None', object_repr=str(instance), action_flag=1,
-                                          user_id=user.id)
+                                          user_id=user.pk)
             if log:
                 # get last log
                 log = log[0]
                 # update log with instance pk
-                log.object_id = instance.id
+                log.object_id = instance.pk
                 log.save()
 
     def get_changes_in_json(self, instance, new_object, was_deleted):
@@ -171,12 +171,12 @@ class WhodidMiddleware(object):
                                  'previous_value': unicode(instance), 'new_value': ''})
         else:
             # get previous attributes values of object
-            obj = obj_model.objects.get(pk=instance.id)
+            obj = obj_model.objects.get(pk=instance.pk)
 
             for field_name in instance.changed_fields:
                 field_type = obj_model._meta.get_field(field_name).get_internal_type()
 
-                if instance.id:
+                if instance.pk:
                     if field_type == 'ForeignKey':
                         previous_value = unicode(getattr(obj, field_name))
                     elif field_type == 'FileField':
