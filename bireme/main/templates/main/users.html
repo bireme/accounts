@@ -15,6 +15,7 @@
     <input type="hidden" name="page" value="{{ actions.page }}">
     <input type='hidden' name="s"  value="{{ actions.s }}">
     <input type='hidden' name="cc" value="{{ actions.cc }}">
+    <input type='hidden' name="country" value="{{ actions.country }}">
 </form>
 
 <!--  header -->
@@ -38,9 +39,16 @@
         <div class="input-append">
             <form name="search" onSubmit="return search();">
                 {% if cooperative_centers|length > 1 %}
+                    <select name="country">
+                        <option value="">--- {% trans "Country" %} ---</option>
+                    {% for country in countries %}
+                        <option value="{{ country.code }}" {% if actions.country == country.code|stringformat:"s" %}selected{% endif %}>{{ country.name }}</option>
+                    {% endfor %}
+                    </select>
+
                     <select name="cc">
                     {% if user.is_superuser %}
-                        <option value="">{% trans "Cooperative Center" %}</option>
+                        <option value="">--- {% trans "Cooperative Center" %} ---</option>
                     {% endif %}
                     {% for center in cooperative_centers %}
                         <option value="{{ center.pk }}" {% if actions.cc == center.pk|stringformat:"s" %}selected{% endif %}>{{ center.code }}</option>
@@ -49,6 +57,7 @@
                     &nbsp;
                     &nbsp;
                 {% endif %}
+
                 <input type='text' name="s"  value="{{ actions.s }}" placeholder="{% trans "username or e-mail" %}">
                 <button class="btn" type="submit"><i class='icon-search'></i></button>
             </form>
@@ -93,7 +102,7 @@
         <ul>
         {% if users.has_previous %}
             <li>
-                <a href="?page={{ users.previous_page_number }}&s={{ actions.s }}&orderby={{ actions.orderby }}&order={{ actions.order }}?&cc={{ actions.cc }}" class="">Anterior</a>
+                <a href="?page={{ users.previous_page_number }}&s={{ actions.s }}&orderby={{ actions.orderby }}&order={{ actions.order }}&cc={{ actions.cc }}&country={{ actions.country }}" class="">Anterior</a>
             </li>
         {% else %}
             <li class="disabled">
@@ -103,13 +112,13 @@
 
         {% for page in pages %}
         <li {% if page == users.number %}class="active"{% endif %}>
-            <a href="?page={{ page }}&s={{ actions.s }}&orderby={{ actions.orderby }}&order={{ actions.order }}?&cc={{ actions.cc }}">{{ page }}</a>
+            <a href="?page={{ page }}&s={{ actions.s }}&orderby={{ actions.orderby }}&order={{ actions.order }}&cc={{ actions.cc }}&country={{ actions.country }}">{{ page }}</a>
         </li>
         {% endfor %}
 
         {% if users.has_next %}
             <li>
-                <a href="?page={{ users.next_page_number }}&s={{ actions.s }}&orderby={{ actions.orderby }}&order={{ actions.order }}?&cc={{ actions.cc }}">Próxima</a>
+                <a href="?page={{ users.next_page_number }}&s={{ actions.s }}&orderby={{ actions.orderby }}&order={{ actions.order }}&cc={{ actions.cc }}&country={{ actions.country }}">Próxima</a>
             </li>
         {% else %}
             <li class="disabled">
