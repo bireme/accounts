@@ -42,7 +42,7 @@
                     <select name="country">
                         <option value="">--- {% trans "Country" %} ---</option>
                     {% for country in countries %}
-                        <option value="{{ country.code }}" {% if actions.country == country.code|stringformat:"s" %}selected{% endif %}>{{ country.name }}</option>
+                        <option value="{{ country.code }}" {% if actions.country == country.code|stringformat:"s" %}selected{% endif %}>{{ country }}</option>
                     {% endfor %}
                     </select>
 

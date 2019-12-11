@@ -1,10 +1,10 @@
 from django.db import models
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import get_language, ugettext_lazy as _
 from django.contrib.auth.models import User
 from datetime import datetime
 
 LANGUAGES_CHOICES = (
-    ('en', 'English'), # default language 
+    ('en', 'English'), # default language
     ('pt-br', 'Brazilian Portuguese'),
     ('es', 'Spanish'),
 )
@@ -33,7 +33,12 @@ class Country(Generic):
     name = models.CharField(_('name'), max_length=255)
 
     def __unicode__(self):
-        return unicode(self.name)
+        language = get_language()
+        try:
+            translation = self.countrylocal_set.get(language=language)
+            return unicode(translation.name)
+        except CountryLocal.DoesNotExist:
+            return unicode(self.name)
 
 
 class CountryLocal(models.Model):
