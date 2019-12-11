@@ -152,6 +152,7 @@ INSTALLED_APPS = (
     # 'django.contrib.admindocs',
 
     'rosetta',
+    'south',
     'tastypie',
 
     'registration',
