@@ -92,6 +92,12 @@ def users(request):
             users = users.filter(profile__cooperative_center=cc)
             cooperative_centers = cooperative_centers.filter(id=cc.pk)
 
+    actions["country"] = request.GET.get("country")
+    if actions["country"]:
+        users = users.filter(
+            profile__cooperative_center__country__code=actions["country"]
+        )
+
     users = users.order_by(actions["orderby"])
     if actions['order'] == "-":
         users = users.order_by("%s%s" % (actions["order"], actions["orderby"]))
@@ -111,6 +117,7 @@ def users(request):
     output['actions'] = actions
     output['show_users_cc'] = True if len(ccs_networks_responsible) > 1 else False
     output['cooperative_centers'] = cooperative_centers.order_by('code')
+    output['countries'] = Country.objects.all()
 
     return render_to_response('main/users.html', output, context_instance=RequestContext(request))
 

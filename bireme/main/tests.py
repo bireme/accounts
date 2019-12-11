@@ -14,13 +14,16 @@ class UsersGetTest(TestCase):
         User.objects.create_superuser(email="admin@admin.com", **credentials)
         self.client.login(**credentials)
 
-        country = Country(code="CY", name="Country")
-        country.save()
+        country1 = Country(code="CY", name="Country")
+        country1.save()
 
-        cc = CooperativeCenter(code="AB12.3", country=country)
+        country2 = Country(code="AB", name="AB Country")
+        country2.save()
+
+        cc = CooperativeCenter(code="AB12.3", country=country1)
         cc.save()
 
-        cc2 = CooperativeCenter(code="CD45.6", country=country)
+        cc2 = CooperativeCenter(code="CD45.6", country=country2)
         cc2.save()
 
         john = User.objects.create_user(username="john.doe", email="john.doe@bireme.org")
@@ -98,3 +101,12 @@ class UsersGetTest(TestCase):
         self.assertNotContains(response, "<td>john.doe</td>")
         self.assertNotContains(response, "<td>jane.doe</td>")
         self.assertNotContains(response, "<td>admin</td>")
+
+    def test_filter_by_country(self):
+        response = self.client.get("/users?country=CY")
+        self.assertContains(response, "<td>john.doe</td>")
+        self.assertNotContains(response, "<td>jane.doe</td>")
+
+        response = self.client.get("/users?country=AB")
+        self.assertNotContains(response, "<td>john.doe</td>")
+        self.assertContains(response, "<td>jane.doe</td>")

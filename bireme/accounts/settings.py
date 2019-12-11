@@ -92,7 +92,7 @@ STATICFILES_DIRS = (
 
 AUTHENTICATION_BACKENDS = (
     'utils.authenticate.EmailModelBackend',
-    'django.contrib.auth.backends.ModelBackend', 
+    'django.contrib.auth.backends.ModelBackend',
 )
 
 # List of finder classes that know how to find static files in
@@ -120,6 +120,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.locale.LocaleMiddleware',
+    'log.middleware.WhodidMiddleware',
     # Uncomment the next line for simple clickjacking protection:
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
@@ -151,12 +152,14 @@ INSTALLED_APPS = (
     # 'django.contrib.admindocs',
 
     'rosetta',
+    'south',
     'tastypie',
-    
+
     'registration',
     'utils',
     'main',
     'api',
+    'log',
 )
 
 # A sample logging configuration. The only tangible logging
@@ -205,8 +208,14 @@ EMAIL_HOST_PASSWORD = ''
 DEFAULT_FROM_EMAIL = ''
 EMAIL_FROM = ''
 
+# don't registry changes at specific fields on audit log (ex. control fields)
+EXCLUDE_AUDITLOG_FIELDS = (
+    'content_type', 'object_id', 'reference_title',
+    'literature_type', 'code', 'short_url',
+)
+
 # this adding the constants of settings to template context
-_context = {} 
+_context = {}
 local_context = locals()
 for (k,v) in local_context.items():
     if re.search('^[A-Z0-9_]+$',k):

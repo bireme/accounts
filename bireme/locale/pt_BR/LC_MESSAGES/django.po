@@ -119,7 +119,7 @@ msgstr "código"
 
 #: main/models.py:142 main/models.py:185 utils/models.py:45
 msgid "country"
-msgstr "cidade"
+msgstr "país"
 
 #: main/models.py:143
 msgid "institution"

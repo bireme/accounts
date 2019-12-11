@@ -2,3 +2,4 @@ Django==1.5.1
 Fabric==1.4.1
 django-tastypie==0.9.14
 django-rosetta==0.7.1
+South==1.0.2
