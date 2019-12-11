@@ -40,7 +40,7 @@
             <form name="search" onSubmit="return search();">
                 {% if cooperative_centers|length > 1 %}
                     <select name="country">
-                        <option value="">--- {% trans "Country" %} ---</option>
+                        <option value="">--- {% trans "country"|capfirst %} ---</option>
                     {% for country in countries %}
                         <option value="{{ country.code }}" {% if actions.country == country.code|stringformat:"s" %}selected{% endif %}>{{ country }}</option>
                     {% endfor %}
