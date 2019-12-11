@@ -1,13 +1,12 @@
-#-*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
+import datetime
 from django.contrib import admin
-from django.utils.translation import ugettext_lazy as _
+from django.contrib.admin.models import LogEntry
 
-from models import LogReview
+class LogEntryModelAdmin(admin.ModelAdmin):
+    list_display = ('action_time','user','content_type','object_repr','change_message','action_flag')
+    list_filter = ['action_time','user','content_type']
+    ordering = ('-action_time',)
 
-
-class LogReviewAdmin(admin.ModelAdmin):
-    model = LogReview
-    date_hierarchy = 'created'
-    raw_id_fields = ('log',)
-
-admin.site.register(LogReview, LogReviewAdmin)
+admin.site.unregister(LogEntry)
+admin.site.register(LogEntry, LogEntryModelAdmin)
