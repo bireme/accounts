@@ -92,7 +92,7 @@ def get_network_ccs(request):
     members = []
 
     if request.GET.get('network'):
-        network = get_object_or_404(Network, acronym__icontains=request.GET.get('network'))
+        network = get_object_or_404(Network, acronym__iexact=request.GET.get('network'))
         members = [cc.code for cc in network.members.all()]
 
     output['network_ccs'] = members
