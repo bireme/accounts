@@ -85,3 +85,17 @@ def get_ccs(request):
     output['members'] = members
 
     return render_to_response('api/get-ccs.html', output, context_instance=RequestContext(request))
+
+def get_network_ccs(request):
+
+    output = {}
+    members = []
+
+    if request.GET.get('network'):
+        network = get_object_or_404(Network, acronym__icontains=request.GET.get('network'))
+        members = [cc.code for cc in network.members.all()]
+
+    output['network_ccs'] = members
+
+    data = json.dumps(output)
+    return HttpResponse(data, content_type='application/json')

@@ -10,6 +10,7 @@ urlpatterns = patterns('',
     (r'^users/edit/change-user-role-service/?$', 'api.views.change_user_role_service'),
     (r'^networks/edit/change-network-member/?$', 'api.views.change_network_member'),
 
-    url(r'^get_ccs/?$', 'api.views.get_ccs')
+    url(r'^get_ccs/?$', 'api.views.get_ccs'),
+    url(r'^get_network_ccs/?$', 'api.views.get_network_ccs')
     
 )
