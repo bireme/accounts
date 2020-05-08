@@ -3,8 +3,8 @@
 
 import os, re
 
-DEBUG = True
-TEMPLATE_DEBUG = DEBUG
+DEBUG = int(os.environ.get("DEBUG", 0))
+TEMPLATE_DEBUG = int(os.environ.get("DEBUG", 0))
 
 ADMINS = (
     # ('Your Name', 'your_email@example.com'),
@@ -15,16 +15,15 @@ MANAGERS = ADMINS
 PROJECT_ROOT_PATH = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..'))
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': os.path.join(PROJECT_ROOT_PATH, 'database.db'),  # Or path to database file if using sqlite3.
-        # The following settings are not used with sqlite3:
-        'USER': '',
-        'PASSWORD': '',
-        'HOST': '',                      # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
-        'PORT': '',                      # Set to empty string for default.
-    }
-}
+     'default': {
+         'ENGINE': os.environ.get("DATABASE_ENGINE", 'django.db.backends.sqlite3'),
+         'NAME': os.environ.get("DATABASE_NAME", 'database.db'),
+         'USER': os.environ.get("DATABASE_USER"),
+         'PASSWORD': os.environ.get("DATABASE_PASSWORD"),
+         'HOST': os.environ.get("DATABASE_HOST"),
+         'PORT': os.environ.get("DATABASE_PORT"),
+     },
+ }
 
 # Hosts/domain names that are valid for this site; required if DEBUG is False
 # See https://docs.djangoproject.com/en/1.5/ref/settings/#allowed-hosts
@@ -76,7 +75,8 @@ MEDIA_URL = '/media/'
 # Don't put anything in this directory yourself; store your static files
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/var/www/example.com/static/"
-#STATIC_ROOT = os.path.join(PROJECT_ROOT_PATH, 'static')
+
+STATIC_ROOT = os.path.join(PROJECT_ROOT_PATH, 'static_files')
 
 # URL prefix for static files.
 # Example: "http://example.com/static/", "http://static.example.com/"
@@ -104,7 +104,7 @@ STATICFILES_FINDERS = (
 )
 
 # Make this unique, and don't share it with anybody.
-SECRET_KEY = 'iylgi#-ufp4#j^33_k$ar=g4d01)o-!$7simyb_#85ud7mpiq9'
+SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
@@ -145,10 +145,8 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # Uncomment the next line to enable the admin:
+    # Django admin
     'django.contrib.admin',
-    # Uncomment the next line to enable admin documentation:
-    # 'django.contrib.admindocs',
 
     'rosetta',
     'tastypie',
@@ -198,12 +196,12 @@ LOGGING = {
 
 
 # Email
-EMAIL_HOST = ''
-EMAIL_PORT = 25
-EMAIL_HOST_USER = ''
-EMAIL_HOST_PASSWORD = ''
-DEFAULT_FROM_EMAIL = ''
-EMAIL_FROM = ''
+EMAIL_HOST = os.environ.get("EMAIL_HOST")
+EMAIL_PORT = os.environ.get("EMAIL_PORT")
+EMAIL_HOST_USER = os.environ.get("EMAIL_HOST_USER")
+EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_HOST_PASSWORD")
+EMAIL_FROM = os.environ.get("EMAIL_FROM")
+
 
 # this adding the constants of settings to template context
 _context = {} 
@@ -215,7 +213,3 @@ for (k,v) in local_context.items():
 def settings_context(context):
     return _context
 
-try:
-    from settings_local import *
-except ImportError:
-    pass
