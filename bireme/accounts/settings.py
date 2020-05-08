@@ -195,6 +195,8 @@ LOGGING = {
 }
 
 
+ITEMS_PER_PAGE = os.environ.get("ITEMS_PER_PAGE")
+
 # Email
 EMAIL_HOST = os.environ.get("EMAIL_HOST")
 EMAIL_PORT = os.environ.get("EMAIL_PORT")
