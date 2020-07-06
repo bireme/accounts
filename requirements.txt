@@ -1,6 +1,4 @@
-MySQL-python==1.2.3
-gunicorn==19.10.0
-Django==1.5.12
-Fabric==1.4.1
-django-tastypie==0.9.14
-django-rosetta==0.7.1
+Django==2.2.13
+django-tastypie==0.14.3
+mysqlclient==1.4.6
+gunicorn==20.0.4
