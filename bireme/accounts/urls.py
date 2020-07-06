@@ -1,25 +1,27 @@
-from django.conf.urls import patterns, include, url
+from django.urls import path, re_path, include
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.conf import settings
 
-
-# Uncomment the next two lines to enable the admin:
+# enable django admin:
 from django.contrib import admin
 admin.autodiscover()
 
-urlpatterns = patterns('',
-    url(r'^admin/', include(admin.site.urls)),
-    url(r'^i18n/', include('django.conf.urls.i18n')),
-    
-    url(r'^accounts/', include("registration.urls")),
-    url(r'^api/', include("api.urls")),
-    url(r'^', include('utils.urls')),
-    url(r'^', include('main.urls')),
-)
+urlpatterns = [
+    re_path(r'^', include('main.urls')),
+    path('admin/', admin.site.urls),
+    path('accounts/', include('registration.urls')),
+    path('api/', include('api.urls')),
 
+    # internationalization
+    re_path(r'^i18n/', include('django.conf.urls.i18n')),
+    re_path(r'^cookie-lang/', include('utils.urls')),
+]
+
+
+# messages translation
 if 'rosetta' in settings.INSTALLED_APPS:
-    urlpatterns += patterns('',
-        url(r'^rosetta/', include('rosetta.urls')),
+    urlpatterns += (
+        re_path(r'^rosetta/', include('rosetta.urls')),
     )
 
 if settings.DEBUG:

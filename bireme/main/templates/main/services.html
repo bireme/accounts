@@ -20,15 +20,15 @@
     <h2><i class='icon-star'></i> {% trans "Services" %}</h2>
 
     <div class='pull-right'>
-        <a href="{% url 'main.views.new_service' %}" class='btn btn-primary'><i class='icon-file'></i> {% trans "New Service" %}</a>
+        <a href="{% url 'main:new_service' %}" class='btn btn-primary'><i class='icon-file'></i> {% trans "New Service" %}</a>
     </div>
 </div>
 
 <div class='body'>
     {% if actions.s %}
         <div>
-            {% trans "Search" %}: <strong>{{ actions.s }}</strong> 
-            <a href="{% url 'main.views.services' %}">[{% trans "clear" %}]</a>
+            {% trans "Search" %}: <strong>{{ actions.s }}</strong>
+            <a href="{% url 'main:services' %}">[{% trans "clear" %}]</a>
         </div>
     {% endif %}
 
@@ -51,16 +51,16 @@
         <tbody>
             {% for service in services %}
                 <tr>
-                    <td><a href="{% url 'main.views.edit_service' service.id %}">{{ service.id }}</a></td>
+                    <td><a href="{% url 'main:edit_service' service.id %}">{{ service.id }}</a></td>
                     <td>{{ service.name }}</td>
                     <td>{{ service.acronym }}</td>
-                    <td><a href="{% url 'main.views.edit_service' service.id %}" class='btn btn-mini'><i class='icon-pencil'></i></a></td>
+                    <td><a href="{% url 'main:edit_service' service.id %}" class='btn btn-mini'><i class='icon-pencil'></i></a></td>
                 </tr>
             {% endfor %}
-            
+
         </tbody>
     </table>
-     
-</div>  
+
+</div>
 
 {% endblock %}

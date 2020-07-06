@@ -22,7 +22,7 @@
     <h2><i class='icon-group'></i> {% trans "Users" %}</h2>
 
     <div class='pull-right'>
-        <a href="{% url 'main.views.new_user' %}" class='btn btn-primary' title="{% trans "New User" %}"><i class='icon-file'></i> {% trans "New User" %}</a>
+        <a href="{% url 'main:new_user' %}" class='btn btn-primary' title="{% trans "New User" %}"><i class='icon-file'></i> {% trans "New User" %}</a>
     </div>
 </div>
 
@@ -30,7 +30,7 @@
     {% if actions.s %}
         <div>
             {% trans "Search" %}: <strong>{{ actions.s }}</strong>
-            <a href="{% url 'main.views.users' %}">[{% trans "clear" %}]</a>
+            <a href="{% url 'main:users' %}">[{% trans "clear" %}]</a>
         </div>
     {% endif %}
 
@@ -84,7 +84,7 @@
                         <td><span title="{{ appuser.profile.cooperative_center.institution }}">{{ appuser.profile.cooperative_center.code }}</span></th>
                     {% endif %}
 
-                    <td><a href="{% url 'main.views.edit_user' appuser.id %}" class='btn btn-mini' title="{% trans 'Edit' %}"><i class='icon-pencil'></i></a></td>
+                    <td><a href="{% url 'main:edit_user' appuser.id %}" class='btn btn-mini' title="{% trans 'Edit' %}"><i class='icon-pencil'></i></a></td>
                 </tr>
             {% endfor %}
         </tbody>

@@ -12,7 +12,7 @@
         });
     </script>
     {% if request.user.is_authenticated %}
-        <script>window.location = "{% url 'main.views.dashboard' %}"</script>
+        <script>window.location = "{% url 'main:dashboard' %}"</script>
     {% endif %}
 {% endblock %}
 
@@ -23,15 +23,15 @@
 {% block content %}
 
     <div id="loginForm">
-        <div class="row">                        
+        <div class="row">
             <div class="logo" id="logo">
                 <h1><a href="" title="{% trans "BIREME Accounts" %}"><span>{% trans "BIREME Accounts" %}</span></a></h1>
             </div>
         </div>
 
-        <form class="form-signin" action="{% url 'django.contrib.auth.views.login' %}" method="post" name="login">
-            
-            {% csrf_token %}<input type="hidden" name="next" value="{% url 'main.views.dashboard' %}" />
+        <form class="form-signin" action="{% url 'auth_login' %}" method="post" name="login">
+
+            {% csrf_token %}<input type="hidden" name="next" value="{% url 'main:dashboard' %}" />
 
             <h2 class="form-signin-heading">{% trans "Login" %}</h2>
 
@@ -48,7 +48,7 @@
             <input type="password" class="input-block-level" placeholder="Password" name="password">
 
             <p><a href="{% url 'auth_password_reset' %}" title="{% trans "Forgot my password" %}">{% trans "Forgot my password" %}</a></p>
-            
+
             <button class="btn btn-large btn-primary" type="submit">{% trans "Login" %}</button>
         </form>
     </div> <!-- /#loginForm -->

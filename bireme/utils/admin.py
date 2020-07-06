@@ -1,5 +1,5 @@
 from django.contrib import admin
-from models import *
+from utils.models import *
 
 class GenericAdmin(admin.ModelAdmin):
     exclude = ('created', 'creator', 'updated', 'updater')
@@ -11,7 +11,7 @@ class GenericAdmin(admin.ModelAdmin):
             else:
                 obj.creator = request.user
                 obj.updater = request.user
-        obj.save()    
+        obj.save()
 
 class CountryLocalAdmin(admin.TabularInline):
     model = CountryLocal

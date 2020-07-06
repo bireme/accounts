@@ -4,14 +4,14 @@
 {% block title %}{% trans "Change Profile" %} | {{ block.super }}{% endblock %}
 
 {% block breadcrumb %}
-    <li><a href="{% url 'registration.views.change_profile' %}">{% trans "Your Profile" %}</a> <span class="divider">/</span></li>
+    <li><a href="{% url 'change_profile' %}">{% trans "Your Profile" %}</a> <span class="divider">/</span></li>
     <li>{% trans "Change Profile" %}</li>
 {% endblock %}
 
 {% block content %}
 <div class='header'>
     <h2>
-        <i class='icon-globe'></i> {% trans "Edit Your Profile" %} 
+        <i class='icon-globe'></i> {% trans "Edit Your Profile" %}
         {% if user.is_superuser %}
                 <small>(superuser)</small>
         {% else %}
@@ -24,7 +24,7 @@
     </h2>
 
     <div class='pull-right'>
-        <a href='{% url 'django.contrib.auth.views.password_change' %}' class='btn' title="{% trans "Change Password" %}">{% trans "Change Password" %}</a>
+        <a href='{% url 'auth_password_change' %}' class='btn' title="{% trans "Change Password" %}">{% trans "Change Password" %}</a>
     </div>
 </div>
 
@@ -32,7 +32,7 @@
 
 <div class='body'>
     <form method="POST">{% csrf_token %}
-        <fieldset>                                
+        <fieldset>
             {{ form }}
         </fieldset>
 
@@ -40,5 +40,5 @@
             <button class="btn btn-primary btn-large">{% trans "Submit" %}</button>
         </div>
     </form>
-</div>  
+</div>
 {% endblock %}

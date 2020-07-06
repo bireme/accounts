@@ -23,16 +23,16 @@
         <div class='mask'><img src='{% static "image/loading.gif" %}'></div>
         <div class="wrap">
 
-            
+
 
             {% block "body" %}
                 {% block top %}{% include 'menu.html' %}{% endblock %}
 
                 <ul class="breadcrumb">
-                    <li><a href="{% url 'main.views.dashboard' %}">Home</a> <span class="divider">/</span></li>
+                    <li><a href="{% url 'main:dashboard' %}">Home</a> <span class="divider">/</span></li>
                     {% block breadcrumb %}{% endblock %}
                 </ul>
-                
+
 
                 <div class="container-fluid content main">
                     {% block content %}{% endblock %}
@@ -75,5 +75,5 @@
 
         {% block extrajs %}{% endblock %}
 
-    </body>    
+    </body>
 </html>

@@ -21,7 +21,7 @@
 
     {% if user.is_superuser %}
         <div class='pull-right'>
-            <a href="{% url 'main.views.new_network' %}" class='btn btn-primary'><i class='icon-file'></i> {% trans "New Network" %}</a>
+            <a href="{% url 'main:new_network' %}" class='btn btn-primary'><i class='icon-file'></i> {% trans "New Network" %}</a>
         </div>
     {% endif %}
 </div>
@@ -29,8 +29,8 @@
 <div class='body'>
     {% if actions.s %}
         <div>
-            {% trans "Search" %}: <strong>{{ actions.s }}</strong> 
-            <a href="{% url 'main.views.networks' %}">[{% trans "clear" %}]</a>
+            {% trans "Search" %}: <strong>{{ actions.s }}</strong>
+            <a href="{% url 'main:networks' %}">[{% trans "clear" %}]</a>
         </div>
     {% endif %}
 
@@ -53,20 +53,20 @@
         <tbody>
             {% for network in networks %}
                 <tr>
-                    <td><a href="{% url 'main.views.edit_network' network.id %}">{{ network.id }}</a></td>
+                    <td><a href="{% url 'main:edit_network' network.id %}">{{ network.id }}</a></td>
                     <td>{{ network.acronym }}</td>
                     <td>{{ network.responsible }}</td>
                     <td>
-                        <a href="{% url 'main.views.edit_network' network.id %}" class='btn btn-mini'><i class='icon-pencil'></i></a>
+                        <a href="{% url 'main:edit_network' network.id %}" class='btn btn-mini'><i class='icon-pencil'></i></a>
                         <a href="#" class='btn btn-mini' title="{% trans 'Remove' %}"><i class='icon-remove'></i></a>
                     </td>
 
                 </tr>
             {% endfor %}
-            
+
         </tbody>
     </table>
-     
-</div>  
+
+</div>
 
 {% endblock %}

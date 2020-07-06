@@ -1,10 +1,9 @@
 #! coding: utf-8
-from django.shortcuts import redirect, render_to_response, get_object_or_404
+from django.shortcuts import redirect, render, reverse, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.utils.translation import ugettext_lazy as _
 from django.contrib.auth import forms as auth_forms
 from django.http import Http404, HttpResponse
-from django.core.urlresolvers import reverse
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.core import mail
 from django.contrib.auth.models import User
@@ -13,13 +12,14 @@ from django.template import RequestContext
 from utils.views import ACTIONS
 from django.conf import settings
 from datetime import datetime
-from models import *
-from forms import *
+
+from main.models import *
+from main.forms import *
+from main.decorators import *
+
 import mimetypes
 import operator
 import os
-
-from decorators import *
 
 MAX_USERS_PER_PAGE = 25
 
@@ -40,9 +40,9 @@ def dashboard(request):
     output = {}
 
     if not user.is_superuser and user.profile.type == "basic":
-        return redirect(reverse("registration.views.change_profile"))
+        return redirect(reverse("change_profile"))
 
-    return render_to_response('main/index.html', output, context_instance=RequestContext(request))
+    return render(request, 'main/index.html', output)
 
 @login_required
 @advanced_permission
@@ -57,8 +57,8 @@ def users(request):
     # getting action parameters
     actions = {}
     for key in ACTIONS.keys():
-        if request.REQUEST.get(key):
-            actions[key] = request.REQUEST.get(key)
+        if request.GET.get(key):
+            actions[key] = request.GET.get(key)
         else:
             actions[key] = ACTIONS[key]
 
@@ -112,14 +112,14 @@ def users(request):
     output['show_users_cc'] = True if len(ccs_networks_responsible) > 1 else False
     output['cooperative_centers'] = cooperative_centers.order_by('code')
 
-    return render_to_response('main/users.html', output, context_instance=RequestContext(request))
+    return render(request, 'main/users.html', output)
 
 @login_required
 @advanced_permission
 def edit_user(request, user):
 
     user = get_object_or_404(User, id=user)
-    resend_email = request.REQUEST.get('resend_email_flag')
+    resend_email = request.GET.get('resend_email_flag', request.POST.get('resend_email_flag'))
     output = {}
 
     services = Service.objects.all()
@@ -147,14 +147,14 @@ def edit_user(request, user):
                     output['alert'] = _("Activation email re-sent")
                     output['alerttype'] = "alert-success"
 
-            return redirect(reverse("main.views.users"))
+            return redirect(reverse("main:users"))
 
     output['form'] = form
     output['edit_user'] = user
     output['services'] = services
     output['user_roles'] = user_role_services
 
-    return render_to_response('main/edit-user.html', output, context_instance=RequestContext(request))
+    return render(request, 'main/edit-user.html', output)
 
 @login_required
 @advanced_permission
@@ -196,14 +196,14 @@ def new_user(request):
             output['alert'] = _("User successfully edited.")
             output['alerttype'] = "alert-success"
 
-            return redirect("%s/#!tab-permissions" % reverse("main.views.edit_user", args=[new_user.id]))
+            return redirect("%s/#!tab-permissions" % reverse("main:edit_user", args=[new_user.id]))
 
     output['form'] = form
     output['services'] = services
     output['user_roles'] = user_role_services
     output['is_new'] = True
 
-    return render_to_response('main/edit-user.html', output, context_instance=RequestContext(request))
+    return render(request, 'main/edit-user.html', output)
 
 
 @login_required
@@ -216,8 +216,8 @@ def networks(request):
     # getting action parameters
     actions = {}
     for key in ACTIONS.keys():
-        if request.REQUEST.get(key):
-            actions[key] = request.REQUEST.get(key)
+        if request.GET.get(key):
+            actions[key] = request.GET.get(key)
         else:
             actions[key] = ACTIONS[key]
 
@@ -233,7 +233,7 @@ def networks(request):
     output['networks'] = networks
     output['actions'] = actions
 
-    return render_to_response('main/networks.html', output, context_instance=RequestContext(request))
+    return render(request, 'main/networks.html', output)
 
 @login_required
 @advanced_permission
@@ -263,7 +263,7 @@ def edit_network(request, network):
     output['ccs'] = ccs
     output['members'] = members
 
-    return render_to_response('main/edit-network.html', output, context_instance=RequestContext(request))
+    return render(request, 'main/edit-network.html', output)
 
 @login_required
 def new_network(request):
@@ -281,13 +281,13 @@ def new_network(request):
             output['alert'] = _("Network successfully edited.")
             output['alerttype'] = "alert-success"
 
-            return redirect("%s/#!tab-centers" % reverse("main.views.edit_network", args=[network.id]))
+            return redirect("%s/#!tab-centers" % reverse("main:edit_network", args=[network.id]))
 
     output['is_new'] = True
     output['form'] = form
     output['network'] = network
 
-    return render_to_response('main/edit-network.html', output, context_instance=RequestContext(request))
+    return render(request, 'main/edit-network.html', output)
 
 
 @login_required
@@ -300,8 +300,8 @@ def services(request):
     # getting action parameters
     actions = {}
     for key in ACTIONS.keys():
-        if request.REQUEST.get(key):
-            actions[key] = request.REQUEST.get(key)
+        if request.GET.get(key):
+            actions[key] = request.GET.get(key)
         else:
             actions[key] = ACTIONS[key]
 
@@ -315,7 +315,7 @@ def services(request):
     output['services'] = services
     output['actions'] = actions
 
-    return render_to_response('main/services.html', output, context_instance=RequestContext(request))
+    return render(request, 'main/services.html', output)
 
 
 @login_required
@@ -326,7 +326,7 @@ def edit_service(request, service):
     roles = Role.objects.all()
     service_roles = RoleService.objects.filter(service=service)
 
-    role_associated_list = request.REQUEST.getlist('roles_associated')
+    role_associated_list = request.GET.getlist('roles_associated', request.POST.getlist('roles_associated'))
 
     output = {}
 
@@ -356,7 +356,7 @@ def edit_service(request, service):
     output['service_roles'] = service_roles
     output['service'] = service
 
-    return render_to_response('main/edit-service.html', output, context_instance=RequestContext(request))
+    return render(request, 'main/edit-service.html', output)
 
 @login_required
 @superuser_permission
@@ -368,7 +368,7 @@ def new_service(request):
     form = ServiceForm(instance=service)
     roles = Role.objects.all()
 
-    role_associated_list = request.REQUEST.getlist('roles_associated')
+    role_associated_list = request.GET.getlist('roles_associated', request.POST.getlist('roles_associated'))
 
     if request.POST:
         form = ServiceForm(request.POST, request.FILES, instance=service)
@@ -386,7 +386,7 @@ def new_service(request):
             output['alert'] = _("Service successfully created.")
             output['alerttype'] = "alert-success"
 
-            return redirect(reverse("main.views.edit_service", args=[service.id]))
+            return redirect(reverse("main:edit_service", args=[service.id]))
 
     service_roles = RoleService.objects.filter(service=service)
 
@@ -396,7 +396,7 @@ def new_service(request):
     output['service'] = service
     output['service_roles'] = service_roles
 
-    return render_to_response('main/edit-service.html', output, context_instance=RequestContext(request))
+    return render(request, 'main/edit-service.html', output)
 
 @login_required
 @superuser_permission
@@ -409,8 +409,8 @@ def roles(request):
     actions = {}
     for key in ACTIONS.keys():
         actions[key] = ACTIONS[key]
-        if request.REQUEST.get(key):
-            actions[key] = request.REQUEST.get(key)
+        if request.GET.get(key):
+            actions[key] = request.GET.get(key)
 
     roles = Role.objects.filter(name__icontains=actions['s'])
     roles = roles.order_by(actions["orderby"])
@@ -420,7 +420,7 @@ def roles(request):
     output['roles'] = roles
     output['actions'] = actions
 
-    return render_to_response('main/roles.html', output, context_instance=RequestContext(request))
+    return render(request, 'main/roles.html', output)
 
 @login_required
 @superuser_permission
@@ -441,7 +441,7 @@ def edit_role(request, role):
     output['form'] = form
     output['role'] = role
 
-    return render_to_response('main/edit-role.html', output, context_instance=RequestContext(request))
+    return render(request, 'main/edit-role.html', output)
 
 @login_required
 @superuser_permission
@@ -464,4 +464,4 @@ def new_role(request):
     output['form'] = form
     output['role'] = role
 
-    return render_to_response('main/edit-role.html', output, context_instance=RequestContext(request))
+    return render(request, 'main/edit-role.html', output)

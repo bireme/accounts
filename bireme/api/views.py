@@ -3,7 +3,6 @@ from django.shortcuts import redirect, render_to_response, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.utils.translation import ugettext_lazy as _
 from django.http import Http404, HttpResponse
-from django.core.urlresolvers import reverse
 from django.core.paginator import Paginator
 from django.contrib.auth.models import User
 from django.template import RequestContext
@@ -28,7 +27,7 @@ def change_user_role_service(request):
 
     user = get_object_or_404(User, id=user)
     role_service = get_object_or_404(RoleService, role__id=role, service__id=service)
-    
+
     if request.REQUEST.get('checked') == "true":
 
         if not UserRoleService.objects.filter(user=user, role_service=role_service):
@@ -41,9 +40,9 @@ def change_user_role_service(request):
             role.delete()
             return HttpResponse(1)
         except Exception as e:
-            print e
+            print(e)
             pass
-    
+
     return HttpResponse(0)
 
 @login_required
@@ -61,7 +60,7 @@ def change_network_member(request):
     else:
         member.delete()
         return HttpResponse(1)
-    
+
     return HttpResponse(0)
 
 @login_required
@@ -70,10 +69,10 @@ def get_ccs(request):
     ccs = CooperativeCenter.objects.all()
     output = {}
     members = []
-    
+
     if request.GET.get('code'):
         ccs = ccs.filter(Q(code__istartswith=request.GET.get('code')) | Q(institution__icontains=request.GET.get('code')))
-    
+
     if request.GET.get('country'):
         ccs = ccs.filter(country__id=request.GET.get('country'))
 

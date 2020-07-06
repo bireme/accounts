@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 from django.contrib.auth.models import User
 
-from models import *
+from main.models import *
 from utils.admin import GenericAdmin
 
 class ProfileInline(admin.StackedInline):
@@ -16,7 +16,7 @@ class UserRoleAdmin(admin.TabularInline):
 # Define a new User admin
 class UserAdmin(UserAdmin):
     inlines = (ProfileInline, UserRoleAdmin )
-    
+
     fieldsets = (
         (None, {'fields': ('username', 'email', 'password', 'is_active', "is_staff", "is_superuser")}),
         ("Information", {'fields': ('first_name', "last_name", 'last_login', "date_joined")}),
@@ -42,7 +42,7 @@ class ServiceAdmin(GenericAdmin):
     inlines = [ServiceLocalAdmin,]
 
 class CooperativeCenterAdmin(GenericAdmin):
-    
+
     model = CooperativeCenter
     readonly_fields = [field.name for field in model._meta.fields]
 
@@ -52,7 +52,7 @@ class CooperativeCenterAdmin(GenericAdmin):
 
     def has_delete_permission(self, request, obj=None):
         return False
-    
+
 
 class TopicLocalAdmin(admin.TabularInline):
     model = TopicLocal
@@ -64,7 +64,7 @@ class TopicAdmin(GenericAdmin):
 
 
 class NetworkAdmin(GenericAdmin):
-    model = Network 
+    model = Network
     list_display = ['acronym', 'type', 'responsible', 'country']
     list_filter = ['type', ]
     raw_id_fields = ['responsible', ]
@@ -87,4 +87,3 @@ admin.site.register(RoleService)
 # Re-register UserAdmin
 admin.site.unregister(User)
 admin.site.register(User, UserAdmin)
-

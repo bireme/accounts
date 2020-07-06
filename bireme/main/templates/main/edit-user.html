@@ -4,7 +4,7 @@
 {% block title %}{% trans "Edit" %} {{ edit_user }} | {{ block.super }}{% endblock %}
 
 {% block breadcrumb %}
-    <li><a href="{% url 'main.views.users' %}">{% trans "Users" %}</a> <span class="divider">/</span></li>
+    <li><a href="{% url 'main:users' %}">{% trans "Users" %}</a> <span class="divider">/</span></li>
     {% if is_new %}
         <li>{% trans "New User" %}</li>
     {% else %}
@@ -48,7 +48,7 @@
 
                 $.ajax({
                     type: "GET",
-                    url: "{% url 'api.views.change_user_role_service' %}",
+                    url: "{% url 'api:change_user_role_service' %}",
                     data: { service: service, role: role, checked: checked, user: "{{ edit_user.id }}" }
                 }).done(function(result) {
                     if(result === "0") {
