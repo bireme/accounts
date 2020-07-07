@@ -20,7 +20,7 @@ class Generic(models.Model):
     updater = models.ForeignKey(User, null=True, blank=True, related_name="+", on_delete=models.PROTECT)
 
     def save(self):
-        self.updated = datetime.now()
+        self.updated = timezone.now()
         super(Generic, self).save()
 
 class Country(Generic):

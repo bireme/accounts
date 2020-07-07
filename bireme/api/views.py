@@ -21,14 +21,14 @@ def change_user_role_service(request):
 
     output = {}
 
-    user = request.REQUEST.get('user')
-    role = request.REQUEST.get('role')
-    service = request.REQUEST.get('service')
+    user = request.GET.get('user')
+    role = request.GET.get('role')
+    service = request.GET.get('service')
 
     user = get_object_or_404(User, id=user)
     role_service = get_object_or_404(RoleService, role__id=role, service__id=service)
 
-    if request.REQUEST.get('checked') == "true":
+    if request.GET.get('checked') == "true":
 
         if not UserRoleService.objects.filter(user=user, role_service=role_service):
             role = UserRoleService(user=user, role_service=role_service)
@@ -50,11 +50,11 @@ def change_network_member(request):
 
     output = {}
 
-    network = get_object_or_404(Network, id=request.REQUEST.get('network'))
-    cc = get_object_or_404(CooperativeCenter, id=request.REQUEST.get('cc'))
+    network = get_object_or_404(Network, id=request.GET.get('network'))
+    cc = get_object_or_404(CooperativeCenter, id=request.GET.get('cc'))
     member, trash = NetworkMembership.objects.get_or_create(**{'network': network, 'cooperative_center': cc})
 
-    if request.REQUEST.get('checked') == "true":
+    if request.GET.get('checked') == "true":
         member.save()
         return HttpResponse(1)
     else:
