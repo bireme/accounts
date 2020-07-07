@@ -36,6 +36,9 @@ dev_rm:
 dev_exec_shell:
 	@docker-compose -f $(COMPOSE_FILE_DEV) exec app sh
 
+dev_exec_import_centros:
+	@docker-compose -f $(COMPOSE_FILE_DEV) exec app python manage.py loaddata /app/import/Centros_OK.xml
+
 dev_make_test:
 	@docker-compose -f $(COMPOSE_FILE_DEV) exec app make test
 
@@ -66,8 +69,8 @@ prod_exec_shell:
 prod_exec_collectstatic:
 	@docker-compose --compatibility exec app python manage.py collectstatic --noinput
 
-prod_exec_webserver:
-	@docker-compose --compatibility exec webserver sh
+prod_exec_import_centros:
+	@docker-compose --compatibility exec app python manage.py loaddata /app/import/Centros_OK.xml
 
 prod_make_test:
 	@docker-compose --compatibility exec app make test
