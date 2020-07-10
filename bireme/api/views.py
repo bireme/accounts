@@ -1,5 +1,5 @@
 #! coding: utf-8
-from django.shortcuts import redirect, render_to_response, get_object_or_404
+from django.shortcuts import redirect, render, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.utils.translation import ugettext_lazy as _
 from django.http import Http404, HttpResponse
@@ -83,7 +83,7 @@ def get_ccs(request):
     output['ccs'] = ccs
     output['members'] = members
 
-    return render_to_response('api/get-ccs.html', output, context_instance=RequestContext(request))
+    return render(request, 'api/get-ccs.html', output)
 
 def get_network_ccs(request):
 

@@ -12,6 +12,7 @@ from django.template import RequestContext
 from utils.views import ACTIONS
 from django.conf import settings
 from datetime import datetime
+from functools import reduce
 
 from main.models import *
 from main.forms import *

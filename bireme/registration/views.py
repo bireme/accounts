@@ -1,5 +1,5 @@
 #! coding: utf-8
-from django.shortcuts import redirect, render_to_response, get_object_or_404
+from django.shortcuts import redirect, render, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.utils.translation import ugettext_lazy as _
 from django.http import Http404, HttpResponse
@@ -30,4 +30,4 @@ def change_profile(request):
     output['user'] = user
     output['form'] = form
 
-    return render_to_response('registration/change-profile.html', output, context_instance=RequestContext(request))
+    return render(request, 'registration/change-profile.html', output)
