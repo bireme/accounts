@@ -1,7 +1,7 @@
 version: '3.4'
 
 services:
-  app:
+  app_accounts:
     container_name: accounts
     restart: unless-stopped
     build:
@@ -35,7 +35,7 @@ services:
       - ./conf/nginx:/etc/nginx/conf.d
       - static_files:/app/static_files
     depends_on:
-      - app
+      - app_accounts
     environment:
       - VIRTUAL_HOST=${VIRTUAL_HOST}
       - LETSENCRYPT_HOST=${LETSENCRYPT_HOST}

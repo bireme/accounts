@@ -1,7 +1,7 @@
 version: '3.4'
 
 services:
-  app:
+  app_accounts:
     container_name: accounts
     build:
       context: .

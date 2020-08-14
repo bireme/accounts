@@ -34,13 +34,13 @@ dev_rm:
 	@docker-compose -f $(COMPOSE_FILE_DEV) rm -f
 
 dev_exec_shell:
-	@docker-compose -f $(COMPOSE_FILE_DEV) exec app sh
+	@docker-compose -f $(COMPOSE_FILE_DEV) exec app_accounts sh
 
 dev_exec_import_centros:
-	@docker-compose -f $(COMPOSE_FILE_DEV) exec app python manage.py loaddata /app/import/Centros_OK.xml
+	@docker-compose -f $(COMPOSE_FILE_DEV) exec app_accounts python manage.py loaddata /app/import/Centros_OK.xml
 
 dev_make_test:
-	@docker-compose -f $(COMPOSE_FILE_DEV) exec app make test
+	@docker-compose -f $(COMPOSE_FILE_DEV) exec app_accounts make test
 
 
 ## docker-compose prod
@@ -64,13 +64,13 @@ prod_rm:
 	@docker-compose --compatibility rm -f
 
 prod_exec_shell:
-	@docker-compose --compatibility exec app sh
+	@docker-compose --compatibility exec app_accounts sh
 
 prod_exec_collectstatic:
-	@docker-compose --compatibility exec app python manage.py collectstatic --noinput
+	@docker-compose --compatibility exec -T app_accounts python manage.py collectstatic --noinput
 
 prod_exec_import_centros:
-	@docker-compose --compatibility exec app python manage.py loaddata /app/import/Centros_OK.xml
+	@docker-compose --compatibility exec -T app_accounts python manage.py loaddata /app/import/Centros_OK.xml
 
 prod_make_test:
-	@docker-compose --compatibility exec app make test
+	@docker-compose --compatibility exec -T app_accounts make test
