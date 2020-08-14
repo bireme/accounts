@@ -7,3 +7,4 @@ fabric/environment.py
 static_files
 version.txt
 .env*
+app-env*

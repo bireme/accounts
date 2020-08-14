@@ -1,1 +1,0 @@
-django-rosetta==0.9.4

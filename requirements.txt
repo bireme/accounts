@@ -1,4 +1,5 @@
 Django==2.2.13
 django-tastypie==0.14.3
+django-rosetta==0.9.4
 mysqlclient==1.4.6
 gunicorn==20.0.4
