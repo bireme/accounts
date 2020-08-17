@@ -13,6 +13,7 @@ tag:
 
 ## shortcuts docker-compose development
 dev_build:
+	@echo $(APP_VERSION) > ./bireme/templates/version.txt
 	@docker-compose -f $(COMPOSE_FILE_DEV) build
 
 dev_run:
@@ -45,6 +46,7 @@ dev_make_test:
 
 ## docker-compose prod
 prod_build:
+	@echo $(APP_VERSION) > ./bireme/templates/version.txt
 	@docker-compose --compatibility build
 	@docker tag $(IMAGE_TAG) $(TAG_LATEST)
 
