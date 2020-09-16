@@ -94,6 +94,12 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+# Add authentication using user email
+AUTHENTICATION_BACKENDS = [
+    'utils.authenticate.EmailModelBackend',
+    'django.contrib.auth.backends.ModelBackend',
+]
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
