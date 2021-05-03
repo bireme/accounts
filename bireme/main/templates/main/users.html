@@ -39,12 +39,10 @@
             <form name="search" onSubmit="return search();">
                 {% if cooperative_centers|length > 1 %}
                     <select name="cc">
-                    {% if user.is_superuser %}
                         <option value="">{% trans "Cooperative Center" %}</option>
-                    {% endif %}
-                    {% for center in cooperative_centers %}
-                        <option value="{{ center.pk }}" {% if actions.cc == center.pk|stringformat:"s" %}selected{% endif %}>{{ center.code }}</option>
-                    {% endfor %}
+                        {% for center in cooperative_centers %}
+                            <option value="{{ center.pk }}" {% if actions.cc == center.pk|stringformat:"s" %}selected{% endif %}>{{ center.code }}</option>
+                        {% endfor %}
                     </select>
                     &nbsp;
                     &nbsp;
