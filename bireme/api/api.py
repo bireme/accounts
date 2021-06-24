@@ -35,7 +35,8 @@ class UserResource(ModelResource):
         network = []
         networks_responsible = []
         ccs_networks_responsible = []
-        ccs = []
+        ccs = set()
+        ccs_by_network = dict()
 
         user = authenticate(username=username, password=password)
         if user:
@@ -72,10 +73,14 @@ class UserResource(ModelResource):
 
                 if list_network_ccs:
                     # loop at all networks that user cc participate (ex. BR9.9 participate of 3 networks)
-                    for network in cc.network_set.all():
+                    network_list = cc.network_set.all()
+                    for network in network_list:
                         # return all cc codes of current network
-                        ccs.extend( [member.code for member in network.members.all()] )
-
+                        network_cc_list = network.list_members()
+                        # add network list to ccs list (without duplications)
+                        ccs.update(network_cc_list)
+                        # add network list to dict contain network acronym and ccs list
+                        ccs_by_network.update({network.acronym: network_cc_list})
 
                 output = {
                     'success': True,
@@ -86,6 +91,7 @@ class UserResource(ModelResource):
                         'role': roles,
                         'service_role': service_role,
                         'networks' : networks,
+                        'ccs_by_network': ccs_by_network,
                     }
                 }
                 if list_network_ccs:
@@ -97,15 +103,13 @@ class UserResource(ModelResource):
 
 
                 if user.profile.type == "advanced":
-
                     # check if this user is network owner
                     network_owners = cc.network_set.all().filter(responsible=cc)
 
                     if network_owners:
                         # getting all centers that this center may see
                         for network in network_owners:
-                            ccs += network.list_members()
-                        ccs = list(set(ccs))
+                            ccs.update(network.list_members())
 
                     output['ccs'] = ccs
                     output['networks'] = networks
