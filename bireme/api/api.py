@@ -95,7 +95,7 @@ class UserResource(ModelResource):
                     }
                 }
                 if list_network_ccs:
-                    output['data']['ccs'] = ccs
+                    output['data']['ccs'] = list(ccs)
 
                 if list_responsible:
                     output['data']['networks_responsible'] = networks_responsible
@@ -111,10 +111,11 @@ class UserResource(ModelResource):
                         for network in network_owners:
                             ccs.update(network.list_members())
 
-                    output['ccs'] = ccs
-                    output['networks'] = networks
+                    output['data']['ccs'] = list(ccs)
+                    output['data']['networks'] = networks
 
                 login(request, user)
+
                 return self.create_response(request, output)
             else:
                 return self.create_response(request, {'success': False, 'reason': 'user not active'}, HttpForbidden)
