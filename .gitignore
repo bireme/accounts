@@ -8,3 +8,4 @@ static_files
 version.txt
 .env*
 app-env*
+app/db.sqlite3

@@ -1,41 +1,49 @@
 ########### BASE STAGE ###########
-FROM python:3.7.8-alpine AS base
+FROM python:3.12-alpine AS base
 
-# set environment variables
+# Set environment variables
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
-ENV PYTHONWARNINGS='ignore::DeprecationWarning'
+ENV POETRY_VIRTUALENVS_CREATE=false
 
-# copy base requirements
-COPY ./requirements.txt /app/requirements.txt
-
-# install base dependencies
-RUN apk add --no-cache --virtual .build-deps \
-    gcc \
-    musl-dev \
-    python3-dev \
-    && apk add --no-cache mariadb-dev \
-    && pip install --upgrade pip setuptools && pip install --no-cache-dir -r /app/requirements.txt \
-    && apk del .build-deps
+# Install uv package manager
+COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
 
 EXPOSE 8000
-
-WORKDIR /app
 
 ########### DEV STAGE ###########
 FROM base AS dev
 
-# copy dev requirements
-COPY ./requirements-dev.txt /app/
+# Install dependencies
+COPY pyproject.toml uv.lock .
+RUN uv sync
 
-# install dev dependencies
-RUN pip install --no-cache-dir -r /app/requirements-dev.txt
+# Set app directory
+WORKDIR app/
 
 
 ########### PRODUCTION STAGE ###########
 FROM base AS prod
 
+# Install system dependencies
+RUN apk add --no-cache \
+    gcc \
+    musl-dev \
+    mariadb-dev \
+    python3-dev
+
+# Install dependencies
+COPY pyproject.toml uv.lock .
+RUN uv sync --group prod
+
+# Set app directory
+WORKDIR app/
+
+# create directory for collectstatic command
 RUN mkdir /app/static_files
 
-# copy aplication files to image
-COPY ./bireme/ /app/
+# Copy src files
+COPY ./app /app/
+
+# Execute app
+CMD uv run gunicorn --bind unix:/tmp/gunicorn.sock api_users.wsgi ${APP_RUN_PARAMS}

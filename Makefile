@@ -1,8 +1,11 @@
+#!make
+include .env
+# Export all variables (not commented lines) from .env file
+$(eval export $(shell sed -ne 's/ *#.*$$//; /./ s/=.*$$// p' .env))
+
 IMAGE_NAME=bireme/accounts
 APP_VERSION=$(shell git describe --tags --long --always | sed 's/-g[a-z0-9]\{7\}//')
 TAG_LATEST=$(IMAGE_NAME):latest
-
-COMPOSE_FILE_DEV=docker-compose-dev.yml
 
 ## variable used in docker-compose for tag the build image
 export IMAGE_TAG=$(IMAGE_NAME):$(APP_VERSION)
@@ -10,69 +13,41 @@ export IMAGE_TAG=$(IMAGE_NAME):$(APP_VERSION)
 tag:
 	@echo "IMAGE TAG:" $(IMAGE_TAG)
 
-
-## shortcuts docker-compose development
-dev_build:
-	@echo $(APP_VERSION) > ./bireme/templates/version.txt
-	@docker-compose -f $(COMPOSE_FILE_DEV) build
-
+## DEV shortcuts
 dev_run:
-	@docker-compose -f $(COMPOSE_FILE_DEV) up
-
-dev_up:
-	@docker-compose -f $(COMPOSE_FILE_DEV) up -d
-
-dev_logs:
-	@docker-compose -f $(COMPOSE_FILE_DEV) logs -f
-
-dev_stop:
-	@docker-compose -f $(COMPOSE_FILE_DEV) stop
-
-dev_ps:
-	@docker-compose -f $(COMPOSE_FILE_DEV) ps
-
-dev_rm:
-	@docker-compose -f $(COMPOSE_FILE_DEV) rm -f
-
-dev_exec_shell:
-	@docker-compose -f $(COMPOSE_FILE_DEV) exec app_accounts sh
-
-dev_exec_import_centros:
-	@docker-compose -f $(COMPOSE_FILE_DEV) exec app_accounts python manage.py loaddata /app/import/Centros_OK.xml
-
-dev_make_test:
-	@docker-compose -f $(COMPOSE_FILE_DEV) exec app_accounts make test
+	. ./set_env.sh && export && cd app && uv run manage.py runserver
 
 
-## docker-compose prod
-prod_build:
-	@echo $(APP_VERSION) > ./bireme/templates/version.txt
-	@docker-compose --compatibility build
-	@docker tag $(IMAGE_TAG) $(TAG_LATEST)
+## PROD shortcuts
+build:
+	@docker compose build
 
-prod_up:
-	@docker-compose --compatibility up -d
+build_no_cache:
+	@docker compose build --no-cache
 
-prod_logs:
-	@docker-compose --compatibility logs -f
+run:
+	@docker compose up
 
-prod_stop:
-	@docker-compose --compatibility stop
+start:
+	@docker compose up -d
 
-prod_ps:
-	@docker-compose --compatibility ps
+rm:
+	@docker compose rm -f
 
-prod_rm:
-	@docker-compose --compatibility rm -f
+logs:
+	@docker compose logs -f
 
-prod_exec_shell:
-	@docker-compose --compatibility exec app_accounts sh
+stop:
+	@docker compose stop
 
-prod_exec_collectstatic:
-	@docker-compose --compatibility exec -T app_accounts python manage.py collectstatic --noinput
+down:
+	@docker compose down
 
-prod_exec_import_centros:
-	@docker-compose --compatibility exec -T app_accounts python manage.py loaddata /app/import/Centros_OK.xml
+sh:
+	@docker compose exec accounts sh
 
-prod_make_test:
-	@docker-compose --compatibility exec -T app_accounts make test
+collectstatic:
+	@docker compose exec -T accounts uv run manage.py collectstatic --noinput
+
+migrate:
+	@docker compose exec -T accounts uv run manage.py migrate
