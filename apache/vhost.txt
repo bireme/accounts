@@ -1,3 +1,0 @@
-<VirtualHost *:3001>
-
-</VirtualHost>

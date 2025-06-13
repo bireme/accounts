@@ -1,1 +1,0 @@
-touch ../../application.wsgi
