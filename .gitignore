@@ -9,3 +9,5 @@ version.txt
 .env*
 app-env*
 app/db.sqlite3
+.ia/
+tasks/

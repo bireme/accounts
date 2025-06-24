@@ -1,21 +1,19 @@
-version: '3.4'
-
 services:
-  app_accounts:
+  accounts:
     container_name: accounts
     build:
       context: .
       target: dev
-    expose:
-      - 8000
-    volumes:
-      - ./bireme/:/app/
-      - ./import/:/app/import/
+    restart: unless-stopped
     env_file:
-      - ./conf/app-env-dev
-    command: gunicorn --workers 2 --bind 0.0.0.0:8000 accounts.wsgi --reload --timeout 1000 --log-level DEBUG
+      - .env
+    volumes:
+      - ./app:/app
+    ports:
+      - ${APP_PORT}:8000
+    command: uv run manage.py runserver 0.0.0.0:8000
     networks:
-        - nginx-proxy
+      - nginx-proxy
 
 networks:
   nginx-proxy:

@@ -17,6 +17,9 @@ tag:
 dev_run:
 	. ./set_env.sh && export && cd app && uv run manage.py runserver
 
+dev_migrate:
+	. ./set_env.sh && export && cd app && uv run manage.py migrate
+
 
 ## PROD shortcuts
 build:
