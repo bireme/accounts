@@ -1,3 +1,21 @@
-from django.shortcuts import render
+from django.http import Http404, HttpResponse
+from django.conf import settings
 
-# Create your views here.
+# form actions
+ACTIONS = {
+    'orderby': 'id',
+    'order': '+',
+    'page': 1,
+    's': "",
+}
+
+def cookie_lang(request):
+
+    language = request.GET.get('language')
+    request.COOKIES[settings.LANGUAGE_COOKIE_NAME] = language
+    request.session[settings.LANGUAGE_COOKIE_NAME] = language
+
+    response = HttpResponse(language)
+    response.set_cookie(settings.LANGUAGE_COOKIE_NAME, language)
+
+    return response
