@@ -1,0 +1,130 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "Edit" %} {{ edit_user }} | {{ block.super }}{% endblock %}
+
+{% block breadcrumb %}
+    <li><a href="{% url 'main:users' %}">{% trans "Users" %}</a> <span class="divider">/</span></li>
+    {% if is_new %}
+        <li>{% trans "New User" %}</li>
+    {% else %}
+        <li>{% trans "Edit User" %}</li>
+    {% endif %}
+{% endblock %}
+
+{% block extrajs %}
+    <script>
+        $(function(){
+
+            // adding permalinks to tabs
+            var hash = window.location.hash,
+            hashPart=hash.split('!')[1],
+            activeTab=$('ul.nav a[href="#' + hashPart + '"]');
+            activeTab && activeTab.tab('show');
+
+            $('.nav-tabs a').click(function (e) {
+                $(this).tab('show');
+                window.location.hash = '#!'+$(this).attr('href').split('#')[1];
+            });
+
+            // make checkbox infiter in labels
+            fields = ['id_is_active', 'id_is_superuser'];
+            for(field in fields) {
+                var field = fields[field];
+                var label = "label[for="+field+"]";
+
+                $(label).html(" " + $(label).html());
+                $("#" + field).prependTo(label);
+            }
+
+            // ajax that check and uncheck roles in users
+            $(".checkbox_role").click(function(){
+                var service = $(this).attr('data-service');
+                var role = $(this).attr('data-role');
+                var checked = false;
+                if($(this).is(':checked')) {
+                    var checked = true;
+                }
+
+                $.ajax({
+                    type: "GET",
+                    url: "{% url 'api:change_user_role_service' %}",
+                    data: { service: service, role: role, checked: checked, user: "{{ edit_user.id }}" }
+                }).done(function(result) {
+                    if(result === "0") {
+                        alert("{% trans 'Error' %}");
+                    }
+                });
+            });
+        });
+        function resend_activate_link(){
+            $('input[name="resend_email_flag"]').val('true');
+            $('#edit_form').submit();
+
+        }
+    </script>
+{% endblock %}
+
+{% block content %}
+<!--  header -->
+<div class='header'>
+    <h2><i class='icon-group'></i> {% if is_new %}{% trans "New User" %}{% else %}{% trans "Edit User" %}{% endif %}</h2>
+</div>
+
+<div class='body'>
+
+    {% if not is_new %}
+    <ul class="nav nav-tabs" id="tab">
+        <li class="active"><a href="#tab-data" data-toggle="tab">{% trans "Data" %}</a></li>
+        <li><a href="#tab-permissions" data-toggle="tab">{% trans "Permissions" %}</a></li>
+    </ul>
+    {% endif %}
+
+    <div class="tab-content">
+        <div id="tab-data" class='tab-pane active'>
+            <form method="POST" id="edit_form">{% csrf_token %}
+                <input type="hidden" name="resend_email_flag" value=""/>
+
+                <fieldset>
+                    {{ form.non_field_errors }}
+                    {% for field in form %}
+                        {{ field.label_tag }}
+                        {{ field.errors }}
+                        {{ field }}
+                        {% if field.name == 'email' and not is_new %}
+                            <a href="#" onclick="resend_activate_link();" class="btn btn-mini" title=""><i class="icon-repeat"></i>resend email activation</a>
+                        {% endif %}
+                    {% endfor %}
+                </fieldset>
+
+            </form>
+        </div>
+        <div id="tab-permissions" class='tab-pane'>
+
+            <ul>
+                {% for service in services %}
+                    <li>
+                        <h3>{{ service.name }} <small>{{ service.acronym }}</small></h3>
+                        <div class="checkboxes">
+                            {% for role in service.roles.all %}
+
+                                <!-- roles do usuário -->
+                                <input type="checkbox" class="checkbox_role" data-role="{{ role.id }}" data-service="{{ service.id }}"
+                                {% for user_role in user_roles %}
+                                    {% if user_role.role_service.service == service and user_role.role_service.role == role %}checked="true"{% endif %}
+                                {% endfor %}
+                                value="{{ role.name }}"> {{ role.name }}
+                            {% endfor %}
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <div class="control-panel form-submit">
+            <button class="btn btn-primary btn-large" onclick="edit_form.submit()">{% trans "Submit" %}</button>
+        </div>
+
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "Networks" %} | {{ block.super }}{% endblock %}
+
+{% block breadcrumb %}
+    <li>{% trans "Networks" %}</li>
+{% endblock %}
+
+{% block content %}
+<form name="actions">
+    <input type="hidden" name="orderby" value="{{ actions.orderby }}">
+    <input type="hidden" name="order" value="{{ actions.order }}">
+    <input type="hidden" name="page" value="{{ actions.page }}">
+    <input type='hidden' name="s"  value="{{ actions.s }}">
+</form>
+
+<!--  header -->
+<div class='header'>
+    <h2><i class='icon-sitemap'></i> {% trans "Networks" %}</h2>
+
+    {% if user.is_superuser %}
+        <div class='pull-right'>
+            <a href="{% url 'main:new_network' %}" class='btn btn-primary'><i class='icon-file'></i> {% trans "New Network" %}</a>
+        </div>
+    {% endif %}
+</div>
+
+<div class='body'>
+    {% if actions.s %}
+        <div>
+            {% trans "Search" %}: <strong>{{ actions.s }}</strong>
+            <a href="{% url 'main:networks' %}">[{% trans "clear" %}]</a>
+        </div>
+    {% endif %}
+
+    <div class='pull-right'>
+        <div class="input-append">
+            <form name="search" onSubmit="return search();">
+                <input type='text' name="s"  value="{{ actions.s }}" placeholder="{% trans "Search" %}">
+                <button class="btn" type="submit"><i class='icon-search'></i></button>
+            </form>
+        </div>
+    </div>
+
+    <table class='table'>
+        <thead>
+            <th><a href="javascript:orderby('id');" id="id_id">#</a></th>
+            <th><a href="javascript:orderby('acronym');" id="id_acronym">{% trans "Name" %}</a></th>
+            <th><a href="javascript:orderby('responsible');" id="id_responsible">{% trans "Center Coordinator" %}</a></th>
+            <th>{% trans "Actions" %}</th>
+        </thead>
+        <tbody>
+            {% for network in networks %}
+                <tr>
+                    <td><a href="{% url 'main:edit_network' network.id %}">{{ network.id }}</a></td>
+                    <td>{{ network.acronym }}</td>
+                    <td>{{ network.responsible }}</td>
+                    <td>
+                        <a href="{% url 'main:edit_network' network.id %}" class='btn btn-mini'><i class='icon-pencil'></i></a>
+                        <a href="#" class='btn btn-mini' title="{% trans 'Remove' %}"><i class='icon-remove'></i></a>
+                    </td>
+
+                </tr>
+            {% endfor %}
+
+        </tbody>
+    </table>
+
+</div>
+
+{% endblock %}
