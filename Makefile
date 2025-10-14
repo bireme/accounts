@@ -4,7 +4,7 @@ include .env
 $(eval export $(shell sed -ne 's/ *#.*$$//; /./ s/=.*$$// p' .env))
 
 IMAGE_NAME=bireme/accounts
-APP_VERSION=$(shell git describe --tags --long --always | sed 's/-g[a-z0-9]\{7\}//')
+APP_VERSION=$(shell git describe --tags --long --always | sed 's/-g[a-z0-9]\{7\}//' | sed 's/-/./g')
 TAG_LATEST=$(IMAGE_NAME):latest
 
 ## variable used in docker-compose for tag the build image
@@ -12,6 +12,7 @@ export IMAGE_TAG=$(IMAGE_NAME):$(APP_VERSION)
 
 tag:
 	@echo "IMAGE TAG:" $(IMAGE_TAG)
+	@echo $(APP_VERSION) > app/templates/version.txt
 
 ## DEV shortcuts
 dev_run:

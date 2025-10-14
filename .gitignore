@@ -1,14 +1,12 @@
 *.log
 *.pot
 *.pyc
-settings_local.py
 *.db
-fabric/environment.py
-static_files
-version.txt
 .env*
-app-env*
+static_files
+set_env.sh
 app/db.sqlite3
+__pycache__/
 .ai/
 .github/
 openspec/
