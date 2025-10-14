@@ -2,8 +2,8 @@
 FROM python:3.12-alpine AS base
 
 # Set environment variables
-ENV PYTHONDONTWRITEBYTECODE 1
-ENV PYTHONUNBUFFERED 1
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1
 ENV POETRY_VIRTUALENVS_CREATE=false
 
 # Install uv package manager
@@ -46,4 +46,4 @@ RUN mkdir /app/static_files
 COPY ./app /app/
 
 # Execute app
-CMD uv run gunicorn --bind unix:/tmp/gunicorn.sock api_users.wsgi ${APP_RUN_PARAMS}
+CMD uv run gunicorn --bind 0.0.0.0:8000 accounts.wsgi

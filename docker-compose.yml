@@ -1,7 +1,5 @@
-version: '3.4'
-
 services:
-  app_accounts:
+  accounts:
     container_name: accounts
     restart: unless-stopped
     build:
@@ -11,42 +9,30 @@ services:
     expose:
       - 8000
     volumes:
-        - ${LOG_PATH}:/logs
-        - static_files:/app/static_files
+      - ${LOG_PATH:-./logs}:/logs
+      - static_files:/app/static_files
     env_file:
-        - ./conf/app-env
-    command: gunicorn --bind 0.0.0.0:8000 accounts.wsgi ${COMMAND_PARAMS}
+      - .env
+    command: uv run gunicorn --bind 0.0.0.0:8000 accounts.wsgi ${APP_RUN_PARAMS:-}
     networks:
       - nginx-proxy
-    deploy:
-      resources:
-        limits:
-          memory: ${MEMORY_APP_LIMIT}
-        reservations:
-          memory: ${MEMORY_APP_RESERVATION}
 
   webserver:
     container_name: accounts-webserver
     restart: unless-stopped
-    image: nginx:1.18-alpine
+    image: nginx:1.29-alpine
     expose:
       - 80
     volumes:
       - ./conf/nginx:/etc/nginx/conf.d
       - static_files:/app/static_files
     depends_on:
-      - app_accounts
+      - accounts
     environment:
       - VIRTUAL_HOST=${VIRTUAL_HOST}
-      - LETSENCRYPT_HOST=${LETSENCRYPT_HOST}
+      - LETSENCRYPT_HOST=${VIRTUAL_HOST}
     networks:
       - nginx-proxy
-    deploy:
-      resources:
-        limits:
-          memory: ${MEMORY_WEBSERVER_LIMIT}
-        reservations:
-          memory: ${MEMORY_WEBSERVER_RESERVATION}
 
 networks:
   nginx-proxy:
