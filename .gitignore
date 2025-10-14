@@ -10,4 +10,6 @@ version.txt
 app-env*
 app/db.sqlite3
 .ai/
+.github/
+openspec/
 tasks/
