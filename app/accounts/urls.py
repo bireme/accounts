@@ -29,8 +29,10 @@ urlpatterns = [
     # Admin interface
     path('admin/', admin.site.urls),
 
+    # Registration/authentication URLs
+    path('accounts/', include('registration.urls')),
+
     # TODO: Add these URL includes when the respective apps are migrated
-    # path('accounts/', include('registration.urls')),
     # path('api/', include('api.urls')),
 
     # TODO: Add internationalization when needed
