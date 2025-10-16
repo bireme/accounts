@@ -15,8 +15,34 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, re_path, include
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+from django.conf import settings
+
+# enable django admin:
+admin.autodiscover()
 
 urlpatterns = [
+    # Main app URLs at root
+    path('', include('main.urls')),
+
+    # Admin interface
     path('admin/', admin.site.urls),
+
+    # TODO: Add these URL includes when the respective apps are migrated
+    # path('accounts/', include('registration.urls')),
+    # path('api/', include('api.urls')),
+
+    # TODO: Add internationalization when needed
+    # re_path(r'^i18n/', include('django.conf.urls.i18n')),
+    # re_path(r'^cookie-lang/', include('utils.urls')),
 ]
+
+# TODO: Add rosetta URLs when rosetta app is properly configured
+# if 'rosetta' in settings.INSTALLED_APPS:
+#     urlpatterns += [
+#         re_path(r'^rosetta/', include('rosetta.urls'))
+#     ]
+
+if settings.DEBUG:
+    urlpatterns += staticfiles_urlpatterns()
