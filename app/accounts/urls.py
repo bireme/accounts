@@ -36,8 +36,8 @@ urlpatterns = [
     path('i18n/', include('django.conf.urls.i18n')),
     path('cookie-lang/', include('utils.urls')),
 
-    # TODO: Add these URL includes when the respective apps are migrated
-    # path('api/', include('api.urls')),
+    # API URLs
+    path('api/', include('api.urls')),
 
 ]
 
