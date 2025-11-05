@@ -1,4 +1,4 @@
-Django==1.5.1
+Django==4.2.26
 Fabric==1.4.1
 django-tastypie==0.9.14
 django-rosetta==0.7.1
