@@ -151,3 +151,9 @@ AUTH_PASSWORD_VALIDATORS = [
         "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",
     },
 ]
+
+# Add authentication using user email
+AUTHENTICATION_BACKENDS = [
+    'utils.authenticate.EmailModelBackend',
+    'django.contrib.auth.backends.ModelBackend',
+]
