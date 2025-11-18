@@ -3,15 +3,15 @@ name = "accounts-main"
 version = "2.0"
 description = "BIREME Accounts"
 readme = "README.md"
-requires-python = ">=3.12"
+requires-python = ">=3.13"
 dependencies = [
     "django~=5.2",
     "django-rosetta~=0.10",
     "django-tastypie~=0.15",
+    "mysqlclient~=2.2"
 ]
 
 [dependency-groups]
 prod = [
-    "gunicorn~=23.0",
-    "mysqlclient~=2.2",
+    "gunicorn~=23.0"
 ]

@@ -3,15 +3,14 @@ services:
     container_name: accounts
     build:
       context: .
+      dockerfile: Dockerfile
       target: dev
-    restart: unless-stopped
     env_file:
-      - .env
+      - .env.local
     volumes:
-      - ./app:/app
+      - .:/app
     ports:
       - ${APP_PORT}:8000
-    command: uv run manage.py runserver 0.0.0.0:8000
     networks:
       - nginx-proxy
 
