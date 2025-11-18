@@ -9,7 +9,7 @@ ENV PYTHONDONTWRITEBYTECODE=1 \
     PATH="/.venv/bin:$PATH"
 
 # Create non-root user
-RUN useradd -m -u 1001 appuser
+RUN useradd -m -u 1000 appuser
 
 WORKDIR /app
 

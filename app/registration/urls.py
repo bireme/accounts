@@ -6,7 +6,7 @@ from registration import views as registration_views
 urlpatterns = [
     # Authentication views using Django's built-in auth views
     path('login/', auth_views.LoginView.as_view(template_name='registration/login.html'), name='auth_login'),
-    path('logout/', auth_views.LogoutView.as_view(template_name='registration/logout.html', next_page='/'), name='auth_logout'),
+    path('logout/', registration_views.logout_view, name='auth_logout'),
 
     # Password change views
     path('password/change/', auth_views.PasswordChangeView.as_view(template_name='registration/change-password.html'), name='auth_password_change'),

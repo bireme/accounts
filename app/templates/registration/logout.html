@@ -2,7 +2,7 @@
 {% load i18n %}
 
 {% block extrahead %}
-    
+
 {% endblock %}
 
 {% block content %}
@@ -13,8 +13,8 @@
 
         <div class="row">
             <div class="login span4 offset4">
-                {% trans "You are logged out. Please" %} 
-                <a href="{% url auth_login %}" title="{% trans "Login" %}">{% trans "login" %}</a> 
+                {% trans "You are logged out. Please" %}
+                <a href="{% url 'auth_login' %}" title="{% trans "Login" %}">{% trans "login" %}</a>
                 {% trans "again clicking below." %}
             </div>
         </div>

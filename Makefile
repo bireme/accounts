@@ -26,6 +26,15 @@ dev_run:
 dev_sh:
 	@docker compose -f $(COMPOSE_FILE_DEV) exec accounts sh
 
+dev_check:
+	@docker compose -f $(COMPOSE_FILE_DEV) exec accounts sh -c "uv run --active manage.py check"
+
+dev_makemigrations:
+	@docker compose -f $(COMPOSE_FILE_DEV) exec accounts sh -c "uv run --active manage.py makemigrations"
+
+dev_migrate:
+	@docker compose -f $(COMPOSE_FILE_DEV) exec accounts sh -c "uv run --active manage.py migrate"
+
 
 # app management commands
 app_deps:
