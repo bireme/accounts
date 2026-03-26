@@ -12,6 +12,9 @@ dependencies = [
 ]
 
 [dependency-groups]
+dev = [
+    "coverage~=7.6",
+]
 prod = [
     "gunicorn~=23.0"
 ]

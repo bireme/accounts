@@ -35,28 +35,8 @@ dev_makemigrations:
 dev_migrate:
 	@docker compose -f $(COMPOSE_FILE_DEV) exec accounts sh -c "uv run --active manage.py migrate"
 
-
-# app management commands
-app_deps:
-	cd app && uv sync
-
-app_deps_all:
-	cd app && uv sync --all-groups
-
-app_deps_upgrade:
-	cd app && uv sync --upgrade
-
-app_run:
-	cd app && uv run manage.py runserver 0.0.0.0:8000
-
-app_migrate:
-	cd app && uv run manage.py migrate
-
-app_load_fixtures:
-	cd app && uv run manage.py loaddata --app main.Network initial_data.json
-
-app_upgrade:
-	cd app && uv sync --upgrade
+dev_test:
+	@docker compose -f $(COMPOSE_FILE_DEV) exec accounts sh -c "uv run --active manage.py test --verbosity=2"
 
 ## PROD shortcuts
 build:

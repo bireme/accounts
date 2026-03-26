@@ -11,3 +11,6 @@ __pycache__/
 .github/
 openspec/
 tasks/
+bireme/
+
+CLAUDE.md

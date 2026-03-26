@@ -59,7 +59,7 @@ USER appuser
 
 EXPOSE 8000
 
-WORKDIR /app/app
+WORKDIR /app/src
 
 CMD ["uv", "run", "--active", "manage.py", "runserver", "0.0.0.0:8000"]
 
@@ -78,7 +78,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 COPY --from=builder /.venv /.venv
 
 # Copy application code
-COPY ./app /app/
+COPY ./src /app/
 
 # Django static folder
 RUN mkdir -p /app/static_files

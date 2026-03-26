@@ -21,12 +21,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get("APP_SECRET_KEY")
+SECRET_KEY = os.environ.get("APP_SECRET_KEY", "test-secret-key-not-for-production")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = int(os.environ.get("APP_DEBUG", 0))
 
-ALLOWED_HOSTS = os.environ.get("APP_ALLOWED_HOSTS").split(",")
+ALLOWED_HOSTS = os.environ.get("APP_ALLOWED_HOSTS", "localhost,127.0.0.1").split(",")
 CSRF_TRUSTED_ORIGINS = os.environ.get("CSRF_TRUSTED_ORIGINS", "").split(",")
 
 # Application definition
@@ -80,10 +80,14 @@ WSGI_APPLICATION = 'accounts.wsgi.application'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
 
+import sys
+
+TESTING = 'test' in sys.argv
+
 DATABASES = {
      'default': {
-         'ENGINE': os.environ.get("DATABASE_ENGINE", 'django.db.backends.sqlite3'),
-         'NAME': os.environ.get("DATABASE_NAME", 'db.sqlite3'),
+         'ENGINE': 'django.db.backends.sqlite3' if TESTING else os.environ.get("DATABASE_ENGINE", 'django.db.backends.sqlite3'),
+         'NAME': ':memory:' if TESTING else os.environ.get("DATABASE_NAME", 'db.sqlite3'),
          'USER': os.environ.get("DATABASE_USER"),
          'PASSWORD': os.environ.get("DATABASE_PASSWORD"),
          'HOST': os.environ.get("DATABASE_HOST"),
