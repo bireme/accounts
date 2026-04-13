@@ -32,7 +32,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 COPY pyproject.toml uv.lock ./
 
 # Build dependencies into /.venv
-RUN uv sync --frozen --no-install-project --active
+RUN uv sync --frozen --no-install-project --active --group prod
 
 # Ensure correct ownership
 RUN chown -R appuser:appuser /.venv
@@ -91,4 +91,6 @@ USER appuser
 
 EXPOSE 8000
 
-CMD ["uv", "run", "gunicorn", "--bind", "0.0.0.0:8000", "accounts.wsgi:application"]
+WORKDIR /app
+
+CMD ["uv", "run", "--active", "gunicorn", "--bind", "0.0.0.0:8000", "accounts.wsgi:application"]

@@ -13,7 +13,7 @@ services:
       - static_files:/app/static_files
     env_file:
       - .env
-    command: uv run gunicorn --bind 0.0.0.0:8000 accounts.wsgi ${APP_RUN_PARAMS:-}
+    command: uv run --active gunicorn --bind 0.0.0.0:8000 accounts.wsgi ${APP_RUN_PARAMS:-}
     networks:
       - nginx-proxy
 
