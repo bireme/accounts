@@ -6,7 +6,7 @@ services:
       dockerfile: Dockerfile
       target: dev
     env_file:
-      - .env.local
+      - .env.dev
     volumes:
       - .:/app
     ports:

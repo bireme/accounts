@@ -20,7 +20,7 @@ services:
   webserver:
     container_name: accounts-webserver
     restart: unless-stopped
-    image: nginx:1.29-alpine
+    image: nginx:1.30-alpine
     expose:
       - 80
     volumes:
