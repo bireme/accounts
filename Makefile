@@ -71,3 +71,11 @@ collectstatic:
 
 migrate:
 	@docker compose exec -T accounts uv run manage.py migrate
+
+## import fixture XML into the running (prod) accounts container
+FILE ?= import/Centros.xml
+
+loaddata:
+	@docker compose cp $(FILE) accounts:/tmp/$(notdir $(FILE))
+	@docker compose exec -T accounts uv run manage.py loaddata /tmp/$(notdir $(FILE))
+	@echo "Imported $(FILE) into the running accounts container"
