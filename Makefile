@@ -71,7 +71,7 @@ sh:
 	@docker compose exec accounts sh
 
 collectstatic:
-	@docker compose exec -T accounts uv run manage.py collectstatic --noinput
+	@docker compose exec -T accounts sh -c "uv run manage.py collectstatic --noinput"
 
 migrate:
 	@docker compose exec -T accounts uv run manage.py migrate
