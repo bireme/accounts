@@ -74,7 +74,7 @@ collectstatic:
 	@docker compose exec -T accounts sh -c "uv run manage.py collectstatic --noinput"
 
 migrate:
-	@docker compose exec -T accounts uv run manage.py migrate
+	@docker compose exec -T accounts sh -c "uv run manage.py migrate"
 
 ## import fixture XML into the running (prod) accounts container
 FILE ?= import/Centros.xml
