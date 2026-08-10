@@ -8,7 +8,7 @@ dependencies = [
     "django~=5.2",
     "django-rosetta~=0.10",
     "django-tastypie~=0.15",
-    "mysqlclient~=2.2"
+    "mysqlclient==2.2.7"
 ]
 
 [dependency-groups]

@@ -12,6 +12,7 @@ tag:
 	@echo $(APP_VERSION) > app/templates/version.txt
 
 COMPOSE_FILE_DEV=docker-compose-dev.yml
+PACKAGE ?=
 
 # docker compose commands
 dev_build:
@@ -37,6 +38,9 @@ dev_migrate:
 
 dev_test:
 	@docker compose -f $(COMPOSE_FILE_DEV) exec accounts sh -c "uv run --active manage.py test --verbosity=2"
+
+dev_update:
+	@docker compose -f $(COMPOSE_FILE_DEV) exec accounts sh -c "uv lock $(if $(PACKAGE),--upgrade-package $(PACKAGE),--upgrade)"
 
 ## PROD shortcuts
 build:
