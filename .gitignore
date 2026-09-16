@@ -7,7 +7,6 @@ static_files
 set_env.sh
 app/db.sqlite3
 __pycache__/
-.ai/
 .github/
 openspec/
 tasks/
