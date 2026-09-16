@@ -1,5 +1,11 @@
+import smtplib
+from unittest import mock
+
 from django.test import TestCase
+from django.contrib import messages
+from django.contrib.messages import get_messages
 from django.contrib.auth.models import User
+from django.core import mail
 from main.models import (
     Role, Service, RoleService, Network, NetworkMembership,
     CooperativeCenter,
@@ -10,6 +16,13 @@ from accounts.test_helpers import (
     create_role, create_service, create_role_service,
     create_topic, create_network,
 )
+
+
+SEND_PATH = "django.core.mail.EmailMultiAlternatives.send"
+
+
+def message_levels(response):
+    return [m.level for m in get_messages(response.wsgi_request)]
 
 
 # ---------- Dashboard ----------
@@ -186,6 +199,39 @@ class NewUserViewTest(TestCase):
         new_user = User.objects.get(username="adv_created")
         self.assertEqual(new_user.profile.cooperative_center, self.cc)
 
+    def test_post_valid_user_sends_activation_email(self):
+        self.client.login(username="admin", password="TestPass123!")
+        data = {
+            "username": "mailed_user",
+            "email": "mailed@example.com",
+            "type": "basic",
+            "is_active": True,
+            "cc": self.cc.pk,
+        }
+        response = self.client.post("/users/new/", data)
+        self.assertEqual(response.status_code, 302)
+        self.assertEqual(len(mail.outbox), 1)
+        self.assertEqual(mail.outbox[0].to, ["mailed@example.com"])
+        self.assertIn(messages.SUCCESS, message_levels(response))
+
+    def test_post_valid_user_email_failure_is_logged_and_user_saved(self):
+        self.client.login(username="admin", password="TestPass123!")
+        data = {
+            "username": "unmailed_user",
+            "email": "unmailed@example.com",
+            "type": "basic",
+            "is_active": True,
+            "cc": self.cc.pk,
+        }
+        with mock.patch(SEND_PATH, side_effect=smtplib.SMTPException("boom")):
+            with self.assertLogs("utils.email", level="ERROR") as logs:
+                response = self.client.post("/users/new/", data)
+        self.assertEqual(response.status_code, 302)
+        self.assertTrue(User.objects.filter(username="unmailed_user").exists())
+        self.assertIn("unmailed@example.com", logs.output[0])
+        self.assertIn(messages.WARNING, message_levels(response))
+        self.assertNotIn(messages.SUCCESS, message_levels(response))
+
     def test_post_invalid_data(self):
         self.client.login(username="admin", password="TestPass123!")
         data = {"username": "", "email": "", "type": "basic", "is_active": True, "cc": self.cc.pk}
@@ -221,6 +267,47 @@ class EditUserViewTest(TestCase):
         self.assertEqual(response.status_code, 302)
         self.target_user.refresh_from_db()
         self.assertEqual(self.target_user.email, "updated@example.com")
+
+    def _edit_data(self):
+        return {
+            "username": self.target_user.username,
+            "email": self.target_user.email,
+            "type": "basic",
+            "is_active": True,
+            "cc": self.cc.pk,
+        }
+
+    def test_post_edit_without_resend_flag_sends_no_email(self):
+        self.client.login(username="admin", password="TestPass123!")
+        response = self.client.post(f"/users/edit/{self.target_user.pk}/", self._edit_data())
+        self.assertEqual(response.status_code, 302)
+        self.assertEqual(len(mail.outbox), 0)
+        self.assertIn(messages.SUCCESS, message_levels(response))
+
+    def test_post_edit_with_resend_flag_sends_email(self):
+        self.client.login(username="admin", password="TestPass123!")
+        data = self._edit_data()
+        data["resend_email_flag"] = "true"
+        response = self.client.post(f"/users/edit/{self.target_user.pk}/", data)
+        self.assertEqual(response.status_code, 302)
+        self.assertEqual(len(mail.outbox), 1)
+        self.assertEqual(mail.outbox[0].to, [self.target_user.email])
+        self.assertIn(messages.SUCCESS, message_levels(response))
+        self.assertNotIn(messages.WARNING, message_levels(response))
+
+    def test_post_edit_with_resend_flag_email_failure_is_logged(self):
+        self.client.login(username="admin", password="TestPass123!")
+        data = self._edit_data()
+        data["resend_email_flag"] = "true"
+        data["email"] = "changed@example.com"
+        with mock.patch(SEND_PATH, side_effect=smtplib.SMTPException("boom")):
+            with self.assertLogs("utils.email", level="ERROR") as logs:
+                response = self.client.post(f"/users/edit/{self.target_user.pk}/", data)
+        self.assertEqual(response.status_code, 302)
+        self.target_user.refresh_from_db()
+        self.assertEqual(self.target_user.email, "changed@example.com")
+        self.assertIn("changed@example.com", logs.output[0])
+        self.assertIn(messages.WARNING, message_levels(response))
 
     def test_post_invalid_edit(self):
         self.client.login(username="admin", password="TestPass123!")

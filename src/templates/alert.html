@@ -1,4 +1,4 @@
-{% if alert %}
+{% if alert or messages %}
 <script>
     $(function(){
         $('.alert').alert();
@@ -9,9 +9,17 @@
 </script>
 
 <div class='box-alerts'>
+    {% if alert %}
     <div class="alert {{ alerttype }}">
       <button type="button" class="close" data-dismiss="alert">&times;</button>
       {{ alert }}
     </div>
+    {% endif %}
+    {% for message in messages %}
+    <div class="alert{% if message.tags %} alert-{{ message.tags }}{% endif %}">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      {{ message }}
+    </div>
+    {% endfor %}
 </div>
 {% endif %}

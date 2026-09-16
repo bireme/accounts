@@ -2,7 +2,7 @@
 
 ## Status
 
-Not Started
+Completed
 
 ## Goals
 
@@ -25,3 +25,4 @@ Not Started
 
 ## History
 
+- 2026-09-16: Starting Log error messages when fail to send email — following plan [005-log-email-send-errors.md](.ai/plans/005-log-email-send-errors.md)

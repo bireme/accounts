@@ -161,3 +161,60 @@ AUTHENTICATION_BACKENDS = [
     'utils.authenticate.EmailModelBackend',
     'django.contrib.auth.backends.ModelBackend',
 ]
+
+# Email
+# https://docs.djangoproject.com/en/5.2/topics/email/
+def _env_bool(name, default="0"):
+    return os.environ.get(name, default).lower() in ("1", "true", "yes")
+
+EMAIL_BACKEND = 'django.core.mail.backends.locmem.EmailBackend' if TESTING else os.environ.get(
+    "EMAIL_BACKEND", 'django.core.mail.backends.smtp.EmailBackend')
+EMAIL_HOST = os.environ.get("EMAIL_HOST", "localhost")
+EMAIL_PORT = int(os.environ.get("EMAIL_PORT", 25))
+EMAIL_HOST_USER = os.environ.get("EMAIL_HOST_USER", "")
+EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_HOST_PASSWORD", "")
+EMAIL_USE_TLS = _env_bool("EMAIL_USE_TLS")
+EMAIL_USE_SSL = _env_bool("EMAIL_USE_SSL")
+# avoid hanging the request until gunicorn timeout when SMTP host is unreachable
+EMAIL_TIMEOUT = int(os.environ.get("EMAIL_TIMEOUT", 10))
+DEFAULT_FROM_EMAIL = os.environ.get("DEFAULT_FROM_EMAIL", "webmaster@localhost")
+SERVER_EMAIL = DEFAULT_FROM_EMAIL
+
+# Messages framework: align tags with Bootstrap 2 alert classes
+from django.contrib.messages import constants as message_constants
+MESSAGE_TAGS = {
+    message_constants.ERROR: 'error',
+}
+
+# Logging: everything to console/stderr so it shows up in `docker compose logs`
+LOG_LEVEL = os.environ.get("LOG_LEVEL", "INFO")
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'verbose': {
+            'format': '[%(asctime)s] %(levelname)s %(name)s: %(message)s',
+        },
+    },
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+            'formatter': 'verbose',
+        },
+    },
+    'root': {
+        'handlers': ['console'],
+        'level': LOG_LEVEL,
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['console'],
+            'level': LOG_LEVEL,
+            'propagate': False,
+        },
+        'main': {'level': LOG_LEVEL},
+        'registration': {'level': LOG_LEVEL},
+        'utils': {'level': LOG_LEVEL},
+    },
+}

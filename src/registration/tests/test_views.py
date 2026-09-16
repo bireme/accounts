@@ -1,6 +1,35 @@
+import smtplib
+from unittest import mock
+
 from django.test import TestCase
 from django.contrib.auth.models import User
+from django.core import mail
 from accounts.test_helpers import create_user
+
+
+SEND_PATH = "django.core.mail.EmailMultiAlternatives.send"
+
+
+class PasswordResetViewTest(TestCase):
+
+    def setUp(self):
+        self.user = create_user(username="resetme", email="resetme@example.com")
+
+    def test_post_sends_email_and_redirects_to_done(self):
+        response = self.client.post("/accounts/password/reset/", {"email": self.user.email})
+        self.assertEqual(response.status_code, 302)
+        self.assertIn("/accounts/password/reset/done/", response.url)
+        self.assertEqual(len(mail.outbox), 1)
+
+    def test_post_email_failure_is_logged_and_still_redirects(self):
+        with mock.patch(SEND_PATH, side_effect=smtplib.SMTPException("boom")):
+            with self.assertLogs("registration.views", level="ERROR") as logs:
+                response = self.client.post("/accounts/password/reset/", {"email": self.user.email})
+        self.assertEqual(response.status_code, 302)
+        self.assertIn("/accounts/password/reset/done/", response.url)
+        self.assertEqual(len(mail.outbox), 0)
+        self.assertIn("resetme@example.com", logs.output[0])
+        self.assertIn("SMTPException: boom", logs.output[0])
 
 
 class ChangeProfileViewTest(TestCase):

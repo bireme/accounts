@@ -2,13 +2,13 @@
 from django.shortcuts import redirect, render, reverse, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.utils.translation import gettext_lazy as _
-from django.contrib.auth import forms as auth_forms
+from django.contrib import messages
 from django.http import Http404, HttpResponse
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-from django.core import mail
 from django.contrib.auth.models import User
 from django.db.models import Q
 from utils.views import ACTIONS
+from utils.email import send_password_setup_email
 from django.conf import settings
 from datetime import datetime
 from functools import reduce
@@ -131,21 +131,14 @@ def edit_user(request, user):
         form = UserForm(request.POST, request.FILES, instance=user, request=request)
         if form.is_valid():
             form.save()
-            output['alert'] = _("User successfully edited.")
-            output['alerttype'] = "alert-success"
+            messages.success(request, _("User successfully edited."))
 
             if resend_email == 'true':
                 # send an email to user that to make him change your password from the first time
-                password_form = auth_forms.PasswordResetForm({'email': user.email})
-                if password_form.is_valid():
-                    opts = {
-                        'use_https': request.is_secure(),
-                        'request': request,
-                    }
-                    password_form.save(**opts)
-
-                    output['alert'] = _("Activation email re-sent")
-                    output['alerttype'] = "alert-success"
+                if send_password_setup_email(request, user.email):
+                    messages.success(request, _("Activation email re-sent"))
+                else:
+                    messages.warning(request, _("User saved, but the activation email could not be sent. Check the server log."))
 
             return redirect(reverse("main:users"))
 
@@ -185,16 +178,10 @@ def new_user(request):
                 new_user.profile.save()
 
             # send an email to user that to make him change your password from the first time
-            password_form = auth_forms.PasswordResetForm({'email': new_user.email})
-            if password_form.is_valid():
-                opts = {
-                    'use_https': request.is_secure(),
-                    'request': request,
-                }
-                password_form.save(**opts)
-
-            output['alert'] = _("User successfully edited.")
-            output['alerttype'] = "alert-success"
+            if send_password_setup_email(request, new_user.email):
+                messages.success(request, _("User successfully created."))
+            else:
+                messages.warning(request, _("User saved, but the activation email could not be sent. Check the server log."))
 
             return redirect("%s/#!tab-permissions" % reverse("main:edit_user", args=[new_user.id]))
 
