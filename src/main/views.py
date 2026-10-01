@@ -183,7 +183,7 @@ def new_user(request):
             else:
                 messages.warning(request, _("User saved, but the activation email could not be sent. Check the server log."))
 
-            return redirect("%s/#!tab-permissions" % reverse("main:edit_user", args=[new_user.id]))
+            return redirect("%s#!tab-permissions" % reverse("main:edit_user", args=[new_user.id]))
 
     output['form'] = form
     output['services'] = services
@@ -268,7 +268,7 @@ def new_network(request):
             output['alert'] = _("Network successfully edited.")
             output['alerttype'] = "alert-success"
 
-            return redirect("%s/#!tab-centers" % reverse("main:edit_network", args=[network.id]))
+            return redirect("%s#!tab-centers" % reverse("main:edit_network", args=[network.id]))
 
     output['is_new'] = True
     output['form'] = form
