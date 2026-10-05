@@ -43,9 +43,10 @@ RUN chown -R appuser:appuser /.venv
 ############################################
 FROM base AS dev
 
-# Install minimal runtime MySQL client
+# Install minimal runtime MySQL client and gettext (makemessages/compilemessages)
 RUN apt-get update && apt-get install -y --no-install-recommends \
     default-libmysqlclient-dev \
+    gettext \
     && rm -rf /var/lib/apt/lists/*
 
 # Copy built virtualenv

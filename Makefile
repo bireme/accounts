@@ -36,6 +36,12 @@ dev_makemigrations:
 dev_migrate:
 	@docker compose -f $(COMPOSE_FILE_DEV) exec accounts sh -c "uv run --active manage.py migrate"
 
+dev_makemessages:
+	@docker compose -f $(COMPOSE_FILE_DEV) exec accounts sh -c "uv run --active manage.py makemessages -l pt_BR -l es"
+
+dev_compilemessages:
+	@docker compose -f $(COMPOSE_FILE_DEV) exec accounts sh -c "uv run --active manage.py compilemessages"
+
 dev_test:
 	@docker compose -f $(COMPOSE_FILE_DEV) exec accounts sh -c "uv run --active manage.py test --verbosity=2"
 

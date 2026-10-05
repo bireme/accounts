@@ -2,7 +2,8 @@
 // change language
 function change_language(lang) {
     // chama, via ajax, a view que armazena a linguagem em cookie, para relembrar na proxima entrada
-    $.get("{% url 'utils:cookie_lang' %}", { language: lang} , function(data) {
+    // submete o formulario mesmo se a chamada falhar, para nao bloquear a troca de idioma
+    $.get("{% url 'utils:cookie_lang' %}", { language: lang }).always(function() {
         var form = document.language;
         form.language.value = lang;
         form.submit();
@@ -12,6 +13,6 @@ function change_language(lang) {
 
 <form action="{% url 'set_language' %}" method="post" id="setlang" name="language">
 	{% csrf_token %}
-	<input name="next" type="hidden" value="{{ redirect_to }}" />
+	<input name="next" type="hidden" value="{{ request.get_full_path }}" />
 	<input name="language" type="hidden" value="{{ LANGUAGE_CODE }}"  id="lang"/>
 </form>
